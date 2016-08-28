@@ -8,5 +8,13 @@ class Query(people.schema.Query):
     # as we begin to add more apps to our project
     pass
 
-schema = graphene.Schema(name='Occasions Schema')
-schema.query = Query
+class Mutation(people.schema.Mutation):
+    # This class will inherit from multiple Queries
+    # as we begin to add more apps to our project
+    pass
+
+schema = graphene.Schema(
+    name='Occasions Schema',
+    query=Query,
+    mutation=Mutation
+)

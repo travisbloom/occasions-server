@@ -1,12 +1,11 @@
-from graphene import relay, ObjectType
+
+from graphene import relay, ObjectType, Mutation, String, Field
 from graphene.contrib.django.filter import DjangoFilterConnectionField
 from graphene.contrib.django.types import DjangoNode
 
 from .models import User
 
 
-# Graphene will automatically map the Category model's fields onto the CategoryNode.
-# This is configured in the CategoryNode's Meta class (as you can see below)
 class UserNode(DjangoNode):
     class Meta:
         model = User
@@ -20,3 +19,26 @@ class Query(ObjectType):
 
     class Meta:
         abstract = True
+
+
+class CreateUser(Mutation):
+    class Input:
+        username = String()
+        first_name = String()
+        last_name = String()
+        password = String()
+
+    user = Field('UserNode')
+
+    @classmethod
+    def mutate(cls, instance, args, info):
+        user = User(**args)
+        password = args.get('password')
+        if password:
+            user.set_password(password)
+        user.full_clean()
+        user.save()
+        return CreateUser(user=user)
+
+class Mutation(ObjectType):
+    create_user = Field(CreateUser)
