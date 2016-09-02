@@ -15,6 +15,7 @@ class Mutation(people.schema.Mutation):
 
 schema = graphene.Schema(
     name='Occasions Schema',
+    node=graphene.relay.NodeField(),
     query=Query,
     mutation=Mutation
 )

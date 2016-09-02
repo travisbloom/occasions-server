@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'people.apps.PeopleConfig',
+    'locations.apps.LocationsConfig',
 
     'django_graphiql',
     'graphene.contrib.django',

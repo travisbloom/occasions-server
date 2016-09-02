@@ -3,7 +3,7 @@ from graphene import relay, ObjectType, Mutation, String, Field
 from graphene.contrib.django.filter import DjangoFilterConnectionField
 from graphene.contrib.django.types import DjangoNode
 
-from .models import User
+from .models import User, Person
 
 
 class UserNode(DjangoNode):
@@ -12,28 +12,42 @@ class UserNode(DjangoNode):
         filter_fields = ['first_name', 'last_name', 'email']
         filter_order_by = ['first_name', 'last_name', 'email']
 
+class PersonNode(DjangoNode):
+    class Meta:
+        model = Person
+        filter_fields = ['first_name', 'last_name', 'email']
+        filter_order_by = ['first_name', 'last_name', 'email']
+
 
 class Query(ObjectType):
     user = relay.NodeField(UserNode)
     users = DjangoFilterConnectionField(UserNode)
 
+    person = relay.NodeField(PersonNode)
+    people = DjangoFilterConnectionField(PersonNode)
+
     class Meta:
         abstract = True
 
 
-class CreateUser(Mutation):
+class CreateUser(relay.ClientIDMutation):
+
     class Input:
-        username = String()
-        first_name = String()
-        last_name = String()
-        password = String()
+        username = String(required=True)
+        first_name = String(required=True)
+        last_name = String(required=True)
+        password = String(required=True)
 
     user = Field('UserNode')
 
     @classmethod
-    def mutate(cls, instance, args, info):
-        user = User(**args)
-        password = args.get('password')
+    def mutate_and_get_payload(cls, input, info):
+        user = User(
+            first_name=input.get('first_name'),
+            last_name=input.get('last_name'),
+            username=input.get('username'),
+        )
+        password = input.get('password')
         if password:
             user.set_password(password)
         user.full_clean()
