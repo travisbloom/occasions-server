@@ -1,0 +1,39 @@
+[
+    {
+        "model": "people.person",
+        "pk": 1,
+        "fields": {
+            "user_id": 1,
+            "first_name": "Travis",
+            "last_name": "Bloom",
+            "email": "travisbloom@travis.com",
+            "birth_date": "1991-02-23",
+            "datetime_created": "2016-09-02T20:00:00.000Z",
+            "datetime_updated": "2016-09-02T20:00:00.000Z"
+        }
+    },
+    {
+        "model": "people.person",
+        "pk": 2,
+        "fields": {
+            "first_name": "Brad",
+            "last_name": "Bloom",
+            "email": "silver@hill.com",
+            "birth_date": "1961-02-23",
+            "datetime_created": "2016-09-02T20:00:00.000Z",
+            "datetime_updated": "2016-09-02T20:00:00.000Z"
+        }
+    },
+    {
+        "model": "people.person",
+        "pk": 3,
+        "fields": {
+            "first_name": "Marshell",
+            "last_name": "Mathers",
+            "email": "eight@mile.com",
+            "birth_date": "1981-02-23",
+            "datetime_created": "2016-09-02T20:00:00.000Z",
+            "datetime_updated": "2016-09-02T20:00:00.000Z"
+        }
+    }
+]

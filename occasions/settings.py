@@ -32,10 +32,14 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'people.apps.PeopleConfig',
+    'events.apps.EventsConfig',
     'locations.apps.LocationsConfig',
 
     'django_graphiql',
     'graphene.contrib.django',
+
+    'oauth2_provider',
+    'corsheaders',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,7 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+
 MIDDLEWARE = [
+    # 'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -133,3 +139,4 @@ GRAPHENE_SCHEMA_INDENT = 4
 
 # auth
 AUTH_USER_MODEL = 'people.User'
+CORS_ORIGIN_ALLOW_ALL = True

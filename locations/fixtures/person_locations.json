@@ -1,0 +1,32 @@
+[
+    {
+        "model": "locations.personlocation",
+        "pk": 1,
+        "fields": {
+            "person_id": 1,
+            "location_id": 1,
+            "datetime_created": "2016-09-02T20:00:00.000Z",
+            "datetime_updated": "2016-09-02T20:00:00.000Z"
+        }
+    },
+    {
+        "model": "locations.personlocation",
+        "pk": 2,
+        "fields": {
+            "person_id": 1,
+            "location_id": 2,
+            "datetime_created": "2016-09-02T20:00:00.000Z",
+            "datetime_updated": "2016-09-02T20:00:00.000Z"
+        }
+    },
+    {
+        "model": "locations.personlocation",
+        "pk": 3,
+        "fields": {
+            "person_id": 2,
+            "location_id": 2,
+            "datetime_created": "2016-09-02T20:00:00.000Z",
+            "datetime_updated": "2016-09-02T20:00:00.000Z"
+        }
+    }
+]

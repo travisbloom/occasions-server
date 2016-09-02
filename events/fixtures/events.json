@@ -1,0 +1,34 @@
+[
+    {
+        "model": "events.event",
+        "pk": 1,
+        "fields": {
+            "name": "Christmas",
+            "event_type": "religious",
+            "date_start": "2016-12-26",
+            "is_default_event": true,
+            "is_reoccuring_yearly": true
+        }
+    },
+    {
+        "model": "events.event",
+        "pk": 1,
+        "fields": {
+            "name": "Valentine's Day",
+            "date_start": "2016-2-16",
+            "is_default_event": true,
+            "is_reoccuring_yearly": true
+        }
+    },
+    {
+        "model": "events.event",
+        "pk": 1,
+        "fields": {
+            "name": "Thanksgiving",
+            "event_type": "geopolitical",
+            "date_start": "2016-11-24",
+            "is_default_event": true,
+            "is_reoccuring_yearly": true
+        }
+    },
+]

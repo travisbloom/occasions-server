@@ -23,6 +23,7 @@ from .schema import schema
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^graphql', csrf_exempt(GraphQLView.as_view(schema=schema))),
     url(r'^graphiql', include('django_graphiql.urls')),
 ]

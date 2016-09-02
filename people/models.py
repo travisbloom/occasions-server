@@ -44,6 +44,6 @@ class Relationship(BaseModel):
         TYPE_PARENT_TO_CHILD
     )
 
-    from_person = models.ForeignKey(Person, related_name='from_people')
-    to_person = models.ForeignKey(Person, related_name='to_people')
+    from_person = models.ForeignKey(Person, related_name='from_relationships')
+    to_person = models.ForeignKey(Person, related_name='to_relationships')
     relationship_type = models.CharField(max_length=20, choices=RELATIONSHIP_TYPE)

@@ -1,0 +1,44 @@
+[
+    {
+        "model": "locations.location",
+        "pk": 1,
+        "fields": {
+            "street_number": "100",
+            "street_name": "Happy Ave",
+            "postal_code": "10011",
+            "city": "New York",
+            "state": "New York",
+            "country": "USA",
+            "datetime_created": "2016-09-02T20:00:00.000Z",
+            "datetime_updated": "2016-09-02T20:00:00.000Z"
+        }
+    },
+    {
+        "model": "locations.location",
+        "pk": 2,
+        "fields": {
+            "street_number": "120",
+            "street_name": "Sad Ave",
+            "postal_code": "10011",
+            "city": "New York",
+            "state": "New York",
+            "country": "USA",
+            "datetime_created": "2016-09-02T20:00:00.000Z",
+            "datetime_updated": "2016-09-02T20:00:00.000Z"
+        }
+    },
+    {
+        "model": "locations.location",
+        "pk": 3,
+        "fields": {
+            "street_number": "1",
+            "street_name": "Mediocre Ave",
+            "postal_code": "10011",
+            "city": "New York",
+            "state": "New York",
+            "country": "USA",
+            "datetime_created": "2016-09-02T20:00:00.000Z",
+            "datetime_updated": "2016-09-02T20:00:00.000Z"
+        }
+    }
+]

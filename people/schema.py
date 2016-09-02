@@ -3,7 +3,7 @@ from graphene import relay, ObjectType, Mutation, String, Field
 from graphene.contrib.django.filter import DjangoFilterConnectionField
 from graphene.contrib.django.types import DjangoNode
 
-from .models import User, Person
+from .models import User, Person, Relationship
 
 
 class UserNode(DjangoNode):
@@ -18,6 +18,10 @@ class PersonNode(DjangoNode):
         filter_fields = ['first_name', 'last_name', 'email']
         filter_order_by = ['first_name', 'last_name', 'email']
 
+class RelationshipNode(DjangoNode):
+    class Meta:
+        model = Relationship
+
 
 class Query(ObjectType):
     user = relay.NodeField(UserNode)
@@ -26,9 +30,12 @@ class Query(ObjectType):
     person = relay.NodeField(PersonNode)
     people = DjangoFilterConnectionField(PersonNode)
 
+    relationship = relay.NodeField(RelationshipNode)
+    relationships = DjangoFilterConnectionField(RelationshipNode)
+
+
     class Meta:
         abstract = True
-
 
 class CreateUser(relay.ClientIDMutation):
 
