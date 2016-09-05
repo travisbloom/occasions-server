@@ -1,0 +1,30 @@
+[
+    {
+        "model": "products.product",
+        "pk": 1,
+        "fields": {
+            "id": "valentines_day_1",
+            "name": "Valentines Day Card #1",
+            "cost_usd": 2.99,
+            "description": "Some marketing text...",
+            "product_type": "card",
+            "main_image_url": "http://google.com/images.jpg",
+            "datetime_created": "2016-09-02T20:00:00.000Z",
+            "datetime_updated": "2016-09-02T20:00:00.000Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 1,
+        "fields": {
+            "id": "valentines_day_2",
+            "name": "Valentines Day Card #2",
+            "cost_usd": 2.99,
+            "description": "Some marketing text...",
+            "product_type": "card",
+            "main_image_url": "http://google.com/images.jpg",
+            "datetime_created": "2016-09-02T20:00:00.000Z",
+            "datetime_updated": "2016-09-02T20:00:00.000Z"
+        }
+    }
+]

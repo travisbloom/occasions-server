@@ -2,9 +2,14 @@ import graphene
 
 import people.schema
 import events.schema
+import products.schema
 
 
-class Query(people.schema.Query, events.schema.Query):
+class Query(
+    people.schema.Query,
+    events.schema.Query,
+    products.schema.Query,
+):
     # This class will inherit from multiple Queries
     # as we begin to add more apps to our project
     pass
@@ -12,7 +17,7 @@ class Query(people.schema.Query, events.schema.Query):
 class Mutation(
     # people.schema.Mutation,
     events.schema.EventMutation,
-    ):
+):
     # This class will inherit from multiple Queries
     # as we begin to add more apps to our project
     pass

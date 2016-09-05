@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'people.apps.PeopleConfig',
     'events.apps.EventsConfig',
     'locations.apps.LocationsConfig',
+    'products.apps.ProductsConfig',
 
     'django_graphiql',
     'graphene.contrib.django',

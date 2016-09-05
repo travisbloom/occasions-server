@@ -2,20 +2,20 @@ from graphene import relay, ObjectType, Mutation, String, Field
 from graphene.contrib.django.filter import DjangoFilterConnectionField
 from graphene.contrib.django.types import DjangoNode
 
-from .models import Event, CreatedEvent
+from .models import Event, AssociatedEvent
 
 
-class CreatedEventNode(DjangoNode):
+class AssociatedEventNode(DjangoNode):
     class Meta:
-        model = CreatedEvent
+        model = AssociatedEvent
 
 class EventNode(DjangoNode):
     class Meta:
         model = Event
 
 class Query(ObjectType):
-    created_event = relay.NodeField(CreatedEventNode)
-    created_events = DjangoFilterConnectionField(CreatedEventNode)
+    created_event = relay.NodeField(AssociatedEventNode)
+    created_events = DjangoFilterConnectionField(AssociatedEventNode)
 
     event = relay.NodeField(EventNode)
     events = DjangoFilterConnectionField(EventNode)
@@ -30,11 +30,11 @@ class CreateEvent(relay.ClientIDMutation):
         creating_person_id = String(required=True)
         receiving_person_id = String(required=True)
 
-    created_event = Field('CreatedEventNode')
+    event = Field('AssociatedEventNode')
 
     @classmethod
     def mutate_and_get_payload(cls, input, info):
-        created_event = CreatedEvent(
+        created_event = AssociatedEvent(
             creating_person_id=input.get('creating_person_id'),
             receiving_person_id=input.get('receiving_person_id'),
             event_id=input.get('event_id'),

@@ -3,7 +3,8 @@
             "model": "people.user",
             "pk": 1,
             "fields": {
-                "username": "travisbloom@travis.com",
+                "password": "changeme",
+                "username": "travisbloom@gmail.com",
                 "first_name": "Travis",
                 "last_name": "Bloom",
                 "datetime_created": "2016-09-02T20:00:00.000Z",
