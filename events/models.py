@@ -22,9 +22,11 @@ class Event(BaseModel):
     name = models.CharField(max_length=255)
     event_type = models.CharField(max_length=30, choices=EVENT_TYPES, blank=True, null=True)
     date_start = models.DateField()
-    time_start = models.TimeField(null=False, blank=True)
+    # TODO change this to a TimeField once graphene supports it
+    time_start = models.CharField(default='', blank=True, max_length=40)
     is_default_event = models.BooleanField(default=True)
     is_reoccuring_yearly = models.BooleanField(default=True)
+
 
 class CreatedEvent(BaseModel):
     creating_person = models.ForeignKey(Person, related_name='created_events')

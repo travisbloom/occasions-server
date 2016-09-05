@@ -7,28 +7,34 @@
             "event_type": "religious",
             "date_start": "2016-12-26",
             "is_default_event": true,
-            "is_reoccuring_yearly": true
+            "is_reoccuring_yearly": true,
+            "datetime_created": "2016-09-02T20:00:00.000Z",
+            "datetime_updated": "2016-09-02T20:00:00.000Z"
         }
     },
     {
         "model": "events.event",
-        "pk": 1,
+        "pk": 2,
         "fields": {
             "name": "Valentine's Day",
             "date_start": "2016-2-16",
             "is_default_event": true,
-            "is_reoccuring_yearly": true
+            "is_reoccuring_yearly": true,
+            "datetime_created": "2016-09-02T20:00:00.000Z",
+            "datetime_updated": "2016-09-02T20:00:00.000Z"
         }
     },
     {
         "model": "events.event",
-        "pk": 1,
+        "pk": 3,
         "fields": {
             "name": "Thanksgiving",
             "event_type": "geopolitical",
             "date_start": "2016-11-24",
             "is_default_event": true,
-            "is_reoccuring_yearly": true
+            "is_reoccuring_yearly": true,
+            "datetime_created": "2016-09-02T20:00:00.000Z",
+            "datetime_updated": "2016-09-02T20:00:00.000Z"
         }
-    },
+    }
 ]
