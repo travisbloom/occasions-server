@@ -5,7 +5,7 @@ from model_utils import Choices
 # Create your models here.
 from occasions.models import BaseModel
 
-# Create your models here.
+# TODO consider adding django-polymorphic to represent different types of products
 class Product(BaseModel):
     TYPE_CARD = 'card'
 

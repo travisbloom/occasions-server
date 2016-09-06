@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'events.apps.EventsConfig',
     'locations.apps.LocationsConfig',
     'products.apps.ProductsConfig',
+    'transactions.apps.TransactionsConfig',
 
     'django_graphiql',
     'graphene.contrib.django',

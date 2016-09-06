@@ -25,6 +25,9 @@ class User(AbstractUser):
 
 
 class Person(BaseModel):
+    # users should also be people in case we want to implement some kind of "friending" mechanic between different users
+    # ex: I add Dan from my contacts and then later on he signs up for the application
+    # TODO understand usecase for this type of functionality, might be overengineering
     user = models.OneToOneField(User, blank=True, null=True)
     relationships = models.ManyToManyField('self', through='Relationship', symmetrical=False, blank=True)
     first_name = models.CharField(max_length=30, blank=False)
