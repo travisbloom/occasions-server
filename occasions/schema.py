@@ -18,8 +18,8 @@ class Query(
 
 class Mutation(
     # people.schema.Mutation,
-    # transactions.schema.Mutation,
-    events.schema.EventMutation,
+    transactions.schema.Mutation,
+    # events.schema.EventMutation,
 ):
     # This class will inherit from multiple Queries
     # as we begin to add more apps to our project

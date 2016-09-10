@@ -10,17 +10,6 @@ from events.models import AssociatedEvent
 from people.models import User
 from locations.models import PersonLocation
 
-# a grouping of transactions (for example if I wanted to purchase thank you cards for a bunch of people at once)
-# TODO dont overengineer until this is actually needed, leave out for now
-# class TransactionGroup(BaseModel):
-#     ACTION_THANK_YOU_CARDS = 'thank_you_cards'
-#
-#     ACTION_CHOICES = Choices(
-#         ACTION_THANK_YOU_CARDS,
-#     )
-#
-#     action_type = models.CharField(max_length=20, choices=ACTION_CHOICES)
-
 class Transaction(BaseModel):
     STATUS_CREATED = 'created'
     STATUS_PAID = 'paid'
@@ -42,13 +31,19 @@ class Transaction(BaseModel):
     #ex: custom message for recipient on postcard
     product_notes = models.TextField()
 
+    class Meta:
+        default_related_name = 'transactions'
+
     def clean(self, *args, **kwargs):
         if (self.shipping_address.person_id != self.associated_event.receiving_person_id and
         self.shipping_address.person_id != self.associated_event.creating_person_id):
             raise ValidationError({
                 'shipping_address': 'The shipping address must belong to the creating or recieving person.'
             })
-        # add custom validation here
+            
+        if not hasattr(self, 'cost_usd'):
+            self.cost_usd = self.product.cost_usd
+
         super(Transaction, self).clean(*args, **kwargs)
 
     def save(self, *args, **kwargs):

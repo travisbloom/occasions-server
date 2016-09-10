@@ -2,6 +2,7 @@ from graphene import relay, ObjectType, Mutation, String, Field
 from graphene.contrib.django.filter import DjangoFilterConnectionField
 from graphene.contrib.django.types import DjangoNode
 
+from products.models import Product
 from .models import Transaction
 
 
@@ -22,7 +23,9 @@ class CreateTransaction(relay.ClientIDMutation):
         product_id = String()
         associated_event_id = String()
         shipping_address_id = String()
+        user_id = String()
         product_notes = String()
+        cost_usd = String()
 
     transaction = Field('TransactionNode')
 
@@ -30,6 +33,8 @@ class CreateTransaction(relay.ClientIDMutation):
     def mutate_and_get_payload(cls, input, info):
         # TODO should grab the current price of the product and set as cost_usd
         transaction = Transaction(
+            user_id=input.get('user_id'),
+            cost_usd=input.get('cost_usd'),
             product_notes=input.get('product_notes'),
             product_id=input.get('product_id'),
             associated_event_id=input.get('associated_event_id'),
