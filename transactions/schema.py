@@ -10,12 +10,14 @@ class TransactionNode(DjangoNode):
     class Meta:
         model = Transaction
 
+
 class Query(ObjectType):
     transaction = relay.NodeField(TransactionNode)
     transactions = DjangoFilterConnectionField(TransactionNode)
 
     class Meta:
         abstract = True
+
 
 class CreateTransaction(relay.ClientIDMutation):
 
@@ -42,6 +44,7 @@ class CreateTransaction(relay.ClientIDMutation):
         )
         transaction.save()
         return CreateTransaction(transaction=transaction)
+
 
 class Mutation(ObjectType):
     create_transaction = Field(CreateTransaction)

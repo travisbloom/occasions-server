@@ -5,6 +5,7 @@ from model_utils import Choices
 from occasions.models import BaseModel
 from people.models import Person
 
+
 # Create your models here.
 class Event(BaseModel):
     TYPE_BIRTHDAY = 'birthday'

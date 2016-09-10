@@ -9,6 +9,7 @@ class ProductNode(DjangoNode):
     class Meta:
         model = Product
 
+
 class Query(ObjectType):
     product = relay.NodeField(ProductNode)
     products = DjangoFilterConnectionField(ProductNode)

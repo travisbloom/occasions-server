@@ -8,10 +8,16 @@ from .models import Event, AssociatedEvent
 class AssociatedEventNode(DjangoNode):
     class Meta:
         model = AssociatedEvent
+        filter_fields = ['creating_person', 'receiving_person', 'event__event_type']
+
 
 class EventNode(DjangoNode):
+    event_type = String()  # FIXME https://github.com/graphql-python/graphene/issues/205
+
     class Meta:
         model = Event
+        filter_fields = ['is_default_event', 'event_type']
+
 
 class Query(ObjectType):
     associated_event = relay.NodeField(AssociatedEventNode)
@@ -22,6 +28,7 @@ class Query(ObjectType):
 
     class Meta:
         abstract = True
+
 
 class CreateAssociatedEvent(relay.ClientIDMutation):
 
@@ -41,6 +48,7 @@ class CreateAssociatedEvent(relay.ClientIDMutation):
         )
         associated_event.save()
         return CreateAssociatedEvent(associated_event=associated_event)
+
 
 class EventMutation(ObjectType):
     create_associated_event = Field(CreateAssociatedEvent)

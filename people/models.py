@@ -6,6 +6,7 @@ from model_utils import Choices
 
 from occasions.models import BaseModel
 
+
 class User(AbstractUser):
     birth_date = models.DateField(null=True, blank=True)
     username = models.EmailField(
@@ -17,7 +18,7 @@ class User(AbstractUser):
             'unique': _("A user with that email already exists."),
         },
     )
-    #we want to make first_name and last_name required fields
+    # we want to make first_name and last_name required fields
     first_name = models.CharField(_('first name'), max_length=30, blank=False)
     last_name = models.CharField(_('last name'), max_length=30, blank=False)
     datetime_created = models.DateTimeField(auto_now_add=True)
@@ -25,11 +26,17 @@ class User(AbstractUser):
 
 
 class Person(BaseModel):
-    # users should also be people in case we want to implement some kind of "friending" mechanic between different users
+    # users should also be people in case we want to implement some
+    # kind of "friending" mechanic between different users
     # ex: I add Dan from my contacts and then later on he signs up for the application
     # TODO understand usecase for this type of functionality, might be overengineering
     user = models.OneToOneField(User, blank=True, null=True)
-    relationships = models.ManyToManyField('self', through='Relationship', symmetrical=False, blank=True)
+    relationships = models.ManyToManyField(
+        'self',
+        through='Relationship',
+        symmetrical=False,
+        blank=True
+    )
     first_name = models.CharField(max_length=30, blank=False)
     last_name = models.CharField(max_length=30, blank=False)
     email = models.CharField(max_length=30, blank=False)

@@ -1,3 +1,5 @@
+import django_filters
+from django.db.models import Q
 
 from graphene import relay, ObjectType, Mutation, String, Field
 from graphene.contrib.django.filter import DjangoFilterConnectionField
@@ -9,14 +11,27 @@ from .models import User, Person, Relationship
 class UserNode(DjangoNode):
     class Meta:
         model = User
-        filter_fields = ['first_name', 'last_name', 'email']
-        filter_order_by = ['first_name', 'last_name', 'email']
+
+
+class PersonFilter(django_filters.FilterSet):
+    info_icontains = django_filters.MethodFilter()
+
+    def filter_info_icontains(self, queryset, value):
+        return queryset.filter(
+            Q(first_name__icontains=value) |
+            Q(last_name__icontains=value) |
+            Q(email__icontains=value)
+        )
+
+    class Meta:
+        model = Person
+        fields = ['info_icontains']
+
 
 class PersonNode(DjangoNode):
     class Meta:
         model = Person
-        filter_fields = ['first_name', 'last_name', 'email']
-        filter_order_by = ['first_name', 'last_name', 'email']
+
 
 class RelationshipNode(DjangoNode):
     class Meta:
@@ -28,14 +43,14 @@ class Query(ObjectType):
     users = DjangoFilterConnectionField(UserNode)
 
     person = relay.NodeField(PersonNode)
-    people = DjangoFilterConnectionField(PersonNode)
+    people = DjangoFilterConnectionField(PersonNode, filterset_class=PersonFilter)
 
     relationship = relay.NodeField(RelationshipNode)
     relationships = DjangoFilterConnectionField(RelationshipNode)
 
-
     class Meta:
         abstract = True
+
 
 class CreateUser(relay.ClientIDMutation):
 
@@ -60,6 +75,7 @@ class CreateUser(relay.ClientIDMutation):
         user.full_clean()
         user.save()
         return CreateUser(user=user)
+
 
 class Mutation(ObjectType):
     create_user = Field(CreateUser)

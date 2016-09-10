@@ -10,6 +10,7 @@ from events.models import AssociatedEvent
 from people.models import User
 from locations.models import PersonLocation
 
+
 class Transaction(BaseModel):
     STATUS_CREATED = 'created'
     STATUS_PAID = 'paid'
@@ -22,13 +23,13 @@ class Transaction(BaseModel):
         STATUS_PENDING,
         STATUS_COMPLETE,
     )
-    #TODO add lob-specific meta data
+    # TODO add lob-specific meta data
     user = models.ForeignKey(User)
     cost_usd = models.DecimalField(max_digits=5, decimal_places=2)
     product = models.ForeignKey(Product)
     associated_event = models.ForeignKey(AssociatedEvent)
     shipping_address = models.ForeignKey(PersonLocation)
-    #ex: custom message for recipient on postcard
+    # ex: custom message for recipient on postcard
     product_notes = models.TextField()
 
     class Meta:
@@ -36,11 +37,14 @@ class Transaction(BaseModel):
 
     def clean(self, *args, **kwargs):
         if (self.shipping_address.person_id != self.associated_event.receiving_person_id and
-        self.shipping_address.person_id != self.associated_event.creating_person_id):
+                self.shipping_address.person_id != self.associated_event.creating_person_id):
             raise ValidationError({
-                'shipping_address': 'The shipping address must belong to the creating or recieving person.'
+                'shipping_address': (
+                    'The shipping address must belong to'
+                    ' the creating or recieving person.'
+                )
             })
-            
+
         if not hasattr(self, 'cost_usd'):
             self.cost_usd = self.product.cost_usd
 

@@ -3,7 +3,8 @@ from django.db import models
 from occasions.models import BaseModel
 from people.models import Person
 
-#TODO I should normalize location in to City, Country models
+
+# TODO I should normalize location in to City, Country models
 class Location(BaseModel):
     street_number = models.CharField(max_length=50)
     street_name = models.CharField(max_length=255)
