@@ -1,22 +1,20 @@
-from graphene import relay, ObjectType, Mutation, String, Field
-from graphene.contrib.django.filter import DjangoFilterConnectionField
-from graphene.contrib.django.types import DjangoNode
+from graphene import relay, ObjectType, Mutation, String, Field, AbstractType
+from graphene_django.filter import DjangoFilterConnectionField
+from graphene_django import DjangoObjectType
 
 from products.models import Product
 from .models import Transaction
 
 
-class TransactionNode(DjangoNode):
+class TransactionNode(DjangoObjectType):
     class Meta:
+        interfaces = (relay.Node, )
         model = Transaction
 
 
-class Query(ObjectType):
-    transaction = relay.NodeField(TransactionNode)
+class Query(AbstractType):
+    transaction = relay.Node.Field(TransactionNode)
     transactions = DjangoFilterConnectionField(TransactionNode)
-
-    class Meta:
-        abstract = True
 
 
 class CreateTransaction(relay.ClientIDMutation):
@@ -29,10 +27,10 @@ class CreateTransaction(relay.ClientIDMutation):
         product_notes = String()
         cost_usd = String()
 
-    transaction = Field('TransactionNode')
+    transaction = Field(lambda: TransactionNode)
 
     @classmethod
-    def mutate_and_get_payload(cls, input, info):
+    def mutate_and_get_payload(cls, input, context, info):
         # TODO should grab the current price of the product and set as cost_usd
         transaction = Transaction(
             user_id=input.get('user_id'),
@@ -46,5 +44,5 @@ class CreateTransaction(relay.ClientIDMutation):
         return CreateTransaction(transaction=transaction)
 
 
-class Mutation(ObjectType):
-    create_transaction = Field(CreateTransaction)
+class Mutation(AbstractType):
+    create_transaction = CreateTransaction.Field()

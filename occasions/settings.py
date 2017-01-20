@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'transactions.apps.TransactionsConfig',
 
     'django_graphiql',
-    'graphene.contrib.django',
+    'graphene_django',
 
     'oauth2_provider',
     'corsheaders',

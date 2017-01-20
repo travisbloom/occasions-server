@@ -1,15 +1,16 @@
 import django_filters
 from django.db.models import Q
 
-from graphene import relay, ObjectType, Mutation, String, Field
-from graphene.contrib.django.filter import DjangoFilterConnectionField
-from graphene.contrib.django.types import DjangoNode
+from graphene import relay, ObjectType, Mutation, String, Field, AbstractType
+from graphene_django.filter import DjangoFilterConnectionField
+from graphene_django import DjangoObjectType
 
 from .models import User, Person, Relationship
 
 
-class UserNode(DjangoNode):
+class UserNode(DjangoObjectType):
     class Meta:
+        interfaces = (relay.Node, )
         model = User
 
 
@@ -28,28 +29,27 @@ class PersonFilter(django_filters.FilterSet):
         fields = ['info_icontains']
 
 
-class PersonNode(DjangoNode):
+class PersonNode(DjangoObjectType):
     class Meta:
+        interfaces = (relay.Node, )
         model = Person
 
 
-class RelationshipNode(DjangoNode):
+class RelationshipNode(DjangoObjectType):
     class Meta:
+        interfaces = (relay.Node, )
         model = Relationship
 
 
-class Query(ObjectType):
-    user = relay.NodeField(UserNode)
+class Query(AbstractType):
+    user = relay.Node.Field(UserNode)
     users = DjangoFilterConnectionField(UserNode)
 
-    person = relay.NodeField(PersonNode)
+    person = relay.Node.Field(PersonNode)
     people = DjangoFilterConnectionField(PersonNode, filterset_class=PersonFilter)
 
-    relationship = relay.NodeField(RelationshipNode)
+    relationship = relay.Node.Field(RelationshipNode)
     relationships = DjangoFilterConnectionField(RelationshipNode)
-
-    class Meta:
-        abstract = True
 
 
 class CreateUser(relay.ClientIDMutation):
@@ -60,7 +60,7 @@ class CreateUser(relay.ClientIDMutation):
         last_name = String(required=True)
         password = String(required=True)
 
-    user = Field('UserNode')
+    user = Field(lambda: UserNode)
 
     @classmethod
     def mutate_and_get_payload(cls, input, info):
@@ -77,5 +77,5 @@ class CreateUser(relay.ClientIDMutation):
         return CreateUser(user=user)
 
 
-class Mutation(ObjectType):
-    create_user = Field(CreateUser)
+class Mutation(AbstractType):
+    create_user = CreateUser.Field()

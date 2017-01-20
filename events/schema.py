@@ -1,33 +1,32 @@
-from graphene import relay, ObjectType, Mutation, String, Field
-from graphene.contrib.django.filter import DjangoFilterConnectionField
-from graphene.contrib.django.types import DjangoNode
+from graphene import relay, ObjectType, Mutation, String, Field, AbstractType
+from graphene_django.filter import DjangoFilterConnectionField
+from graphene_django import DjangoObjectType
 
 from .models import Event, AssociatedEvent
 
 
-class AssociatedEventNode(DjangoNode):
+class AssociatedEventNode(DjangoObjectType):
     class Meta:
+        interfaces = (relay.Node, )
         model = AssociatedEvent
         filter_fields = ['creating_person', 'receiving_person', 'event__event_type']
 
 
-class EventNode(DjangoNode):
+class EventNode(DjangoObjectType):
     event_type = String()  # FIXME https://github.com/graphql-python/graphene/issues/205
 
     class Meta:
         model = Event
+        interfaces = (relay.Node, )
         filter_fields = ['is_default_event', 'event_type']
 
 
-class Query(ObjectType):
-    associated_event = relay.NodeField(AssociatedEventNode)
+class Query(AbstractType):
+    associated_event = relay.Node.Field(AssociatedEventNode)
     associated_events = DjangoFilterConnectionField(AssociatedEventNode)
 
-    event = relay.NodeField(EventNode)
+    event = relay.Node.Field(EventNode)
     events = DjangoFilterConnectionField(EventNode)
-
-    class Meta:
-        abstract = True
 
 
 class CreateAssociatedEvent(relay.ClientIDMutation):
@@ -37,7 +36,7 @@ class CreateAssociatedEvent(relay.ClientIDMutation):
         creating_person_id = String(required=True)
         receiving_person_id = String(required=True)
 
-    associated_event = Field('AssociatedEventNode')
+    associated_event = Field(lambda: AssociatedEventNode)
 
     @classmethod
     def mutate_and_get_payload(cls, input, info):
@@ -50,5 +49,5 @@ class CreateAssociatedEvent(relay.ClientIDMutation):
         return CreateAssociatedEvent(associated_event=associated_event)
 
 
-class EventMutation(ObjectType):
+class Mutation(AbstractType):
     create_associated_event = Field(CreateAssociatedEvent)

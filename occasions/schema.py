@@ -1,4 +1,4 @@
-import graphene
+from graphene import relay, Schema, ObjectType
 
 import people.schema
 import events.schema
@@ -8,29 +8,29 @@ import locations.schema
 
 
 class Query(
+    transactions.schema.Query,
     people.schema.Query,
     events.schema.Query,
     products.schema.Query,
-    transactions.schema.Query,
-    locations.schema.Query
+    locations.schema.Query,
+    ObjectType
 ):
     # This class will inherit from multiple Queries
     # as we begin to add more apps to our project
-    pass
+    node=relay.Node,
 
 
 class Mutation(
-    # people.schema.Mutation,
+    people.schema.Mutation,
     transactions.schema.Mutation,
-    # events.schema.EventMutation,
+    events.schema.Mutation,
+    ObjectType
 ):
     # This class will inherit from multiple Queries
     # as we begin to add more apps to our project
     pass
 
-schema = graphene.Schema(
-    name='Occasions Schema',
-    node=graphene.relay.NodeField(),
+schema = Schema(
     query=Query,
     mutation=Mutation
 )
