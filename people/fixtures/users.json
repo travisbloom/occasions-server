@@ -7,6 +7,8 @@
                 "username": "travisbloom@gmail.com",
                 "first_name": "Travis",
                 "last_name": "Bloom",
+                "is_staff": true,
+                "is_superuser": true,
                 "datetime_created": "2016-09-02T20:00:00.000Z",
                 "datetime_updated": "2016-09-02T20:00:00.000Z"
             }

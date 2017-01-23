@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'graphene_django',
 
     'oauth2_provider',
+    'social_django',
+    'rest_framework_social_oauth2',
     'corsheaders',
 
     'django_filters',
@@ -55,7 +57,7 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
-    # 'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -78,6 +80,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -144,3 +148,8 @@ GRAPHENE_SCHEMA_INDENT = 4
 # auth
 AUTH_USER_MODEL = 'people.User'
 CORS_ORIGIN_ALLOW_ALL = True
+
+AUTHENTICATION_BACKENDS = (
+   'rest_framework_social_oauth2.backends.DjangoOAuth2',
+   'django.contrib.auth.backends.ModelBackend',
+)

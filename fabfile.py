@@ -24,3 +24,8 @@ def fixtures():
     ]
 
     local('./manage.py loaddata {}'.format(' '.join(fixtures_order)))
+
+def bootstrap_db():
+    local('./manage.py migrate')
+    local('fab fixtures')
+    local('./manage.py changepassword travisbloom@gmail.com')

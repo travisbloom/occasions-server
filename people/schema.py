@@ -1,9 +1,13 @@
 import django_filters
 from django.db.models import Q
+from django.contrib.auth.password_validation import validate_password
+from django.contrib.auth import login
 
 from graphene import relay, ObjectType, Mutation, String, Field, AbstractType
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
+
+from rest_framework import serializers
 
 from .models import User, Person, Relationship
 
@@ -52,28 +56,31 @@ class Query(AbstractType):
     relationships = DjangoFilterConnectionField(RelationshipNode)
 
 
+class CreateUserInputSerializers(serializers.Serializer):
+    username = serializers.EmailField()
+    password = serializers.CharField(validators=[validate_password])
+
+
 class CreateUser(relay.ClientIDMutation):
 
     class Input:
         username = String(required=True)
-        first_name = String(required=True)
-        last_name = String(required=True)
         password = String(required=True)
 
     user = Field(lambda: UserNode)
 
     @classmethod
-    def mutate_and_get_payload(cls, input, info):
-        user = User(
-            first_name=input.get('first_name'),
-            last_name=input.get('last_name'),
-            username=input.get('username'),
-        )
-        password = input.get('password')
-        if password:
-            user.set_password(password)
-        user.full_clean()
+    def mutate_and_get_payload(cls, input, context, info):
+        serializer = CreateUserInputSerializers(data=input)
+        serializer.is_valid()
+        if not serializer.is_valid():
+            raise Exception(serializer.errors)
+
+        user = User(username=User.objects.normalize_email(input.get('username')))
+        user.set_password(input.get('password'))
         user.save()
+        login(context, user, backend='rest_framework_social_oauth2.backends.DjangoOAuth2')
+
         return CreateUser(user=user)
 
 
