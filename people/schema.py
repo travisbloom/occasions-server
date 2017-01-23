@@ -3,6 +3,8 @@ from django.db.models import Q
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth import login
 
+from occasions.gql.ratelimit import ratelimit_gql
+
 from graphene import relay, ObjectType, Mutation, String, Field, AbstractType
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
@@ -70,6 +72,7 @@ class CreateUser(relay.ClientIDMutation):
     user = Field(lambda: UserNode)
 
     @classmethod
+    @ratelimit_gql(key='ip', rate='20/m', block=True)
     def mutate_and_get_payload(cls, input, context, info):
         serializer = CreateUserInputSerializers(data=input)
         serializer.is_valid()
