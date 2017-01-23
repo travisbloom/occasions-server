@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from model_utils import Choices
 
-from occasions.models import BaseModel
+from common.models import BaseModel
 
 
 class User(AbstractUser):

@@ -3,7 +3,7 @@ from django.db.models import Q
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth import login
 
-from occasions.gql.ratelimit import ratelimit_gql
+from common.gql.ratelimit import ratelimit_gql
 
 from graphene import relay, ObjectType, Mutation, String, Field, AbstractType
 from graphene_django.filter import DjangoFilterConnectionField

@@ -2,7 +2,7 @@ from django.db import models
 
 from model_utils import Choices
 
-from occasions.models import BaseModel
+from common.models import BaseModel
 from people.models import Person
 
 

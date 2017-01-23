@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 from model_utils import Choices
 
 # Create your models here.
-from occasions.models import BaseModel
+from common.models import BaseModel
 from products.models import Product
 from events.models import AssociatedEvent
 from people.models import User

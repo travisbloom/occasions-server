@@ -67,7 +67,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'occasions.urls'
+ROOT_URLCONF = 'common.urls'
 
 TEMPLATES = [
     {
@@ -87,7 +87,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'occasions.wsgi.application'
+WSGI_APPLICATION = 'common.wsgi.application'
 
 
 # Database
@@ -141,7 +141,7 @@ STATIC_URL = '/static/'
 
 # graphql
 
-GRAPHENE_SCHEMA = 'occasions.schema'
+GRAPHENE_SCHEMA = 'common.schema'
 GRAPHENE_SCHEMA_OUTPUT = 'assets/schema.json'
 GRAPHENE_SCHEMA_INDENT = 4
 

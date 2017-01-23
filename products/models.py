@@ -3,7 +3,7 @@ from django.db import models
 from model_utils import Choices
 
 # Create your models here.
-from occasions.models import BaseModel
+from common.models import BaseModel
 
 
 # TODO consider adding django-polymorphic to represent different types of products
