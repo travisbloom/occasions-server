@@ -1,5 +1,7 @@
-import django_filters
+from datetime import datetime
 from django.db.models import Q
+from oauth2_provider.models import AccessToken
+from django.db import IntegrityError
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth import login
 
@@ -12,27 +14,32 @@ from graphene_django import DjangoObjectType
 from rest_framework import serializers
 
 from .models import User, Person, Relationship
+from .filters import PersonFilter
+
+
+class AccessTokenNode(DjangoObjectType):
+    class Meta:
+        interfaces = (relay.Node, )
+        model = AccessToken
 
 
 class UserNode(DjangoObjectType):
+    access_tokens = DjangoFilterConnectionField(AccessTokenNode)
+
     class Meta:
         interfaces = (relay.Node, )
         model = User
-
-
-class PersonFilter(django_filters.FilterSet):
-    info_icontains = django_filters.MethodFilter()
-
-    def filter_info_icontains(self, queryset, value):
-        return queryset.filter(
-            Q(first_name__icontains=value) |
-            Q(last_name__icontains=value) |
-            Q(email__icontains=value)
+        only_fields = (
+            'username',
+            'isActive',
+            'dateJoined',
+            'datetimeCreated',
+            'datetimeUpdated',
+            'person',
         )
 
-    class Meta:
-        model = Person
-        fields = ['info_icontains']
+    def resolve_access_tokens(self, args, context, info):
+        return self.accesstoken_set.filter(expires__gt=datetime.now())
 
 
 class PersonNode(DjangoObjectType):
@@ -69,7 +76,7 @@ class CreateUser(relay.ClientIDMutation):
         username = String(required=True)
         password = String(required=True)
 
-    user = Field(lambda: UserNode)
+    user = Field(UserNode)
 
     @classmethod
     @ratelimit_gql(key='ip', rate='20/m', block=True)
@@ -78,12 +85,14 @@ class CreateUser(relay.ClientIDMutation):
         serializer.is_valid()
         if not serializer.is_valid():
             raise Exception(serializer.errors)
+        try:
+            user = User(username=User.objects.normalize_email(input.get('username')))
+            user.set_password(input.get('password'))
+            user.save()
+        except IntegrityError:
+            raise Exception({'username': 'A user with this information already exists'})
 
-        user = User(username=User.objects.normalize_email(input.get('username')))
-        user.set_password(input.get('password'))
-        user.save()
         login(context, user, backend='rest_framework_social_oauth2.backends.DjangoOAuth2')
-
         return CreateUser(user=user)
 
 
