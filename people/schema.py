@@ -21,10 +21,14 @@ class AccessTokenNode(DjangoObjectType):
     class Meta:
         interfaces = (relay.Node, )
         model = AccessToken
+        only_fields = (
+            'expires',
+            'token'
+        )
 
 
 class UserNode(DjangoObjectType):
-    access_tokens = DjangoFilterConnectionField(AccessTokenNode)
+    access_token = Field(AccessTokenNode)
 
     class Meta:
         interfaces = (relay.Node, )
@@ -38,14 +42,19 @@ class UserNode(DjangoObjectType):
             'person',
         )
 
-    def resolve_access_tokens(self, args, context, info):
-        return self.accesstoken_set.filter(expires__gt=datetime.now())
+    def resolve_access_token(self, args, context, info):
+        return self.accesstoken_set.filter(expires__gt=datetime.now()).order_by('-expires').first()
 
 
 class PersonNode(DjangoObjectType):
+    full_name = String()
+    
     class Meta:
         interfaces = (relay.Node, )
         model = Person
+
+    def resolve_full_name(self, args, context, info):
+        return "{} {}".format(self.first_name, self.last_name)
 
 
 class RelationshipNode(DjangoObjectType):

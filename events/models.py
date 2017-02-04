@@ -29,7 +29,14 @@ class Event(BaseModel):
     is_reoccuring_yearly = models.BooleanField(default=True)
 
 
+class AssociatedEventManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().select_related('event', 'receiving_person')
+
+
 class AssociatedEvent(BaseModel):
     creating_person = models.ForeignKey(Person, related_name='created_events')
     receiving_person = models.ForeignKey(Person, related_name='received_events')
     event = models.ForeignKey(Event, related_name='created_events')
+
+    objects = AssociatedEventManager()

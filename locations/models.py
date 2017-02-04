@@ -14,9 +14,16 @@ class Location(BaseModel):
     country = models.CharField(max_length=100)
 
 
+class PersonLocationManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().select_related('location')
+
+
 class PersonLocation(BaseModel):
     person = models.ForeignKey(Person, related_name='locations')
     location = models.ForeignKey(Location)
+
+    objects = PersonLocationManager()
 
     class Meta:
         unique_together = (

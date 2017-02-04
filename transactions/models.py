@@ -11,6 +11,17 @@ from people.models import User
 from locations.models import PersonLocation
 
 
+class TransactionManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().select_related(
+            'product',
+            'associated_event',
+            'associated_event__event',
+            'shipping_address',
+            'shipping_address__location'
+            )
+
+
 class Transaction(BaseModel):
     STATUS_CREATED = 'created'
     STATUS_PAID = 'paid'
@@ -31,6 +42,8 @@ class Transaction(BaseModel):
     shipping_address = models.ForeignKey(PersonLocation)
     # ex: custom message for recipient on postcard
     product_notes = models.TextField()
+
+    objects = TransactionManager()
 
     class Meta:
         default_related_name = 'transactions'
