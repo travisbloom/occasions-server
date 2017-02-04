@@ -4,7 +4,7 @@
         "pk": 1,
         "fields": {
             "name": "Christmas",
-            "event_type": "religious",
+            "event_types": [1],
             "date_start": "2016-12-26",
             "is_default_event": true,
             "is_reoccuring_yearly": true,
@@ -17,6 +17,7 @@
         "pk": 2,
         "fields": {
             "name": "Valentine's Day",
+            "event_types": [3],
             "date_start": "2016-2-16",
             "is_default_event": true,
             "is_reoccuring_yearly": true,
@@ -29,7 +30,7 @@
         "pk": 3,
         "fields": {
             "name": "Thanksgiving",
-            "event_type": "geopolitical",
+            "event_types": [4],
             "date_start": "2016-11-24",
             "is_default_event": true,
             "is_reoccuring_yearly": true,

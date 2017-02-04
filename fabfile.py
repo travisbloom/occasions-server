@@ -4,7 +4,6 @@ def fixtures():
     """Loads all the fixtures in every dir"""
     fixtures_order = [
         # people
-        'users',
         'people',
         'relationships',
 
@@ -16,6 +15,7 @@ def fixtures():
         'products',
 
         # events
+        'event_types',
         'events',
         'associated_events',
 
@@ -27,5 +27,6 @@ def fixtures():
 
 def bootstrap_db():
     local('./manage.py migrate')
+    local('./manage.py loaddata users')
     local('fab fixtures')
     local('./manage.py changepassword travisbloom@gmail.com')

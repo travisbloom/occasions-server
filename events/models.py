@@ -5,6 +5,17 @@ from model_utils import Choices
 from common.models import BaseModel
 from people.models import Person
 
+class EventType(BaseModel):
+    name = models.CharField(max_length=255)
+    display_name = models.CharField(max_length=255)
+
+
+class EventManager(models.Manager):
+    def get_queryset(self):
+        return (
+            super().get_queryset()
+                .prefetch_related('event_types')
+        )
 
 # Create your models here.
 class Event(BaseModel):
@@ -21,17 +32,23 @@ class Event(BaseModel):
     )
 
     name = models.CharField(max_length=255)
-    event_type = models.CharField(max_length=30, choices=EVENT_TYPES, blank=True, null=True)
+    event_types = models.ManyToManyField(EventType, related_name='events')
     date_start = models.DateField()
     # TODO change this to a TimeField once graphene supports it
-    time_start = models.CharField(default='', blank=True, max_length=40)
+    time_start = models.TimeField(blank=True, null=True)
     is_default_event = models.BooleanField(default=True)
     is_reoccuring_yearly = models.BooleanField(default=True)
+
+    objects = EventManager()
 
 
 class AssociatedEventManager(models.Manager):
     def get_queryset(self):
-        return super().get_queryset().select_related('event', 'receiving_person')
+        return (
+            super().get_queryset()
+                .select_related('event', 'receiving_person')
+                .prefetch_related('event__event_types')
+        )
 
 
 class AssociatedEvent(BaseModel):

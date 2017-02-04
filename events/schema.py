@@ -1,24 +1,44 @@
+from django.db.models import Q
+
 from graphene import relay, ObjectType, Mutation, String, Field, AbstractType
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
 
-from .models import Event, AssociatedEvent
-
+from .models import Event, AssociatedEvent, EventType
+from products.models import Product
+from products.schema import ProductNode
 
 class AssociatedEventNode(DjangoObjectType):
     class Meta:
         interfaces = (relay.Node, )
         model = AssociatedEvent
-        filter_fields = ['creating_person', 'receiving_person', 'event__event_type']
+        filter_fields = ['creating_person', 'receiving_person']
+
+
+class EventTypeNode(DjangoObjectType):
+
+    class Meta:
+        model = EventType
+        interfaces = (relay.Node, )
 
 
 class EventNode(DjangoObjectType):
-    event_type = String()  # FIXME https://github.com/graphql-python/graphene/issues/205
+    related_products = DjangoFilterConnectionField(ProductNode)
 
     class Meta:
         model = Event
         interfaces = (relay.Node, )
-        filter_fields = ['is_default_event', 'event_type']
+
+    def resolve_related_products(self, args, context, info):
+        return (
+            Product.objects
+                .filter(
+                    Q(event_id=self.id) |
+                    Q(event_types__in=[event_type.id for event_type in self.event_types.all()])
+                )
+                .order_by('-event_id')
+        )
+
 
 
 class Query(AbstractType):
@@ -27,6 +47,9 @@ class Query(AbstractType):
 
     event = relay.Node.Field(EventNode)
     events = DjangoFilterConnectionField(EventNode)
+
+    event_type = relay.Node.Field(EventTypeNode)
+    event_types = DjangoFilterConnectionField(EventTypeNode)
 
 
 class CreateAssociatedEvent(relay.ClientIDMutation):
