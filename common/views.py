@@ -8,6 +8,7 @@ from rest_framework_social_oauth2.authentication import SocialAuthentication
 from graphene_django.views import GraphQLView
 from graphql.error import GraphQLError
 
+from .utils.camelcase import camelize
 
 class OccasionsGraphQLView(GraphQLView):
 
@@ -24,7 +25,7 @@ class OccasionsGraphQLView(GraphQLView):
                 for loc in error.locations
             ]
         try:
-            formatted_error['data'] = error.original_error.args[0]
+            formatted_error['data'] = camelize(error.original_error.args[0])
         except Exception:
             pass
 

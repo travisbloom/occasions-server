@@ -11,7 +11,7 @@ class Location(BaseModel):
     postal_code = models.CharField(max_length=25)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
-    country = models.CharField(max_length=100)
+    country = models.CharField(max_length=100, default='USA', blank=True)
 
 
 class AssociatedLocationManager(models.Manager):

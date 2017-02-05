@@ -7,7 +7,7 @@ from django.contrib.auth import login
 
 from common.gql.ratelimit import ratelimit_gql
 
-from graphene import relay, ObjectType, Mutation, String, Field, AbstractType
+from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, ID
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
 
@@ -48,7 +48,8 @@ class UserNode(DjangoObjectType):
 
 class PersonNode(DjangoObjectType):
     full_name = String()
-    
+    pk = ID()
+
     class Meta:
         interfaces = (relay.Node, )
         model = Person

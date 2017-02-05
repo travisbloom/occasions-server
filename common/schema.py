@@ -1,10 +1,12 @@
 from graphene import relay, Schema, ObjectType, Field
+
 import people.schema
 import events.schema
 import transactions.schema
 import products.schema
 import locations.schema
 
+from locations.mutations import LocationsMutation
 
 class Query(
     transactions.schema.Query,
@@ -14,8 +16,6 @@ class Query(
     locations.schema.Query,
     ObjectType
 ):
-    # This class will inherit from multiple Queries
-    # as we begin to add more apps to our project
     node=relay.Node,
     current_user=Field(people.schema.UserNode)
 
@@ -27,10 +27,9 @@ class Mutation(
     people.schema.Mutation,
     transactions.schema.Mutation,
     events.schema.Mutation,
+    LocationsMutation,
     ObjectType
 ):
-    # This class will inherit from multiple Queries
-    # as we begin to add more apps to our project
     pass
 
 schema = Schema(
