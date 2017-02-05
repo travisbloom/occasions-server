@@ -32,6 +32,7 @@ class Event(BaseModel):
     )
 
     name = models.CharField(max_length=255)
+    slug = models.SlugField(blank=True, default='')
     event_types = models.ManyToManyField(EventType, related_name='events')
     date_start = models.DateField()
     # TODO change this to a TimeField once graphene supports it

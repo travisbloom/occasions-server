@@ -2,19 +2,30 @@ from graphene import relay, ObjectType, Mutation, String, Field, AbstractType
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
 
-from .models import Location, PersonLocation
+from .models import Location, AssociatedLocation
 
 
 class LocationNode(DjangoObjectType):
+    display_name = String()
+
     class Meta:
         interfaces = (relay.Node, )
         model = Location
 
+    def resolve_display_name(self, args, context, info):
+        return "{street_address_line1}{street_address_line2}, {city} {state} {postal_code}".format(
+            street_address_line1=self.street_address_line1,
+            street_address_line2=" {}".format(self.street_address_line2) if self.street_address_line2 else "",
+            city=self.city,
+            state=self.state,
+            postal_code=self.postal_code
+        )
 
-class PersonLocationNode(DjangoObjectType):
+
+class AssociatedLocationNode(DjangoObjectType):
     class Meta:
         interfaces = (relay.Node, )
-        model = PersonLocation
+        model = AssociatedLocation
         filter_fields = ['person']
 
 
@@ -22,5 +33,5 @@ class Query(AbstractType):
     location = relay.Node.Field(LocationNode)
     locations = DjangoFilterConnectionField(LocationNode)
 
-    person_location = relay.Node.Field(PersonLocationNode)
-    person_locations = DjangoFilterConnectionField(PersonLocationNode)
+    person_location = relay.Node.Field(AssociatedLocationNode)
+    person_locations = DjangoFilterConnectionField(AssociatedLocationNode)

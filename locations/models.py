@@ -6,24 +6,24 @@ from people.models import Person
 
 # TODO I should normalize location in to City, Country models
 class Location(BaseModel):
-    street_number = models.CharField(max_length=50)
-    street_name = models.CharField(max_length=255)
+    street_address_line1 = models.CharField(max_length=455)
+    street_address_line2 = models.CharField(max_length=255, default='', blank=True)
     postal_code = models.CharField(max_length=25)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
 
 
-class PersonLocationManager(models.Manager):
+class AssociatedLocationManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().select_related('location')
 
 
-class PersonLocation(BaseModel):
-    person = models.ForeignKey(Person, related_name='locations')
+class AssociatedLocation(BaseModel):
+    person = models.ForeignKey(Person, related_name='associated_locations')
     location = models.ForeignKey(Location)
 
-    objects = PersonLocationManager()
+    objects = AssociatedLocationManager()
 
     class Meta:
         unique_together = (

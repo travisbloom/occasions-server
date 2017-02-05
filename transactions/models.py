@@ -8,7 +8,7 @@ from common.models import BaseModel
 from products.models import Product
 from events.models import AssociatedEvent
 from people.models import User
-from locations.models import PersonLocation
+from locations.models import AssociatedLocation
 
 
 class TransactionManager(models.Manager):
@@ -39,7 +39,7 @@ class Transaction(BaseModel):
     cost_usd = models.DecimalField(max_digits=5, decimal_places=2)
     product = models.ForeignKey(Product)
     associated_event = models.ForeignKey(AssociatedEvent)
-    shipping_address = models.ForeignKey(PersonLocation)
+    shipping_address = models.ForeignKey(AssociatedLocation)
     # ex: custom message for recipient on postcard
     product_notes = models.TextField()
 
