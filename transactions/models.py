@@ -7,7 +7,7 @@ from model_utils import Choices
 from common.models import BaseModel
 from products.models import Product
 from events.models import AssociatedEvent
-from people.models import User
+from people.models import User, Person
 from locations.models import AssociatedLocation
 
 
@@ -17,8 +17,8 @@ class TransactionManager(models.Manager):
             'product',
             'associated_event',
             'associated_event__event',
-            'shipping_address',
-            'shipping_address__location'
+            'associated_location',
+            'associated_location__location'
             )
 
 
@@ -36,12 +36,14 @@ class Transaction(BaseModel):
     )
     # TODO add lob-specific meta data
     user = models.ForeignKey(User)
+    receiving_person = models.ForeignKey(Person)
     cost_usd = models.DecimalField(max_digits=5, decimal_places=2)
     product = models.ForeignKey(Product)
-    associated_event = models.ForeignKey(AssociatedEvent)
-    shipping_address = models.ForeignKey(AssociatedLocation)
+    associated_event = models.ForeignKey(AssociatedEvent, blank=True, null=True)
+    associated_location = models.ForeignKey(AssociatedLocation)
     # ex: custom message for recipient on postcard
     product_notes = models.TextField()
+    stripe_transaction_id = models.CharField(max_length=255, blank=True, default='')
 
     objects = TransactionManager()
 
@@ -49,10 +51,10 @@ class Transaction(BaseModel):
         default_related_name = 'transactions'
 
     def clean(self, *args, **kwargs):
-        if (self.shipping_address.person_id != self.associated_event.receiving_person_id and
-                self.shipping_address.person_id != self.associated_event.creating_person_id):
+        if (self.associated_location.person_id != self.associated_event.receiving_person_id and
+                self.associated_location.person_id != self.associated_event.creating_person_id):
             raise ValidationError({
-                'shipping_address': (
+                'associated_location': (
                     'The shipping address must belong to'
                     ' the creating or recieving person.'
                 )

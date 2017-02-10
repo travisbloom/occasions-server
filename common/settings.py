@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import raven
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'v$r*co4jz)5@88pmv3+ft3^vvmjfm^py=blb=rlswvlz777x5d'
-
+SECRET_KEY = os.environ['OCCASIONS_DJANGO_SECRET_KEY']
+STRIPE_SECRET_KEY = os.environ['OCCASIONS_STRIPE_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('OCCASIONS_ENVIRONMENT') == 'local'
 
 ALLOWED_HOSTS = []
 
@@ -47,6 +48,8 @@ INSTALLED_APPS = [
 
     'django_filters',
 
+    'raven.contrib.django.raven_compat',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -60,6 +63,8 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    'raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware',
+    'raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'debug_panel.middleware.DebugPanelMiddleware',
 
@@ -162,3 +167,63 @@ AUTHENTICATION_BACKENDS = (
 INTERNAL_IPS = (
     '127.0.0.1'
 )
+
+
+# logging
+RAVEN_CONFIG = {
+    'dsn': os.environ['OCCASIONS_SENTRY_DNS'],
+    'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'root': {
+        'level': 'WARNING',
+        'handlers': ['sentry'],
+    },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s '
+                      '%(process)d %(thread)d %(message)s'
+        },
+    },
+    'handlers': {
+        'sentry': {
+            'level': 'CRITICAL' if DEBUG else 'WARNING', # To capture more than ERROR, change to WARNING, INFO, etc.
+            'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        'django.db.backends': {
+            'level': 'ERROR',
+            'handlers': ['console', 'sentry'],
+            'propagate': False,
+        },
+        'django': {
+            'level': 'DEBUG',
+            'handlers': ['console', 'sentry'],
+            'propagate': True,
+        },
+        'raven': {
+            'level': 'INFO',
+            'handlers': ['console', 'sentry'],
+            'propagate': False,
+        },
+        'sentry.errors': {
+            'level': 'INFO',
+            'handlers': ['console', 'sentry'],
+            'propagate': False,
+        },
+        'occasions': {
+            'level': 'DEBUG',
+            'handlers': ['console', 'sentry'],
+            'propagate': False,
+        }
+    },
+}

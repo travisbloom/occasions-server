@@ -2,10 +2,11 @@ from graphene import relay, ObjectType, Mutation, String, Field, AbstractType
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
 
+from common.gql.types import AbstractModelType
 from .models import Location, AssociatedLocation
 
 
-class LocationNode(DjangoObjectType):
+class LocationNode(AbstractModelType, DjangoObjectType):
     display_name = String()
 
     class Meta:
@@ -22,7 +23,7 @@ class LocationNode(DjangoObjectType):
         )
 
 
-class AssociatedLocationNode(DjangoObjectType):
+class AssociatedLocationNode(AbstractModelType, DjangoObjectType):
     class Meta:
         interfaces = (relay.Node, )
         model = AssociatedLocation

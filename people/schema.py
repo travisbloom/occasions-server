@@ -7,17 +7,20 @@ from django.contrib.auth import login
 
 from common.gql.ratelimit import ratelimit_gql
 
-from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, ID
+from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, ID, Boolean
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
 
 from rest_framework import serializers
 
+from common.exceptions import FormValuesException
+from common.gql.types import AbstractModelType
+
 from .models import User, Person, Relationship
 from .filters import PersonFilter
 
 
-class AccessTokenNode(DjangoObjectType):
+class AccessTokenNode(AbstractModelType, DjangoObjectType):
     class Meta:
         interfaces = (relay.Node, )
         model = AccessToken
@@ -27,14 +30,15 @@ class AccessTokenNode(DjangoObjectType):
         )
 
 
-class UserNode(DjangoObjectType):
+class UserNode(AbstractModelType, DjangoObjectType):
     access_token = Field(AccessTokenNode)
+    email = String(source='username')
+    has_stripe_user = Boolean()
 
     class Meta:
         interfaces = (relay.Node, )
         model = User
         only_fields = (
-            'username',
             'isActive',
             'dateJoined',
             'datetimeCreated',
@@ -42,23 +46,22 @@ class UserNode(DjangoObjectType):
             'person',
         )
 
+    def resolve_has_stripe_user(self, args, context, info):
+        return bool(self.stripe_user_id)
+
     def resolve_access_token(self, args, context, info):
         return self.accesstoken_set.filter(expires__gt=datetime.now()).order_by('-expires').first()
 
 
-class PersonNode(DjangoObjectType):
+class PersonNode(AbstractModelType, DjangoObjectType):
     full_name = String()
-    pk = ID()
 
     class Meta:
         interfaces = (relay.Node, )
         model = Person
 
-    def resolve_full_name(self, args, context, info):
-        return "{} {}".format(self.first_name, self.last_name)
 
-
-class RelationshipNode(DjangoObjectType):
+class RelationshipNode(AbstractModelType, DjangoObjectType):
     class Meta:
         interfaces = (relay.Node, )
         model = Relationship
@@ -94,13 +97,13 @@ class CreateUser(relay.ClientIDMutation):
         serializer = CreateUserInputSerializers(data=input)
         serializer.is_valid()
         if not serializer.is_valid():
-            raise Exception(serializer.errors)
+            raise FormValuesException(serializer.errors)
         try:
             user = User(username=User.objects.normalize_email(input.get('username')))
             user.set_password(input.get('password'))
             user.save()
         except IntegrityError:
-            raise Exception({'username': 'A user with this information already exists'})
+            raise FormValuesException({'username': 'A user with this information already exists'})
 
         login(context, user, backend='rest_framework_social_oauth2.backends.DjangoOAuth2')
         return CreateUser(user=user)

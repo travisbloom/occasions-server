@@ -1,8 +1,9 @@
 from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, ID, InputObjectType, InputField
 from graphene_django.filter import DjangoFilterConnectionField
-from graphene_django import DjangoObjectType
+from common.gql.types import AbstractModelType
 from rest_framework import serializers
 
+from common.exceptions import FormValuesException
 from people.models import Person
 from people.serializers import PersonWithRelationToCurrentUserField
 from .models import Location, AssociatedLocation
@@ -44,9 +45,10 @@ class CreateAssociatedLocation(relay.ClientIDMutation):
 
     @classmethod
     def mutate_and_get_payload(cls, input, context, info):
+        # TODO validate address against Lob
         serializer = CreateAssociatedLocationSerializer(data=input, context={'user': context.user})
         if not serializer.is_valid():
-            raise Exception(serializer.errors)
+            raise FormValuesException(serializer.errors)
 
         location = Location(**input.get('location'))
         location.save()

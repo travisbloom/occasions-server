@@ -6,6 +6,7 @@ import transactions.schema
 import products.schema
 import locations.schema
 
+from transactions.mutations import TransactionMutation
 from locations.mutations import LocationsMutation
 
 class Query(
@@ -25,7 +26,7 @@ class Query(
 
 class Mutation(
     people.schema.Mutation,
-    transactions.schema.Mutation,
+    TransactionMutation,
     events.schema.Mutation,
     LocationsMutation,
     ObjectType

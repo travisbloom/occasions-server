@@ -18,9 +18,7 @@ class User(AbstractUser):
             'unique': _("A user with that email already exists."),
         },
     )
-    # we want to make first_name and last_name required fields
-    first_name = models.CharField(_('first name'), max_length=30, blank=False)
-    last_name = models.CharField(_('last name'), max_length=30, blank=False)
+    stripe_user_id = models.CharField(max_length=255, blank=True, default='')
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_updated = models.DateTimeField(auto_now=True)
 
@@ -41,6 +39,10 @@ class Person(BaseModel):
     last_name = models.CharField(max_length=30, blank=False)
     email = models.CharField(max_length=30, blank=False)
     birth_date = models.DateField(null=True, blank=True)
+
+    @property
+    def full_name(self):
+        return "{} {}".format(self.first_name, self.last_name)
 
 
 class Relationship(BaseModel):

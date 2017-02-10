@@ -13,6 +13,15 @@ class Location(BaseModel):
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100, default='USA', blank=True)
 
+    @property
+    def display_name(self):
+        return "{street_address_line1}{street_address_line2}, {city} {state} {postal_code}".format(
+            street_address_line1=self.street_address_line1,
+            street_address_line2=" {}".format(self.street_address_line2) if self.street_address_line2 else "",
+            city=self.city,
+            state=self.state,
+            postal_code=self.postal_code
+        )
 
 class AssociatedLocationManager(models.Manager):
     def get_queryset(self):

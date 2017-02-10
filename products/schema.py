@@ -2,10 +2,11 @@ from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, A
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
 
+from common.gql.types import AbstractModelType
 from .models import Product
 
 
-class ProductNode(DjangoObjectType):
+class ProductNode(AbstractModelType, DjangoObjectType):
     slug = ID(source='pk')
     class Meta:
         interfaces = (relay.Node, )

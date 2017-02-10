@@ -1,28 +1,30 @@
 from django.db.models import Q
 
-from graphene import relay, ObjectType, Mutation, String, Field, AbstractType
+from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, ID
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
 
+from common.gql.types import AbstractModelType
 from .models import Event, AssociatedEvent, EventType
 from products.models import Product
 from products.schema import ProductNode
 
-class AssociatedEventNode(DjangoObjectType):
+class AssociatedEventNode(AbstractModelType, DjangoObjectType):
+
     class Meta:
         interfaces = (relay.Node, )
         model = AssociatedEvent
         filter_fields = ['creating_person', 'receiving_person']
 
 
-class EventTypeNode(DjangoObjectType):
+class EventTypeNode(AbstractModelType, DjangoObjectType):
 
     class Meta:
         model = EventType
         interfaces = (relay.Node, )
 
 
-class EventNode(DjangoObjectType):
+class EventNode(AbstractModelType, DjangoObjectType):
     related_products = DjangoFilterConnectionField(ProductNode)
 
     class Meta:

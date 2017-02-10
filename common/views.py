@@ -1,4 +1,7 @@
 import rest_framework
+import logging
+import traceback
+from django.conf import settings
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import authentication_classes, permission_classes, api_view
@@ -8,13 +11,28 @@ from rest_framework_social_oauth2.authentication import SocialAuthentication
 from graphene_django.views import GraphQLView
 from graphql.error import GraphQLError
 
+from .exceptions import FormValuesException, StripeException, MutationException
 from .utils.camelcase import camelize
+
+
+logger = logging.getLogger('occasions')
+
+def generic_error_message(formatted_error):
+    if not settings.DEBUG:
+        formatted_error['message'] = 'Whoops! Something went wrong on our end. We\'re looking in to it now.'
+    return formatted_error
+
+def log_traceback(ex, ex_traceback=None):
+    if ex_traceback is None:
+        ex_traceback = ex.__traceback__
+    return [ line.rstrip('\n') for line in
+                 traceback.format_exception(ex.__class__, ex, ex_traceback)]
+
 
 class OccasionsGraphQLView(GraphQLView):
 
     def format_error(self, error):
         """Override format error, useful for showing the entire stack trace when in development"""
-        #raise error.original_error
         if not isinstance(error, GraphQLError):
             return {'message': error}
 
@@ -24,10 +42,16 @@ class OccasionsGraphQLView(GraphQLView):
                 {'line': loc.line, 'column': loc.column}
                 for loc in error.locations
             ]
+
         try:
+            raise error.original_error
+        except MutationException as e:
+            generic_error_message(formatted_error)
+        except FormValuesException as e:
             formatted_error['data'] = camelize(error.original_error.args[0])
-        except Exception:
-            pass
+        except Exception as e:
+            generic_error_message(formatted_error)
+            logger.exception('gql error', exc_info=True) #FIXME this doesnt give good stacktrace in sentry
 
         return formatted_error
 

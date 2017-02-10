@@ -35,7 +35,6 @@ class Event(BaseModel):
     slug = models.SlugField(blank=True, default='')
     event_types = models.ManyToManyField(EventType, related_name='events')
     date_start = models.DateField()
-    # TODO change this to a TimeField once graphene supports it
     time_start = models.TimeField(blank=True, null=True)
     is_default_event = models.BooleanField(default=True)
     is_reoccuring_yearly = models.BooleanField(default=True)
