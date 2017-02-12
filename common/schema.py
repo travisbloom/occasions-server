@@ -8,6 +8,7 @@ import locations.schema
 
 from transactions.mutations import TransactionMutation
 from locations.mutations import LocationsMutation
+from people.mutations import PeopleMutation, CreateUser
 
 class Query(
     transactions.schema.Query,
@@ -25,7 +26,7 @@ class Query(
 
 
 class Mutation(
-    people.schema.Mutation,
+    PeopleMutation,
     TransactionMutation,
     events.schema.Mutation,
     LocationsMutation,
@@ -39,7 +40,7 @@ schema = Schema(
 )
 
 class PublicMutation(ObjectType):
-    create_user = people.schema.CreateUser.Field()
+    create_user = CreateUser.Field()
 
 public_schema = Schema(
     mutation=PublicMutation

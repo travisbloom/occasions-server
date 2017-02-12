@@ -76,38 +76,3 @@ class Query(AbstractType):
 
     relationship = relay.Node.Field(RelationshipNode)
     relationships = DjangoFilterConnectionField(RelationshipNode)
-
-
-class CreateUserInputSerializers(serializers.Serializer):
-    username = serializers.EmailField()
-    password = serializers.CharField(validators=[validate_password])
-
-
-class CreateUser(relay.ClientIDMutation):
-
-    class Input:
-        username = String(required=True)
-        password = String(required=True)
-
-    user = Field(UserNode)
-
-    @classmethod
-    @ratelimit_gql(key='ip', rate='20/m', block=True)
-    def mutate_and_get_payload(cls, input, context, info):
-        serializer = CreateUserInputSerializers(data=input)
-        serializer.is_valid()
-        if not serializer.is_valid():
-            raise FormValuesException(serializer.errors)
-        try:
-            user = User(username=User.objects.normalize_email(input.get('username')))
-            user.set_password(input.get('password'))
-            user.save()
-        except IntegrityError:
-            raise FormValuesException({'username': 'A user with this information already exists'})
-
-        login(context, user, backend='rest_framework_social_oauth2.backends.DjangoOAuth2')
-        return CreateUser(user=user)
-
-
-class Mutation(AbstractType):
-    create_user = CreateUser.Field()
