@@ -37,3 +37,10 @@ schema = Schema(
     query=Query,
     mutation=Mutation
 )
+
+class PublicMutation(ObjectType):
+    create_user = people.schema.CreateUser.Field()
+
+public_schema = Schema(
+    mutation=PublicMutation
+)
