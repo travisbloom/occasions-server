@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
     'transactions.apps.TransactionsConfig',
 
+    'django_extensions',
     'django_graphiql',
     'graphene_django',
 

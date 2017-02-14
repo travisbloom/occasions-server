@@ -1,4 +1,5 @@
 cffi==1.9.1
+contextlib2==0.5.4
 cryptography==1.7.1
 defusedxml==0.4.1
 Django==1.10
@@ -7,10 +8,11 @@ django-braces==1.10.0
 django-cors-headers==2.0.0
 django-debug-panel==0.8.3
 django-debug-toolbar==1.6
-django-filter==0.14.0
+django-filter==0.15.2
 django-graphiql==0.4.4
 django-model-utils==2.6.1
 django-oauth-toolkit==0.11.0
+django-ratelimit==1.0.1
 django-rest-framework-social-oauth2==1.0.5
 djangorestframework==3.5.3
 djangorestframework-oauth==1.1.0
@@ -32,11 +34,13 @@ pycparser==2.17
 PyJWT==1.4.2
 python-openid==2.2.5
 python3-openid==3.0.9
-requests==2.12.5
+raven==5.32.0
+requests==2.13.0
 requests-oauthlib==0.7.0
 singledispatch==3.4.0.3
 six==1.10.0
 social-auth-app-django==1.0.0
 social-auth-core==1.0.0
 sqlparse==0.2.2
+stripe==1.46.0
 wheel==0.26.0

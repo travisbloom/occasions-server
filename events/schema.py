@@ -1,6 +1,6 @@
 from django.db.models import Q
 
-from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, ID
+from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, ID, List
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
 
@@ -8,6 +8,7 @@ from common.gql.types import AbstractModelType
 from .models import Event, AssociatedEvent, EventType
 from products.models import Product
 from products.schema import ProductNode
+from .filters import EventFilter, EventTypeFilter
 
 class AssociatedEventNode(AbstractModelType, DjangoObjectType):
 
@@ -48,11 +49,21 @@ class Query(AbstractType):
     associated_events = DjangoFilterConnectionField(AssociatedEventNode)
 
     event = relay.Node.Field(EventNode)
-    events = DjangoFilterConnectionField(EventNode)
+    events = DjangoFilterConnectionField(
+        EventNode,
+        filterset_class=EventFilter,
+        event_types_id_in=List(ID)
+        )
 
     event_type = relay.Node.Field(EventTypeNode)
-    event_types = DjangoFilterConnectionField(EventTypeNode)
+    event_types = DjangoFilterConnectionField(EventTypeNode, filterset_class=EventTypeFilter)
 
+    def resolve_events(self, args, context, info, *foo, **kwargs):
+        qs = Event.objects
+        if args.get('event_types_id_in'):
+            qs = qs.filter(event_types__id__in=args.get('event_types_id_in'))
+        qs = EventFilter(data=args, queryset=qs).qs
+        return qs
 
 class CreateAssociatedEvent(relay.ClientIDMutation):
 
