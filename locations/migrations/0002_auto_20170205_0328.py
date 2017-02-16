@@ -19,10 +19,16 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='associatedlocation',
             name='person',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='associated_locations', to='people.Person'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='associated_locations',
+                to='people.Person'),
         ),
         migrations.AlterUniqueTogether(
             name='associatedlocation',
-            unique_together=set([('person', 'location')]),
+            unique_together=set(
+                [
+                    ('person',
+                     'location')]),
         ),
     ]

@@ -20,6 +20,7 @@ from .models import User, Person, Relationship
 from .filters import PersonFilter
 from .schema import UserNode
 
+
 class CreateUserInputSerializers(serializers.Serializer):
     username = serializers.EmailField()
     password = serializers.CharField(validators=[validate_password])
@@ -41,13 +42,19 @@ class CreateUser(relay.ClientIDMutation):
         if not serializer.is_valid():
             raise FormValuesException(serializer.errors)
         try:
-            user = User(username=User.objects.normalize_email(input.get('username')))
+            user = User(
+                username=User.objects.normalize_email(
+                    input.get('username')))
             user.set_password(input.get('password'))
             user.save()
         except IntegrityError:
-            raise FormValuesException({'username': 'A user with this information already exists'})
+            raise FormValuesException(
+                {'username': 'A user with this information already exists'})
 
-        login(context, user, backend='rest_framework_social_oauth2.backends.DjangoOAuth2')
+        login(
+            context,
+            user,
+            backend='rest_framework_social_oauth2.backends.DjangoOAuth2')
         return CreateUser(user=user)
 
 

@@ -16,9 +16,14 @@ def ratelimit_gql(group=None, key=None, rate=None, method=ALL, block=False):
         def _wrapped(cls, input, request, info):
             if not settings.DEBUG:
                 request.limited = getattr(request, 'limited', False)
-                ratelimited = is_ratelimited(request=request, group=group, fn=fn,
-                                             key=key, rate=rate, method=method,
-                                             increment=True)
+                ratelimited = is_ratelimited(
+                    request=request,
+                    group=group,
+                    fn=fn,
+                    key=key,
+                    rate=rate,
+                    method=method,
+                    increment=True)
                 if ratelimited and block:
                     raise Ratelimited('Internal server issues.')
             return fn(cls, input, request, info)

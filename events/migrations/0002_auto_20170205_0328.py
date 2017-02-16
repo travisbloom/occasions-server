@@ -19,16 +19,25 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='associatedevent',
             name='creating_person',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='created_events', to='people.Person'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='created_events',
+                to='people.Person'),
         ),
         migrations.AddField(
             model_name='associatedevent',
             name='event',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='created_events', to='events.Event'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='created_events',
+                to='events.Event'),
         ),
         migrations.AddField(
             model_name='associatedevent',
             name='receiving_person',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='received_events', to='people.Person'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='received_events',
+                to='people.Person'),
         ),
     ]

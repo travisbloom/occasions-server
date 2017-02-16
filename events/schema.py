@@ -10,6 +10,7 @@ from products.models import Product
 from products.schema import ProductNode
 from .filters import EventFilter, EventTypeFilter
 
+
 class AssociatedEventNode(AbstractModelType, DjangoObjectType):
 
     class Meta:
@@ -35,13 +36,12 @@ class EventNode(AbstractModelType, DjangoObjectType):
     def resolve_related_products(self, args, context, info):
         return (
             Product.objects
-                .filter(
-                    Q(event_id=self.id) |
-                    Q(event_types__in=[event_type.id for event_type in self.event_types.all()])
-                )
-                .order_by('-event_id')
+            .filter(
+                Q(event_id=self.id) |
+                Q(event_types__in=[event_type.id for event_type in self.event_types.all()])
+            )
+            .order_by('-event_id')
         )
-
 
 
 class Query(AbstractType):
@@ -53,17 +53,20 @@ class Query(AbstractType):
         EventNode,
         filterset_class=EventFilter,
         event_types_pk_in=List(ID)
-        )
+    )
 
     event_type = relay.Node.Field(EventTypeNode)
-    event_types = DjangoFilterConnectionField(EventTypeNode, filterset_class=EventTypeFilter)
+    event_types = DjangoFilterConnectionField(
+        EventTypeNode, filterset_class=EventTypeFilter)
 
     def resolve_events(self, variables, context, info, *foo, **kwargs):
         qs = Event.objects
         if variables.get('event_types_pk_in'):
-            qs = qs.filter(event_types__pk__in=variables.get('event_types_pk_in')).distinct()
+            qs = qs.filter(event_types__pk__in=variables.get(
+                'event_types_pk_in')).distinct()
         qs = EventFilter(data=variables, queryset=qs).qs
         return qs
+
 
 class CreateAssociatedEvent(relay.ClientIDMutation):
 

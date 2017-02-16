@@ -13,7 +13,6 @@ class PersonFilter(django_filters.FilterSet):
             'info_contains',
         )
 
-
     def filter_info_contains(self, queryset, name, value):
         return queryset.filter(
             Q(first_name__icontains=value) |

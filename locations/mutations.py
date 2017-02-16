@@ -11,6 +11,7 @@ from .schema import AssociatedLocationNode
 
 
 class LocationSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Location
         fields = (
@@ -46,16 +47,19 @@ class CreateAssociatedLocation(relay.ClientIDMutation):
     @classmethod
     def mutate_and_get_payload(cls, input, context, info):
         # TODO validate address against Lob
-        serializer = CreateAssociatedLocationSerializer(data=input, context={'user': context.user})
+        serializer = CreateAssociatedLocationSerializer(
+            data=input, context={'user': context.user})
         if not serializer.is_valid():
             raise FormValuesException(serializer.errors)
 
         location = Location(**input.get('location'))
         location.save()
-        associated_location = AssociatedLocation(location=location, person_id=input.get('person_id'))
+        associated_location = AssociatedLocation(
+            location=location, person_id=input.get('person_id'))
         associated_location.save()
 
-        return CreateAssociatedLocation(associated_location=associated_location)
+        return CreateAssociatedLocation(
+            associated_location=associated_location)
 
 
 class LocationsMutation(AbstractType):

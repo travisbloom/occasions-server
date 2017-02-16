@@ -12,9 +12,11 @@ class HolidaysToGenerate(UnitedStates, ChristianMixin):
     include_easter_sunday = True
     include_christmas = True
 
+
 class Command(BaseCommand):
     help = 'Generate holidays'
 
     def handle(self, *args, **options):
         holidays = HolidaysToGenerate()
-        import pdb; pdb.set_trace()
+        import pdb
+        pdb.set_trace()

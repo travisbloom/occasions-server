@@ -10,6 +10,7 @@ from transactions.mutations import TransactionMutation
 from locations.mutations import LocationsMutation
 from people.mutations import PeopleMutation, CreateUser
 
+
 class Query(
     transactions.schema.Query,
     people.schema.Query,
@@ -18,8 +19,8 @@ class Query(
     locations.schema.Query,
     ObjectType
 ):
-    node=relay.Node,
-    current_user=Field(people.schema.UserNode)
+    node = relay.Node,
+    current_user = Field(people.schema.UserNode)
 
     def resolve_current_user(self, args, context, info):
         return context.user
@@ -38,6 +39,7 @@ schema = Schema(
     query=Query,
     mutation=Mutation
 )
+
 
 class PublicMutation(ObjectType):
     create_user = CreateUser.Field()

@@ -1,5 +1,6 @@
 from fabric.api import local
 
+
 def fixtures():
     """Loads all the fixtures in every dir"""
     fixtures_order = [
@@ -24,6 +25,7 @@ def fixtures():
     ]
 
     local('./manage.py loaddata {}'.format(' '.join(fixtures_order)))
+
 
 def bootstrap_db():
     local('./manage.py migrate')

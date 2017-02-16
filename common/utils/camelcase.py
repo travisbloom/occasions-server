@@ -1,6 +1,7 @@
 from collections import OrderedDict
 import re
 
+
 def underscoreToCamel(match):
     return match.group()[0] + match.group()[2].upper()
 

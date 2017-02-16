@@ -21,6 +21,7 @@ logger = logging.getLogger('occasions')
 
 
 class CreateStripeUser(relay.ClientIDMutation):
+
     class Input:
         strip_transaction_id = String(required=True)
         email = String(required=True)
@@ -31,31 +32,39 @@ class CreateStripeUser(relay.ClientIDMutation):
     def mutate_and_get_payload(cls, input, context, info):
         if context.user.stripe_user_id:
             error_msg = 'User tried to create stripe account that already existed'
-            logger.warn(error_msg, extra={ 'request': context })
+            logger.warn(error_msg, extra={'request': context})
             raise MutationException(error_msg)
 
-        create_stripe_user(payload={**input}, user=context.user, request=context)
+        create_stripe_user(
+            payload={
+                **input},
+            user=context.user,
+            request=context)
         return CreateStripeUser(user=context.user)
 
 
 class LocationRelatedToPersonField(serializers.PrimaryKeyRelatedField):
+
     def get_queryset(self):
-        return AssociatedLocation.objects.filter(person_id=self.context['receiving_person_id'])
+        return AssociatedLocation.objects.filter(
+            person_id=self.context['receiving_person_id'])
 
 
 class AssociatedEventRelatedToPersonField(serializers.PrimaryKeyRelatedField):
+
     def get_queryset(self):
         return AssociatedEvent.objects.filter(
             receiving_person_id=self.context['receiving_person_id'],
             creating_person=self.context['user'].person
-            )
+        )
 
 
 class CreateAssociatedLocationSerializer(serializers.Serializer):
     receiving_person_id = PersonWithRelationToCurrentUserField()
     associated_location_id = LocationRelatedToPersonField()
     associated_event_id = AssociatedEventRelatedToPersonField()
-    product_id = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all())
+    product_id = serializers.PrimaryKeyRelatedField(
+        queryset=Product.objects.all())
     product_notes = serializers.CharField()
 
 
@@ -74,7 +83,7 @@ class CreateTransaction(relay.ClientIDMutation):
     def mutate_and_get_payload(cls, input, context, info):
         if not context.user.stripe_user_id:
             error_msg = 'User tried to create a transaction before they have a stripe account'
-            logger.warn(error_msg, extra={ 'request': context })
+            logger.warn(error_msg, extra={'request': context})
             raise MutationException(error_msg)
 
         serializer = CreateAssociatedLocationSerializer(data=input, context={
@@ -85,7 +94,10 @@ class CreateTransaction(relay.ClientIDMutation):
             raise FormValuesException(serializer.errors)
 
         product = Product.objects.get(pk=input.get('product_id'))
-        transaction = Transaction(**input, cost_usd=product.cost_usd, user=context.user)
+        transaction = Transaction(
+            **input,
+            cost_usd=product.cost_usd,
+            user=context.user)
         transaction.save()
         create_strip_charge(
             user=context.user,

@@ -21,6 +21,7 @@ from .filters import PersonFilter
 
 
 class AccessTokenNode(AbstractModelType, DjangoObjectType):
+
     class Meta:
         interfaces = (relay.Node, )
         model = AccessToken
@@ -50,7 +51,8 @@ class UserNode(AbstractModelType, DjangoObjectType):
         return bool(self.stripe_user_id)
 
     def resolve_access_token(self, args, context, info):
-        return self.accesstoken_set.filter(expires__gt=datetime.now()).order_by('-expires').first()
+        return self.accesstoken_set.filter(
+            expires__gt=datetime.now()).order_by('-expires').first()
 
 
 class PersonNode(AbstractModelType, DjangoObjectType):
@@ -62,6 +64,7 @@ class PersonNode(AbstractModelType, DjangoObjectType):
 
 
 class RelationshipNode(AbstractModelType, DjangoObjectType):
+
     class Meta:
         interfaces = (relay.Node, )
         model = Relationship
@@ -72,7 +75,8 @@ class Query(AbstractType):
     users = DjangoFilterConnectionField(UserNode)
 
     person = relay.Node.Field(PersonNode)
-    people = DjangoFilterConnectionField(PersonNode, filterset_class=PersonFilter)
+    people = DjangoFilterConnectionField(
+        PersonNode, filterset_class=PersonFilter)
 
     relationship = relay.Node.Field(RelationshipNode)
     relationships = DjangoFilterConnectionField(RelationshipNode)

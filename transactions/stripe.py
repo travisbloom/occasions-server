@@ -5,6 +5,7 @@ import logging
 logger = logging.getLogger('occasions')
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+
 def create_stripe_user(payload, user, request):
     try:
         customer = stripe.Customer.create(
@@ -15,17 +16,20 @@ def create_stripe_user(payload, user, request):
             }
         )
     except Exception as e:
-        logger.exception('create_stripe_user request failed', extra={'request': request})
+        logger.exception(
+            'create_stripe_user request failed', extra={
+                'request': request})
         raise(e)
 
     user.stripe_user_id = customer.id
     user.save()
 
+
 def create_strip_charge(user, transaction, request):
     location = transaction.associated_location.location
     try:
         charge = stripe.Charge.create(
-            amount=int(transaction.cost_usd * 100), # stripe works in cents
+            amount=int(transaction.cost_usd * 100),  # stripe works in cents
             currency='usd',
             description="{product} ({event}) for {receiving_person}".format(
                 product=transaction.product.name,
@@ -56,7 +60,9 @@ def create_strip_charge(user, transaction, request):
             }
         )
     except Exception as e:
-        logger.exception('create_strip_charge request failed', extra={'request': request})
+        logger.exception(
+            'create_strip_charge request failed', extra={
+                'request': request})
         raise (e)
 
     transaction.stripe_transaction_id = charge.id

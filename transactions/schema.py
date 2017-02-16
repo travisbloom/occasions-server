@@ -8,6 +8,7 @@ from .models import Transaction
 
 
 class TransactionNode(AbstractModelType, DjangoObjectType):
+
     class Meta:
         interfaces = (relay.Node, )
         model = Transaction

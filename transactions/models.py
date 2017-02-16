@@ -12,6 +12,7 @@ from locations.models import AssociatedLocation
 
 
 class TransactionManager(models.Manager):
+
     def get_queryset(self):
         return super().get_queryset().select_related(
             'product',
@@ -19,7 +20,7 @@ class TransactionManager(models.Manager):
             'associated_event__event',
             'associated_location',
             'associated_location__location'
-            )
+        )
 
 
 class Transaction(BaseModel):
@@ -39,11 +40,13 @@ class Transaction(BaseModel):
     receiving_person = models.ForeignKey(Person)
     cost_usd = models.DecimalField(max_digits=5, decimal_places=2)
     product = models.ForeignKey(Product)
-    associated_event = models.ForeignKey(AssociatedEvent, blank=True, null=True)
+    associated_event = models.ForeignKey(
+        AssociatedEvent, blank=True, null=True)
     associated_location = models.ForeignKey(AssociatedLocation)
     # ex: custom message for recipient on postcard
     product_notes = models.TextField()
-    stripe_transaction_id = models.CharField(max_length=255, blank=True, default='')
+    stripe_transaction_id = models.CharField(
+        max_length=255, blank=True, default='')
 
     objects = TransactionManager()
 

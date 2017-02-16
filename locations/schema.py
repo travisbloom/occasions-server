@@ -16,14 +16,15 @@ class LocationNode(AbstractModelType, DjangoObjectType):
     def resolve_display_name(self, args, context, info):
         return "{street_address_line1}{street_address_line2}, {city} {state} {postal_code}".format(
             street_address_line1=self.street_address_line1,
-            street_address_line2=" {}".format(self.street_address_line2) if self.street_address_line2 else "",
+            street_address_line2=" {}".format(
+                self.street_address_line2) if self.street_address_line2 else "",
             city=self.city,
             state=self.state,
-            postal_code=self.postal_code
-        )
+            postal_code=self.postal_code)
 
 
 class AssociatedLocationNode(AbstractModelType, DjangoObjectType):
+
     class Meta:
         interfaces = (relay.Node, )
         model = AssociatedLocation

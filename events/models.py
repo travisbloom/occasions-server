@@ -5,19 +5,23 @@ from model_utils import Choices
 from common.models import BaseModel
 from people.models import Person
 
+
 class EventType(BaseModel):
     name = models.CharField(max_length=255, primary_key=True)
     display_name = models.CharField(max_length=255)
 
 
 class EventManager(models.Manager):
+
     def get_queryset(self):
         return (
             super().get_queryset()
-                .prefetch_related('event_types')
+            .prefetch_related('event_types')
         )
 
 # Create your models here.
+
+
 class Event(BaseModel):
     TYPE_BIRTHDAY = 'birthday'
     TYPE_ANNIVERSARY = 'anniversary'
@@ -43,17 +47,19 @@ class Event(BaseModel):
 
 
 class AssociatedEventManager(models.Manager):
+
     def get_queryset(self):
         return (
             super().get_queryset()
-                .select_related('event', 'receiving_person')
-                .prefetch_related('event__event_types')
+            .select_related('event', 'receiving_person')
+            .prefetch_related('event__event_types')
         )
 
 
 class AssociatedEvent(BaseModel):
     creating_person = models.ForeignKey(Person, related_name='created_events')
-    receiving_person = models.ForeignKey(Person, related_name='received_events')
+    receiving_person = models.ForeignKey(
+        Person, related_name='received_events')
     event = models.ForeignKey(Event, related_name='created_events')
 
     objects = AssociatedEventManager()

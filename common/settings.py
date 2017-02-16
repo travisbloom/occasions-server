@@ -160,8 +160,8 @@ AUTH_USER_MODEL = 'people.User'
 CORS_ORIGIN_ALLOW_ALL = True
 
 AUTHENTICATION_BACKENDS = (
-   'rest_framework_social_oauth2.backends.DjangoOAuth2',
-   'django.contrib.auth.backends.ModelBackend',
+    'rest_framework_social_oauth2.backends.DjangoOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 INTERNAL_IPS = (
@@ -190,7 +190,8 @@ LOGGING = {
     },
     'handlers': {
         'sentry': {
-            'level': 'CRITICAL' if DEBUG else 'WARNING', # To capture more than ERROR, change to WARNING, INFO, etc.
+            # To capture more than ERROR, change to WARNING, INFO, etc.
+            'level': 'CRITICAL' if DEBUG else 'WARNING',
             'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
         },
         'console': {

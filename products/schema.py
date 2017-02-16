@@ -8,6 +8,7 @@ from .models import Product
 
 class ProductNode(AbstractModelType, DjangoObjectType):
     slug = ID(source='pk')
+
     class Meta:
         interfaces = (relay.Node, )
         model = Product

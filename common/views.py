@@ -17,23 +17,27 @@ from .utils.camelcase import camelize
 
 logger = logging.getLogger('occasions')
 
+
 def generic_error_message(formatted_error):
     if not settings.DEBUG:
-        formatted_error['message'] = 'Whoops! Something went wrong on our end. We\'re looking in to it now.'
+        formatted_error[
+            'message'] = 'Whoops! Something went wrong on our end. We\'re looking in to it now.'
     return formatted_error
+
 
 def log_traceback(ex, ex_traceback=None):
     if ex_traceback is None:
         ex_traceback = ex.__traceback__
-    return [ line.rstrip('\n') for line in
-                 traceback.format_exception(ex.__class__, ex, ex_traceback)]
+    return [line.rstrip('\n') for line in
+            traceback.format_exception(ex.__class__, ex, ex_traceback)]
 
 
 class OccasionsGraphQLView(GraphQLView):
 
     def format_error(self, error):
         """Override format error, useful for showing the entire stack trace when in development"""
-        raise error.original_error if hasattr(error, 'original_error') else error
+        raise error.original_error if hasattr(
+            error, 'original_error') else error
         if not isinstance(error, GraphQLError):
             return {'message': error}
 
@@ -52,7 +56,8 @@ class OccasionsGraphQLView(GraphQLView):
             formatted_error['data'] = camelize(error.original_error.args[0])
         except Exception as e:
             generic_error_message(formatted_error)
-            logger.exception('gql error', exc_info=True) #FIXME this doesnt give good stacktrace in sentry
+            # FIXME this doesnt give good stacktrace in sentry
+            logger.exception('gql error', exc_info=True)
 
         return formatted_error
 
@@ -63,7 +68,7 @@ class OccasionsGraphQLView(GraphQLView):
             return False
 
     def parse_body(self, request):
-        if type(request) is rest_framework.request.Request:
+        if isinstance(request, rest_framework.request.Request):
             return request.data
         return super().parse_body(request)
 
