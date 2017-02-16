@@ -25,7 +25,6 @@ SECRET_KEY = os.environ['OCCASIONS_DJANGO_SECRET_KEY']
 STRIPE_SECRET_KEY = os.environ['OCCASIONS_STRIPE_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('OCCASIONS_ENVIRONMENT') == 'local'
-
 ALLOWED_HOSTS = []
 
 

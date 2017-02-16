@@ -1,0 +1,76 @@
+-   model: events.eventtype
+    fields:
+        name: "anniversary"
+        display_name: "Special Days"
+        datetime_created: "2016-09-02T20:00:00.000Z"
+        datetime_updated: "2016-09-02T20:00:00.000Z"
+
+-   model: events.eventtype
+    fields:
+        name: "celebration"
+        display_name: "Celebration"
+        datetime_created: "2016-09-02T20:00:00.000Z"
+        datetime_updated: "2016-09-02T20:00:00.000Z"
+
+-   model: events.eventtype
+    fields:
+        name: "religious"
+        display_name: "Religious"
+        datetime_created: "2016-09-02T20:00:00.000Z"
+        datetime_updated: "2016-09-02T20:00:00.000Z"
+
+-   model: events.eventtype
+    fields:
+        name: "jewish"
+        display_name: "Jewish"
+        datetime_created: "2016-09-02T20:00:00.000Z"
+        datetime_updated: "2016-09-02T20:00:00.000Z"
+
+-   model: events.eventtype
+    fields:
+        name: "christian"
+        display_name: "Christian"
+        datetime_created: "2016-09-02T20:00:00.000Z"
+        datetime_updated: "2016-09-02T20:00:00.000Z"
+
+-   model: events.eventtype
+    fields:
+        name: "muslim"
+        display_name: "Muslim"
+        datetime_created: "2016-09-02T20:00:00.000Z"
+        datetime_updated: "2016-09-02T20:00:00.000Z"
+
+-   model: events.eventtype
+    fields:
+        name: "romantic"
+        display_name: "Romantic"
+        datetime_created: "2016-09-02T20:00:00.000Z"
+        datetime_updated: "2016-09-02T20:00:00.000Z"
+
+-   model: events.eventtype
+    fields:
+        name: "geopolitical"
+        display_name: "National"
+        datetime_created: "2016-09-02T20:00:00.000Z"
+        datetime_updated: "2016-09-02T20:00:00.000Z"
+
+-   model: events.eventtype
+    fields:
+        name: "humorous"
+        display_name: "Just For Fun"
+        datetime_created: "2016-09-02T20:00:00.000Z"
+        datetime_updated: "2016-09-02T20:00:00.000Z"
+
+-   model: events.eventtype
+    fields:
+        name: "family"
+        display_name: "Family"
+        datetime_created: "2016-09-02T20:00:00.000Z"
+        datetime_updated: "2016-09-02T20:00:00.000Z"
+
+-   model: events.eventtype
+    fields:
+        name: "american"
+        display_name: "American"
+        datetime_created: "2016-09-02T20:00:00.000Z"
+        datetime_updated: "2016-09-02T20:00:00.000Z"

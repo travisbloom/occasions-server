@@ -1,0 +1,155 @@
+-   model: events.event
+    pk: 1
+    fields:
+        slug: "new_years"
+        name: "New Years"
+        event_types: ["celebration"]
+        date_start: "2017-01-01"
+        is_default_event: true
+        is_reoccuring_yearly: true
+        datetime_created: "2017-09-02T20:00:00.000Z"
+        datetime_updated: "2017-09-02T20:00:00.000Z"
+
+-   model: events.event
+    pk: 2
+    fields:
+        slug: "valentines_day"
+        name: "Valentine's Day"
+        event_types: ["romantic"]
+        date_start: "2017-02-14"
+        is_default_event: true
+        is_reoccuring_yearly: true
+        datetime_created: "2017-09-02T20:00:00.000Z"
+        datetime_updated: "2017-09-02T20:00:00.000Z"
+
+-   model: events.event
+    pk: 3
+    fields:
+        slug: "ash_wednesday"
+        name: "Ash Wednesday"
+        event_types: ["christian", "religious"]
+        date_start: "2017-03-01"
+        is_default_event: true
+        is_reoccuring_yearly: true
+        datetime_created: "2017-09-02T20:00:00.000Z"
+        datetime_updated: "2017-09-02T20:00:00.000Z"
+
+-   model: events.event
+    pk: 4
+    fields:
+        slug: "purim"
+        name: "Purim"
+        event_types: ["religious", "jewish"]
+        date_start: "2017-03-12"
+        is_default_event: true
+        is_reoccuring_yearly: true
+        datetime_created: "2017-09-02T20:00:00.000Z"
+        datetime_updated: "2017-09-02T20:00:00.000Z"
+
+-   model: events.event
+    pk: 5
+    fields:
+        slug: "st_patricks_day"
+        name: "St. Patrick's Day"
+        event_types: ["celebration", "christian"]
+        date_start: "2017-03-17"
+        is_default_event: true
+        is_reoccuring_yearly: true
+        datetime_created: "2017-09-02T20:00:00.000Z"
+        datetime_updated: "2017-09-02T20:00:00.000Z"
+
+-   model: events.event
+    pk: 6
+    fields:
+        slug: "palm_sunday"
+        name: "Palm Sunday"
+        event_types: ["religious", "christian"]
+        date_start: "2017-04-09"
+        is_default_event: true
+        is_reoccuring_yearly: true
+        datetime_created: "2017-09-02T20:00:00.000Z"
+        datetime_updated: "2017-09-02T20:00:00.000Z"
+
+-   model: events.event
+    pk: 7
+    fields:
+        slug: "passover"
+        name: "Passover"
+        event_types: ["religious", "jewish"]
+        date_start: "2017-04-11"
+        is_default_event: true
+        is_reoccuring_yearly: true
+        datetime_created: "2017-09-02T20:00:00.000Z"
+        datetime_updated: "2017-09-02T20:00:00.000Z"
+
+-   model: events.event
+    pk: 8
+    fields:
+        slug: "good_friday"
+        name: "Good Friday"
+        event_types: ["religious", "christian"]
+        date_start: "2017-04-14"
+        is_default_event: true
+        is_reoccuring_yearly: true
+        datetime_created: "2017-09-02T20:00:00.000Z"
+        datetime_updated: "2017-09-02T20:00:00.000Z"
+
+-   model: events.event
+    pk: 9
+    fields:
+        slug: "easter"
+        name: "Easter"
+        event_types: ["religious", "christian"]
+        date_start: "2017-04-16"
+        is_default_event: true
+        is_reoccuring_yearly: true
+        datetime_created: "2017-09-02T20:00:00.000Z"
+        datetime_updated: "2017-09-02T20:00:00.000Z"
+
+-   model: events.event
+    pk: 10
+    fields:
+        slug: "taxday"
+        name: "Tax Day"
+        event_types: ["humorous", "american"]
+        date_start: "2017-08-18"
+        is_default_event: true
+        is_reoccuring_yearly: true
+        datetime_created: "2017-09-02T20:00:00.000Z"
+        datetime_updated: "2017-09-02T20:00:00.000Z"
+
+-   model: events.event
+    pk: 11
+    fields:
+        slug: "monthers_day"
+        name: "Mother's Day"
+        event_types: ["religious", "christian"]
+        date_start: "2017-05-14"
+        is_default_event: true
+        is_reoccuring_yearly: true
+        datetime_created: "2017-09-02T20:00:00.000Z"
+        datetime_updated: "2017-09-02T20:00:00.000Z"
+
+-   model: events.event
+    pk: 12
+    fields:
+        slug: "ramadan"
+        name: "Ramadan"
+        event_types: ["religious", "muslim"]
+        date_start: "2017-05-27"
+        is_default_event: true
+        is_reoccuring_yearly: true
+        datetime_created: "2017-09-02T20:00:00.000Z"
+        datetime_updated: "2017-09-02T20:00:00.000Z"
+
+-   model: events.event
+    pk: 13
+    fields:
+        slug: "christian"
+        name: "Christmas"
+        event_types: ["religious", "christian"]
+        date_start: "2017-12-26"
+        is_default_event: true
+        is_reoccuring_yearly: true
+        datetime_created: "2017-09-02T20:00:00.000Z"
+        datetime_updated: "2017-09-02T20:00:00.000Z"

@@ -6,7 +6,7 @@ from common.models import BaseModel
 from people.models import Person
 
 class EventType(BaseModel):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, primary_key=True)
     display_name = models.CharField(max_length=255)
 
 
