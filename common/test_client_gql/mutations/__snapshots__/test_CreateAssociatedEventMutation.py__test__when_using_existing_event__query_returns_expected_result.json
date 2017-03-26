@@ -3,7 +3,7 @@
         "createAssociatedEvent": {
             "associatedEvent": {
                 "creatingPerson": {
-                    "fullName": "User First Name User Last Name"
+                    "fullName": "UserFirstName UserLastName"
                 },
                 "event": {
                     "name": "event_name_9"

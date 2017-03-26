@@ -25,7 +25,13 @@ def create_stripe_user(payload, user, request):
     user.save()
 
 
-def create_strip_charge(user, transaction, request):
+def mock_create_stripe_charge(user, transaction, request):
+    transaction.stripe_transaction_id = 'TESTING_CHARGE_ID'
+    transaction.status = transaction.STATUS_PAID
+    transaction.save()
+
+
+def create_stripe_charge(user, transaction, request):
     location = transaction.associated_location.location
     try:
         charge = stripe.Charge.create(

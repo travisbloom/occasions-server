@@ -13,5 +13,12 @@ class CreateStripeUserMutationTestCase(GraphQLTestCase):
         )
         return super().setUp()
 
-    # def test__query_returns_expected_result(self):
-    #     self.generate_or_assert_gql_snapshot_is_equal(self.file_name, variables={})
+    def test__when_user_has_stripe_id__query_errors(self):
+        self.generate_or_assert_gql_snapshot_is_equal(
+            self.file_name,
+            variables={
+                'input': {
+                    'stripTransactionId': 'NOT_A_REAL_TRANSACTION_ID',
+                    'email': self.user.person.email
+                }
+            })

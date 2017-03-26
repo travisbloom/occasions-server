@@ -12,6 +12,15 @@ class CreatePersonMutationTestCase(GraphQLTestCase):
             with_transactions=True
         )
         return super().setUp()
-    #
+
     # def test__query_returns_expected_result(self):
-    #     self.generate_or_assert_gql_snapshot_is_equal(self.file_name, variables={})
+    #     self.generate_or_assert_gql_snapshot_is_equal(self.file_name, variables={
+    #         'input': {
+    #             'event': None,
+    #             'eventId': Node.to_global_id('AssociatedEventNode', associated_event.pk),
+    #             'receivingPersonId': Node.to_global_id(
+    #                 'PersonNode',
+    #                 associated_event.receiving_person.pk
+    #             ),
+    #         }
+    #     })

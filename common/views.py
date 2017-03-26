@@ -20,17 +20,29 @@ logger = logging.getLogger('occasions')
 
 
 def generic_error_message(formatted_error):
-    # if not settings.DEBUG:
-    #     formatted_error[
-    #         'message'] = 'Whoops! Something went wrong on our end. We\'re looking in to it now.'
+    if not settings.DEBUG:
+        formatted_error[
+            'message'] = 'Whoops! Something went wrong on our end. We\'re looking in to it now.'
+        return formatted_error
+
     return formatted_error
 
 
-def log_traceback(ex, ex_traceback=None):
-    if ex_traceback is None:
-        ex_traceback = ex.__traceback__
-    return [line.rstrip('\n') for line in
-            traceback.format_exception(ex.__class__, ex, ex_traceback)]
+def format_error_with_debug_info(error):
+    formatted_error = {}
+    if isinstance(error, GraphQLError):
+        formatted_error['message'] = error.message
+        if error.locations is not None:
+            formatted_error['locations'] = [
+                {'line': loc.line, 'column': loc.column}
+                for loc in error.locations
+            ]
+
+    used_error = error.original_error if hasattr(error, 'original_error') else error
+    # formatted_error['stack'] = traceback.format_tb(used_error.__traceback__)
+    if isinstance(used_error, FormValuesException):
+        formatted_error['data'] = camelize(error.original_error.args[0])
+    return formatted_error
 
 
 class OccasionsGraphQLView(GraphQLView):
@@ -38,28 +50,13 @@ class OccasionsGraphQLView(GraphQLView):
     def format_error(self, error):
         """Override format error, useful for showing the entire stack trace when in development"""
 
-        # if not isinstance(error, GraphQLError):
-        #     err = error.original_error if hasattr(error, 'original_error') else error
-        #     formatted_error = super(OccasionsGraphQLView, self).format_error(err)
-        #     if True:
-        #         formatted_error['stack'] = traceback.format_tb(err.__traceback__)
-        #     return formatted_error
-
-        formatted_error = {'message': error.message}
-        if error.locations is not None:
-            formatted_error['locations'] = [
-                {'line': loc.line, 'column': loc.column}
-                for loc in error.locations
-            ]
+        formatted_error = format_error_with_debug_info(error)
 
         try:
-            raise error.original_error
-        except MutationException as e:
-            generic_error_message(formatted_error)
-        except FormValuesException as e:
-            formatted_error['data'] = camelize(error.original_error.args[0])
+            raise error.original_error if hasattr(error, 'original_error') else error
+        except FormValuesException:
+            pass
         except Exception as e:
-            generic_error_message(formatted_error)
             # FIXME this doesnt give good stacktrace in sentry
             logger.exception('gql error', exc_info=True)
 

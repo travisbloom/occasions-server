@@ -1,0 +1,21 @@
+{
+    "data": {
+        "createUser": null
+    },
+    "errors": [
+        {
+            "data": {
+                "username": [
+                    "This field may not be blank."
+                ]
+            },
+            "locations": [
+                {
+                    "column": 3,
+                    "line": 2
+                }
+            ],
+            "message": "{'username': ['This field may not be blank.']}"
+        }
+    ]
+}

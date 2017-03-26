@@ -29,7 +29,7 @@ class GraphQLTestCase(TestCase):
             'variables': simplejson.dumps(variables or {})
         })
 
-        request.user = self.user
+        request.user = self.user if hasattr(self, 'user') else None
         response = self.view(request)
 
         if response.status_code != expected_code:

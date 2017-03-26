@@ -13,12 +13,14 @@ def build_user_mock_data(
 ):
     UserFactory.reset_sequence()
     AssociatedLocationFactory.reset_sequence()
-    user = UserFactory()
+    user_email = "useremail@email.com"
+    user = UserFactory(username=user_email)
     user_person = PersonFactory(
         id=1000,
         user=user,
-        first_name='User First Name',
-        last_name='User Last Name'
+        email=user_email,
+        first_name='UserFirstName',
+        last_name='UserLastName'
     )
     PersonFactory.reset_sequence()
     for _ in range(2):

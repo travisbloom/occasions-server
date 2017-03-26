@@ -1,0 +1,21 @@
+{
+    "data": {
+        "createTransaction": null
+    },
+    "errors": [
+        {
+            "data": {
+                "associatedLocationId": [
+                    "Invalid pk \"5\" - object does not exist."
+                ]
+            },
+            "locations": [
+                {
+                    "column": 5,
+                    "line": 2
+                }
+            ],
+            "message": "{'associated_location_id': ['Invalid pk \"5\" - object does not exist.']}"
+        }
+    ]
+}

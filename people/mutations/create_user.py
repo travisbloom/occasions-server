@@ -51,8 +51,4 @@ class CreateUser(relay.ClientIDMutation):
             raise FormValuesException(
                 {'username': 'A user with this information already exists'})
 
-        login(
-            context,
-            user,
-            backend='rest_framework_social_oauth2.backends.DjangoOAuth2')
         return CreateUser(user=user)

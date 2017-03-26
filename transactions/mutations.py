@@ -5,17 +5,19 @@ from graphene.types.json import JSONString
 from rest_framework import serializers
 from raven.contrib.django.raven_compat.models import client as raven_client
 import logging
+from django.conf import settings
 
 from common.exceptions import FormValuesException, MutationException
 from people.serializers import PersonWithRelationToCurrentUserField
 from people.schema import UserNode
+from common.gql import get_pk_from_global_id
 from locations.models import AssociatedLocation
 from events.models import AssociatedEvent
 from products.models import Product
 
 from .models import Transaction
 from .schema import TransactionNode
-from .stripe import create_stripe_user, create_strip_charge
+from .stripe import create_stripe_user, create_stripe_charge, mock_create_stripe_charge
 
 logger = logging.getLogger('occasions')
 
@@ -85,25 +87,38 @@ class CreateTransaction(relay.ClientIDMutation):
             error_msg = 'User tried to create a transaction before they have a stripe account'
             logger.warn(error_msg, extra={'request': context})
             raise MutationException(error_msg)
-
-        serializer = CreateTransactionSerializer(data=input, context={
+        formatted_input = {
+            **input,
+            'receiving_person_id': get_pk_from_global_id(input.get('receiving_person_id')),
+            'associated_location_id': get_pk_from_global_id(input.get('associated_location_id')),
+            'associated_event_id': get_pk_from_global_id(input.get('associated_event_id')),
+            'product_id': get_pk_from_global_id(input.get('product_id')),
+        }
+        serializer = CreateTransactionSerializer(data=formatted_input, context={
             'user': context.user,
-            'receiving_person_id': input.get('receiving_person_id')
+            'receiving_person_id': formatted_input.get('receiving_person_id')
         })
         if not serializer.is_valid():
             raise FormValuesException(serializer.errors)
 
-        product = Product.objects.get(pk=input.get('product_id'))
+        product = Product.objects.get(pk=formatted_input.get('product_id'))
         transaction = Transaction(
-            **input,
+            **formatted_input,
             cost_usd=product.cost_usd,
             user=context.user)
         transaction.save()
-        create_strip_charge(
-            user=context.user,
-            transaction=transaction,
-            request=context
-        )
+        if settings.TESTING:
+            mock_create_stripe_charge(
+                user=context.user,
+                transaction=transaction,
+                request=context
+            )
+        else:
+            create_stripe_charge(
+                user=context.user,
+                transaction=transaction,
+                request=context
+            )
         return CreateTransaction(transaction=transaction)
 
 

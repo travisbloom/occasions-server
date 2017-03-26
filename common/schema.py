@@ -33,7 +33,7 @@ class Mutation(
     EventsMutation,
     ObjectType
 ):
-    pass
+    create_user = CreateUser.Field()
 
 schema = Schema(
     query=Query,

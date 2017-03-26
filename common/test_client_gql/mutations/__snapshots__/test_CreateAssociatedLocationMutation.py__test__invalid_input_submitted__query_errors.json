@@ -1,0 +1,23 @@
+{
+    "data": {
+        "createAssociatedLocation": null
+    },
+    "errors": [
+        {
+            "data": {
+                "location": {
+                    "streetAddressLine1": [
+                        "This field may not be blank."
+                    ]
+                }
+            },
+            "locations": [
+                {
+                    "column": 3,
+                    "line": 2
+                }
+            ],
+            "message": "{'location': {'street_address_line1': ['This field may not be blank.']}}"
+        }
+    ]
+}

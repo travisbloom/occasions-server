@@ -4,9 +4,10 @@ from common.test_client_gql.graphql_test_case import GraphQLTestCase
 from common.testing_util import build_user_mock_data
 from common.relay import Node
 
-from people.factories import PersonFactory, AssociatedEventFactory
+from people.factories import PersonFactory
 
 
+# TODO add tests for creating new events
 class CreateAssociatedEventMutationTestCase(GraphQLTestCase):
 
     def setUp(self):

@@ -18,7 +18,10 @@ class PersonFactory(factory.django.DjangoModelFactory):
     first_name = factory.Sequence(lambda num: 'FirstName#{}'.format(num))
     last_name = factory.Sequence(lambda num: 'LastName#{}'.format(num))
     email = factory.LazyAttribute(
-        lambda obj: "{}.{}@email.com".format(obj.first_name, obj.last_name))
+        lambda obj: User.objects.normalize_email(
+            "{}.{}@email.com".format(obj.first_name, obj.last_name)
+        )
+    )
     birth_date = factory.Sequence(lambda num: pendulum.Date(
         1971, 1, 1).add(years=num, months=num * 2, days=num * 3))
     location = factory.RelatedFactory(AssociatedLocationFactory, 'person')
@@ -30,8 +33,7 @@ class UserFactory(factory.django.DjangoModelFactory):
         model = User
 
     id = factory.Sequence(lambda num: num + 1)
-    username = 'UserEmail@email.com'
-    stripe_user_id = 'STRIP_USER_ID'
+    stripe_user_id = 'cus_A4XJVCVTSgVA7G'
     datetime_created = pendulum.create(2017, 1, 1)
     datetime_updated = pendulum.create(2017, 1, 1)
 

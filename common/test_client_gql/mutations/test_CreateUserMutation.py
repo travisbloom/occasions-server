@@ -8,10 +8,28 @@ class CreateUserMutationTestCase(GraphQLTestCase):
 
     def setUp(self):
         self.file_name = "CreateUserMutation.graphql"
-        self.user = build_user_mock_data(
-            with_transactions=True
-        )
         return super().setUp()
 
-    # def test__query_returns_expected_result(self):
-    #     self.generate_or_assert_gql_snapshot_is_equal(self.file_name, variables={})
+    def test__query_returns_expected_result(self):
+        self.generate_or_assert_gql_snapshot_is_equal(self.file_name, variables={
+            'input': {
+                'username': 'travis@ge.com',
+                'password': 'heylookitsasuperlongpassword!'
+            }
+        })
+
+    def test__when_inputs_are_invalid__query_errors(self):
+        self.generate_or_assert_gql_snapshot_is_equal(self.file_name, variables={
+            'input': {
+                'username': '',
+                'password': 'heylookitsasuperlongpassword!'
+            }
+        })
+
+    def test__when_username_exists__query_errors(self):
+        self.generate_or_assert_gql_snapshot_is_equal(self.file_name, variables={
+            'input': {
+                'username': build_user_mock_data().person.email,
+                'password': 'heylookitsasuperlongpassword!'
+            }
+        })

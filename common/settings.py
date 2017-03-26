@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 import raven
+import sys
+import logging
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,10 +25,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['OCCASIONS_DJANGO_SECRET_KEY']
 STRIPE_SECRET_KEY = os.environ['OCCASIONS_STRIPE_SECRET_KEY']
+STRIPE_TEST_USER_ID = os.environ['OCCASIONS_STRIPE_TEST_USER_ID']
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # os.environ.get('OCCASIONS_ENVIRONMENT') == 'local'
+DEBUG = os.environ.get('OCCASIONS_ENVIRONMENT') == 'local'
 ALLOWED_HOSTS = []
+TESTING = sys.argv[1:2] == ['test']
 
+if TESTING:
+    logging.disable(logging.CRITICAL)
 
 # Application definition
 

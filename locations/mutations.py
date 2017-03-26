@@ -4,6 +4,8 @@ from common.gql.types import AbstractModelType
 from rest_framework import serializers
 
 from common.exceptions import FormValuesException
+from common.gql import get_pk_from_global_id
+
 from people.models import Person
 from people.serializers import PersonWithRelationToCurrentUserField
 from .models import Location, AssociatedLocation
@@ -47,15 +49,21 @@ class CreateAssociatedLocation(relay.ClientIDMutation):
     @classmethod
     def mutate_and_get_payload(cls, input, context, info):
         # TODO validate address against Lob
+        person_id = get_pk_from_global_id(input.get('person_id'))
         serializer = CreateAssociatedLocationSerializer(
-            data=input, context={'user': context.user})
+            data={
+                **input,
+                'person_id': person_id
+            },
+            context={'user': context.user}
+        )
         if not serializer.is_valid():
             raise FormValuesException(serializer.errors)
 
         location = Location(**input.get('location'))
         location.save()
         associated_location = AssociatedLocation(
-            location=location, person_id=input.get('person_id'))
+            location=location, person_id=person_id)
         associated_location.save()
 
         return CreateAssociatedLocation(

@@ -1,22 +1,9 @@
 {
-    "errors": [
-        {
-            "locations": [
-                {
-                    "column": 37,
-                    "line": 1
-                }
-            ],
-            "message": "Unknown type \"CreateUserInput\". Perhaps you meant \"CreateEventInput\", \"CreateStripeUserInput\", \"CreateLocationInput\", \"CreateTransactionInput\" or \"CreateAssociatedEventInput\"?"
-        },
-        {
-            "locations": [
-                {
-                    "column": 3,
-                    "line": 2
-                }
-            ],
-            "message": "Cannot query field \"createUser\" on type \"Mutation\". Did you mean \"createStripeUser\"?"
+    "data": {
+        "createUser": {
+            "user": {
+                "email": "travis@ge.com"
+            }
         }
-    ]
+    }
 }
