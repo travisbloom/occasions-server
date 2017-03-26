@@ -71,12 +71,7 @@ class RelationshipNode(AbstractModelType, DjangoObjectType):
 
 
 class Query(AbstractType):
-    user = relay.Node.Field(UserNode)
     users = DjangoFilterConnectionField(UserNode)
-
-    person = relay.Node.Field(PersonNode)
     people = DjangoFilterConnectionField(
         PersonNode, filterset_class=PersonFilter)
-
-    relationship = relay.Node.Field(RelationshipNode)
     relationships = DjangoFilterConnectionField(RelationshipNode)

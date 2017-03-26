@@ -45,16 +45,11 @@ class EventNode(AbstractModelType, DjangoObjectType):
 
 
 class Query(AbstractType):
-    associated_event = relay.Node.Field(AssociatedEventNode)
     associated_events = DjangoFilterConnectionField(AssociatedEventNode)
-
-    event = relay.Node.Field(EventNode)
     events = DjangoFilterConnectionField(
         EventNode,
         filterset_class=EventFilter,
         event_types_pk_in=List(ID)
     )
-
-    event_type = relay.Node.Field(EventTypeNode)
     event_types = DjangoFilterConnectionField(
         EventTypeNode, filterset_class=EventTypeFilter)

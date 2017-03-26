@@ -32,8 +32,5 @@ class AssociatedLocationNode(AbstractModelType, DjangoObjectType):
 
 
 class Query(AbstractType):
-    location = relay.Node.Field(LocationNode)
     locations = DjangoFilterConnectionField(LocationNode)
-
-    person_location = relay.Node.Field(AssociatedLocationNode)
     person_locations = DjangoFilterConnectionField(AssociatedLocationNode)

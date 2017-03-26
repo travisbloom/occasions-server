@@ -15,5 +15,4 @@ class TransactionNode(AbstractModelType, DjangoObjectType):
 
 
 class Query(AbstractType):
-    transaction = relay.Node.Field(TransactionNode)
     transactions = DjangoFilterConnectionField(TransactionNode)
