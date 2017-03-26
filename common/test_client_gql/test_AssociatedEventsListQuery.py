@@ -11,7 +11,7 @@ class AssociatedEventsListQueryTestCase(GraphQLTestCase):
         self.user = build_user_mock_data(
             with_transactions=True
         )
-        return super(AssociatedEventsListQueryTestCase, self).setUp()
+        return super().setUp()
 
     def test__query_returns_expected_result(self):
         self.generate_or_assert_gql_snapshot_is_equal(self.file_name)
