@@ -15,10 +15,4 @@ class ProductNode(AbstractModelType, DjangoObjectType):
 
 
 class Query(AbstractType):
-    product = Field(ProductNode, slug=Argument(ID), id=Argument(ID))
     products = DjangoFilterConnectionField(ProductNode)
-
-    def resolve_product(self, args, context, info):
-        if args.get('id'):
-            return relay.Node.node_resolver(self, args, context, info)
-        return Product.objects.get(id=args.get('slug'))

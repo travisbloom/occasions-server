@@ -16,6 +16,7 @@ class EventTypeFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = EventType
 
+    id = factory.Sequence(lambda num: num + 1)
     name = factory.Iterator(["event_type_1", "event_type_2", "event_type_3", "event_type_4"])
     display_name = factory.LazyAttribute(lambda obj: "{} display name".format(obj.name))
 
@@ -25,6 +26,7 @@ class EventFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Event
 
+    id = factory.Sequence(lambda num: num + 1)
     name = factory.Sequence(lambda num: 'event_name_{}'.format(num))
     slug = factory.LazyAttribute(lambda obj: "{}_slug".format(obj.name))
     date_start = factory.Sequence(lambda num: pendulum.Date(2017, 1, 1).add(months=num))
@@ -48,6 +50,7 @@ class AssociatedEventFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = AssociatedEvent
 
+    id = factory.Sequence(lambda num: num + 1)
     creating_person = factory.SubFactory(PersonFactory)
     receiving_person = factory.SubFactory(PersonFactory)
     event = factory.SubFactory(EventFactory)

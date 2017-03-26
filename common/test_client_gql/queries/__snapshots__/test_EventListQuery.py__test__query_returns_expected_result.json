@@ -1,0 +1,108 @@
+{
+    "data": {
+        "events": {
+            "edges": [
+                {
+                    "node": {
+                        "dateStart": "2020-04-01",
+                        "id": "RXZlbnROb2RlOjQw",
+                        "isReoccuringYearly": false,
+                        "name": "event_name_39",
+                        "slug": "event_name_39_slug",
+                        "timeStart": null
+                    }
+                },
+                {
+                    "node": {
+                        "dateStart": "2020-03-01",
+                        "id": "RXZlbnROb2RlOjM5",
+                        "isReoccuringYearly": true,
+                        "name": "event_name_38",
+                        "slug": "event_name_38_slug",
+                        "timeStart": "13:30:30"
+                    }
+                },
+                {
+                    "node": {
+                        "dateStart": "2020-02-01",
+                        "id": "RXZlbnROb2RlOjM4",
+                        "isReoccuringYearly": false,
+                        "name": "event_name_37",
+                        "slug": "event_name_37_slug",
+                        "timeStart": null
+                    }
+                },
+                {
+                    "node": {
+                        "dateStart": "2020-01-01",
+                        "id": "RXZlbnROb2RlOjM3",
+                        "isReoccuringYearly": true,
+                        "name": "event_name_36",
+                        "slug": "event_name_36_slug",
+                        "timeStart": "13:30:30"
+                    }
+                },
+                {
+                    "node": {
+                        "dateStart": "2019-12-01",
+                        "id": "RXZlbnROb2RlOjM2",
+                        "isReoccuringYearly": false,
+                        "name": "event_name_35",
+                        "slug": "event_name_35_slug",
+                        "timeStart": null
+                    }
+                },
+                {
+                    "node": {
+                        "dateStart": "2019-11-01",
+                        "id": "RXZlbnROb2RlOjM1",
+                        "isReoccuringYearly": true,
+                        "name": "event_name_34",
+                        "slug": "event_name_34_slug",
+                        "timeStart": "13:30:30"
+                    }
+                },
+                {
+                    "node": {
+                        "dateStart": "2019-10-01",
+                        "id": "RXZlbnROb2RlOjM0",
+                        "isReoccuringYearly": false,
+                        "name": "event_name_33",
+                        "slug": "event_name_33_slug",
+                        "timeStart": null
+                    }
+                },
+                {
+                    "node": {
+                        "dateStart": "2019-09-01",
+                        "id": "RXZlbnROb2RlOjMz",
+                        "isReoccuringYearly": true,
+                        "name": "event_name_32",
+                        "slug": "event_name_32_slug",
+                        "timeStart": "13:30:30"
+                    }
+                },
+                {
+                    "node": {
+                        "dateStart": "2019-08-01",
+                        "id": "RXZlbnROb2RlOjMy",
+                        "isReoccuringYearly": false,
+                        "name": "event_name_31",
+                        "slug": "event_name_31_slug",
+                        "timeStart": null
+                    }
+                },
+                {
+                    "node": {
+                        "dateStart": "2019-07-01",
+                        "id": "RXZlbnROb2RlOjMx",
+                        "isReoccuringYearly": true,
+                        "name": "event_name_30",
+                        "slug": "event_name_30_slug",
+                        "timeStart": "13:30:30"
+                    }
+                }
+            ]
+        }
+    }
+}

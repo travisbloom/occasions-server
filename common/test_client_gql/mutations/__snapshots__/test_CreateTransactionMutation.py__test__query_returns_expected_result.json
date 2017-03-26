@@ -1,0 +1,13 @@
+{
+    "errors": [
+        {
+            "locations": [
+                {
+                    "column": 33,
+                    "line": 1
+                }
+            ],
+            "message": "Whoops! Something went wrong on our end. We're looking in to it now."
+        }
+    ]
+}

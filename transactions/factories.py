@@ -11,6 +11,7 @@ class TransactionFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Transaction
 
+    id = factory.Sequence(lambda num: num + 1)
     cost_usd = factory.LazyAttribute(lambda obj: obj.product.cost_usd)
     associated_location = factory.LazyAttribute(
         lambda obj: obj.receiving_person.associated_locations.first())

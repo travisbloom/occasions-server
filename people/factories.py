@@ -13,6 +13,7 @@ class PersonFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Person
 
+    id = factory.Sequence(lambda num: num + 1)
     first_name = factory.Sequence(lambda num: 'FirstName#{}'.format(num))
     last_name = factory.Sequence(lambda num: 'LastName#{}'.format(num))
     email = factory.LazyAttribute(
@@ -26,6 +27,7 @@ class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = User
 
+    id = factory.Sequence(lambda num: num + 1)
     username = 'UserEmail@email.com'
     stripe_user_id = 'STRIP_USER_ID'
     person = factory.SubFactory(PersonFactory)
@@ -38,6 +40,7 @@ class RelationshipFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Relationship
 
+    id = factory.Sequence(lambda num: num + 1)
     to_person = factory.SubFactory(PersonFactory)
     relationship_type = factory.Iterator([relation_type[1]
                                           for relation_type in Relationship.RELATIONSHIP_TYPE])

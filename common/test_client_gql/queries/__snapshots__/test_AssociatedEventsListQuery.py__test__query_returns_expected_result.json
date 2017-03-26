@@ -1,0 +1,205 @@
+{
+    "data": {
+        "currentUser": {
+            "id": "VXNlck5vZGU6MQ==",
+            "person": {
+                "createdEvents": {
+                    "edges": [
+                        {
+                            "node": {
+                                "event": {
+                                    "dateStart": "2019-06-01",
+                                    "id": "RXZlbnROb2RlOjMw",
+                                    "isReoccuringYearly": false,
+                                    "name": "event_name_29",
+                                    "timeStart": null
+                                },
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToxMA==",
+                                "receivingPerson": {
+                                    "fullName": "FirstName#22 LastName#22",
+                                    "id": "UGVyc29uTm9kZToyMw=="
+                                },
+                                "transactions": {
+                                    "edges": []
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "event": {
+                                    "dateStart": "2019-05-01",
+                                    "id": "RXZlbnROb2RlOjI5",
+                                    "isReoccuringYearly": true,
+                                    "name": "event_name_28",
+                                    "timeStart": "13:30:30"
+                                },
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo5",
+                                "receivingPerson": {
+                                    "fullName": "FirstName#22 LastName#22",
+                                    "id": "UGVyc29uTm9kZToyMw=="
+                                },
+                                "transactions": {
+                                    "edges": []
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "event": {
+                                    "dateStart": "2019-04-01",
+                                    "id": "RXZlbnROb2RlOjI4",
+                                    "isReoccuringYearly": false,
+                                    "name": "event_name_27",
+                                    "timeStart": null
+                                },
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo4",
+                                "receivingPerson": {
+                                    "fullName": "FirstName#22 LastName#22",
+                                    "id": "UGVyc29uTm9kZToyMw=="
+                                },
+                                "transactions": {
+                                    "edges": []
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "event": {
+                                    "dateStart": "2019-03-01",
+                                    "id": "RXZlbnROb2RlOjI3",
+                                    "isReoccuringYearly": true,
+                                    "name": "event_name_26",
+                                    "timeStart": "13:30:30"
+                                },
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo3",
+                                "receivingPerson": {
+                                    "fullName": "FirstName#22 LastName#22",
+                                    "id": "UGVyc29uTm9kZToyMw=="
+                                },
+                                "transactions": {
+                                    "edges": []
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "event": {
+                                    "dateStart": "2019-02-01",
+                                    "id": "RXZlbnROb2RlOjI2",
+                                    "isReoccuringYearly": false,
+                                    "name": "event_name_25",
+                                    "timeStart": null
+                                },
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo2",
+                                "receivingPerson": {
+                                    "fullName": "FirstName#22 LastName#22",
+                                    "id": "UGVyc29uTm9kZToyMw=="
+                                },
+                                "transactions": {
+                                    "edges": []
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "event": {
+                                    "dateStart": "2019-01-01",
+                                    "id": "RXZlbnROb2RlOjI1",
+                                    "isReoccuringYearly": true,
+                                    "name": "event_name_24",
+                                    "timeStart": "13:30:30"
+                                },
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo1",
+                                "receivingPerson": {
+                                    "fullName": "FirstName#22 LastName#22",
+                                    "id": "UGVyc29uTm9kZToyMw=="
+                                },
+                                "transactions": {
+                                    "edges": []
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "event": {
+                                    "dateStart": "2018-12-01",
+                                    "id": "RXZlbnROb2RlOjI0",
+                                    "isReoccuringYearly": false,
+                                    "name": "event_name_23",
+                                    "timeStart": null
+                                },
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo0",
+                                "receivingPerson": {
+                                    "fullName": "FirstName#22 LastName#22",
+                                    "id": "UGVyc29uTm9kZToyMw=="
+                                },
+                                "transactions": {
+                                    "edges": []
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "event": {
+                                    "dateStart": "2018-11-01",
+                                    "id": "RXZlbnROb2RlOjIz",
+                                    "isReoccuringYearly": true,
+                                    "name": "event_name_22",
+                                    "timeStart": "13:30:30"
+                                },
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToz",
+                                "receivingPerson": {
+                                    "fullName": "FirstName#22 LastName#22",
+                                    "id": "UGVyc29uTm9kZToyMw=="
+                                },
+                                "transactions": {
+                                    "edges": []
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "event": {
+                                    "dateStart": "2018-10-01",
+                                    "id": "RXZlbnROb2RlOjIy",
+                                    "isReoccuringYearly": false,
+                                    "name": "event_name_21",
+                                    "timeStart": null
+                                },
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToy",
+                                "receivingPerson": {
+                                    "fullName": "FirstName#22 LastName#22",
+                                    "id": "UGVyc29uTm9kZToyMw=="
+                                },
+                                "transactions": {
+                                    "edges": []
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "event": {
+                                    "dateStart": "2018-09-01",
+                                    "id": "RXZlbnROb2RlOjIx",
+                                    "isReoccuringYearly": true,
+                                    "name": "event_name_20",
+                                    "timeStart": "13:30:30"
+                                },
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox",
+                                "receivingPerson": {
+                                    "fullName": "FirstName#22 LastName#22",
+                                    "id": "UGVyc29uTm9kZToyMw=="
+                                },
+                                "transactions": {
+                                    "edges": []
+                                }
+                            }
+                        }
+                    ]
+                },
+                "fullName": "FirstName#22 LastName#22",
+                "id": "UGVyc29uTm9kZToyMw=="
+            }
+        }
+    }
+}

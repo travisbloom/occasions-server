@@ -1,0 +1,24 @@
+{
+    "data": {
+        "node": {
+            "event": {
+                "dateStart": "2017-11-01",
+                "id": "RXZlbnROb2RlOjEx",
+                "isReoccuringYearly": true,
+                "name": "event_name_10",
+                "relatedProducts": {
+                    "edges": []
+                },
+                "timeStart": "13:30:30"
+            },
+            "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox",
+            "receivingPerson": {
+                "fullName": "FirstName#11 LastName#11",
+                "id": "UGVyc29uTm9kZToxMg=="
+            },
+            "transactions": {
+                "edges": []
+            }
+        }
+    }
+}

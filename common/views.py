@@ -7,6 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import authentication_classes, permission_classes, api_view
 from oauth2_provider.ext.rest_framework import OAuth2Authentication
 from rest_framework_social_oauth2.authentication import SocialAuthentication
+from django.contrib.auth.decorators import login_required
 
 from graphene_django.views import GraphQLView
 from graphql.error import GraphQLError
@@ -19,9 +20,9 @@ logger = logging.getLogger('occasions')
 
 
 def generic_error_message(formatted_error):
-    if not settings.DEBUG:
-        formatted_error[
-            'message'] = 'Whoops! Something went wrong on our end. We\'re looking in to it now.'
+    # if not settings.DEBUG:
+    #     formatted_error[
+    #         'message'] = 'Whoops! Something went wrong on our end. We\'re looking in to it now.'
     return formatted_error
 
 
@@ -36,10 +37,13 @@ class OccasionsGraphQLView(GraphQLView):
 
     def format_error(self, error):
         """Override format error, useful for showing the entire stack trace when in development"""
-        # raise error.original_error if hasattr(
-        #     error, 'original_error') else error
-        if not isinstance(error, GraphQLError):
-            return {'message': error}
+
+        # if not isinstance(error, GraphQLError):
+        #     err = error.original_error if hasattr(error, 'original_error') else error
+        #     formatted_error = super(OccasionsGraphQLView, self).format_error(err)
+        #     if True:
+        #         formatted_error['stack'] = traceback.format_tb(err.__traceback__)
+        #     return formatted_error
 
         formatted_error = {'message': error.message}
         if error.locations is not None:
@@ -61,6 +65,7 @@ class OccasionsGraphQLView(GraphQLView):
 
         return formatted_error
 
+    @login_required
     def can_display_graphiql(self, request, data):
         if request.user.is_superuser or request.user.is_staff:
             return super().can_display_graphiql(request, data)

@@ -20,7 +20,7 @@ class Query(
     locations.schema.Query,
     ObjectType
 ):
-    node = relay.Node,
+    node = relay.Node.Field()
     current_user = Field(people.schema.UserNode)
 
     def resolve_current_user(self, args, context, info):

@@ -10,6 +10,7 @@ from common.views import OccasionsGraphQLView
 
 
 class GraphQLTestCase(TestCase):
+    fixtures = ('event_types',)
 
     def setUp(self):
         self.requestFactory = RequestFactory()
@@ -30,10 +31,10 @@ class GraphQLTestCase(TestCase):
 
         request.user = self.user
         response = self.view(request)
-        import pdb
-        pdb.set_trace()
+
         if response.status_code != expected_code:
             print(response.content.decode())
+
         is_snapshot_equal = generate_or_assert_snapshot_is_equal(
             simplejson.loads(response.content.decode()),
             parent_method_name=inspect.stack()[1][3],

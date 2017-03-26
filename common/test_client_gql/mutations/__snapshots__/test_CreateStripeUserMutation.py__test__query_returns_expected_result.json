@@ -1,0 +1,22 @@
+{
+    "errors": [
+        {
+            "locations": [
+                {
+                    "column": 11,
+                    "line": 4
+                }
+            ],
+            "message": "Whoops! Something went wrong on our end. We're looking in to it now."
+        },
+        {
+            "locations": [
+                {
+                    "column": 11,
+                    "line": 5
+                }
+            ],
+            "message": "Whoops! Something went wrong on our end. We're looking in to it now."
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+{
+    "data": {
+        "eventTypes": {
+            "edges": [
+                {
+                    "node": {
+                        "displayName": "Special Days",
+                        "id": "RXZlbnRUeXBlTm9kZTphbm5pdmVyc2FyeQ=="
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Celebration",
+                        "id": "RXZlbnRUeXBlTm9kZTpjZWxlYnJhdGlvbg=="
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Religious",
+                        "id": "RXZlbnRUeXBlTm9kZTpyZWxpZ2lvdXM="
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Jewish",
+                        "id": "RXZlbnRUeXBlTm9kZTpqZXdpc2g="
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Christian",
+                        "id": "RXZlbnRUeXBlTm9kZTpjaHJpc3RpYW4="
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Muslim",
+                        "id": "RXZlbnRUeXBlTm9kZTptdXNsaW0="
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Romantic",
+                        "id": "RXZlbnRUeXBlTm9kZTpyb21hbnRpYw=="
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "National",
+                        "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw="
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Just For Fun",
+                        "id": "RXZlbnRUeXBlTm9kZTpodW1vcm91cw=="
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Family",
+                        "id": "RXZlbnRUeXBlTm9kZTpmYW1pbHk="
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "American",
+                        "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg=="
+                    }
+                }
+            ]
+        }
+    }
+}

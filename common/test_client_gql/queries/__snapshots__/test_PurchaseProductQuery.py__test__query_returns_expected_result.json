@@ -1,0 +1,63 @@
+{
+    "data": {
+        "associatedEvent": {
+            "event": {
+                "dateStart": "2020-05-01",
+                "id": "RXZlbnROb2RlOjQx",
+                "isReoccuringYearly": true,
+                "name": "event_name_40",
+                "timeStart": "13:30:30"
+            },
+            "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox",
+            "pk": "1",
+            "receivingPerson": {
+                "associatedLocations": {
+                    "edges": [
+                        {
+                            "node": {
+                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTox",
+                                "location": {
+                                    "displayName": "12 Main St. Apt #12, city_12 CT 11123",
+                                    "id": "TG9jYXRpb25Ob2RlOjEz"
+                                },
+                                "pk": "1"
+                            }
+                        },
+                        {
+                            "node": {
+                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToy",
+                                "location": {
+                                    "displayName": "13 Main St. Apt #13, city_13 CA 11124",
+                                    "id": "TG9jYXRpb25Ob2RlOjE0"
+                                },
+                                "pk": "2"
+                            }
+                        }
+                    ]
+                },
+                "fullName": "FirstName#46 LastName#46",
+                "id": "UGVyc29uTm9kZTo0Nw==",
+                "pk": "47"
+            }
+        },
+        "currentUser": {
+            "email": "UserEmail@email.com",
+            "hasStripeUser": true,
+            "id": "VXNlck5vZGU6MQ==",
+            "person": {
+                "fullName": "FirstName#46 LastName#46",
+                "id": "UGVyc29uTm9kZTo0Nw=="
+            }
+        },
+        "product": {
+            "costUsd": 2.0,
+            "description": "Product #0's Description",
+            "eventTypes": {
+                "edges": []
+            },
+            "id": "UHJvZHVjdE5vZGU6UHJvZHVjdCAjMCBTbHVn",
+            "name": "Product #0",
+            "slug": "Product #0 Slug"
+        }
+    }
+}
