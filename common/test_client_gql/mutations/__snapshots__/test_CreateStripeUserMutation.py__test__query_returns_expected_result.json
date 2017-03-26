@@ -7,7 +7,7 @@
                     "line": 4
                 }
             ],
-            "message": "Whoops! Something went wrong on our end. We're looking in to it now."
+            "message": "Cannot query field \"username\" on type \"UserNode\"."
         },
         {
             "locations": [
@@ -16,7 +16,7 @@
                     "line": 5
                 }
             ],
-            "message": "Whoops! Something went wrong on our end. We're looking in to it now."
+            "message": "Cannot query field \"accessTokens\" on type \"UserNode\". Did you mean \"accessToken\"?"
         }
     ]
 }

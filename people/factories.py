@@ -6,6 +6,7 @@ from people.models import (
     User,
     Relationship
 )
+from locations.factories import AssociatedLocationFactory
 
 
 class PersonFactory(factory.django.DjangoModelFactory):
@@ -20,6 +21,7 @@ class PersonFactory(factory.django.DjangoModelFactory):
         lambda obj: "{}.{}@email.com".format(obj.first_name, obj.last_name))
     birth_date = factory.Sequence(lambda num: pendulum.Date(
         1971, 1, 1).add(years=num, months=num * 2, days=num * 3))
+    location = factory.RelatedFactory(AssociatedLocationFactory, 'person')
 
 
 class UserFactory(factory.django.DjangoModelFactory):
@@ -30,7 +32,6 @@ class UserFactory(factory.django.DjangoModelFactory):
     id = factory.Sequence(lambda num: num + 1)
     username = 'UserEmail@email.com'
     stripe_user_id = 'STRIP_USER_ID'
-    person = factory.SubFactory(PersonFactory)
     datetime_created = pendulum.create(2017, 1, 1)
     datetime_updated = pendulum.create(2017, 1, 1)
 

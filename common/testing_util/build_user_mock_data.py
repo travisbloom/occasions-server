@@ -1,6 +1,6 @@
-from events.factories import AssociatedEventFactory
+from events.factories import AssociatedEventFactory, EventFactory
 from locations.factories import AssociatedLocationFactory
-from people.factories import UserFactory, RelationshipFactory
+from people.factories import UserFactory, RelationshipFactory, PersonFactory
 from products.factories import ProductFactory
 from transactions.factories import TransactionFactory
 
@@ -14,6 +14,13 @@ def build_user_mock_data(
     UserFactory.reset_sequence()
     AssociatedLocationFactory.reset_sequence()
     user = UserFactory()
+    user_person = PersonFactory(
+        id=1000,
+        user=user,
+        first_name='User First Name',
+        last_name='User Last Name'
+    )
+    PersonFactory.reset_sequence()
     for _ in range(2):
         AssociatedLocationFactory(person=user.person)
 
@@ -23,12 +30,13 @@ def build_user_mock_data(
             RelationshipFactory(from_person=user.person)
 
     if with_associated_events or with_transactions:
+        EventFactory.reset_sequence()
         AssociatedEventFactory.reset_sequence()
         for num in range(10):
             relationships = user.person.from_relationships.all()
             AssociatedEventFactory(
                 creating_person=user.person,
-                receiving_person=relationships[1 if num % 2 == 0 else 0].from_person
+                receiving_person=relationships[num].to_person
             )
 
     if with_products or with_transactions:
@@ -44,7 +52,7 @@ def build_user_mock_data(
                 user=user,
                 associated_event=created_events,
                 receiving_person=receiving_person,
-                product=products[-1 * num],
+                product=products[num],
                 associated_location=receiving_person.associated_locations.first()
             )
 

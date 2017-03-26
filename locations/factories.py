@@ -5,7 +5,6 @@ from locations.models import (
     Location,
     AssociatedLocation
 )
-from people.factories import PersonFactory
 
 
 class LocationFactory(factory.django.DjangoModelFactory):

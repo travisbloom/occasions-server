@@ -7,8 +7,9 @@ from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
 from graphene.types.datetime import DateTime, Time
 
+
 from common.exceptions import FormValuesException, MutationException
-from common.gql.types import AbstractModelType
+from common.gql import AbstractModelType, get_pk_from_global_id
 from products.models import Product
 from products.schema import ProductNode
 
@@ -39,8 +40,8 @@ class CreateAssociatedEvent(relay.ClientIDMutation):
     @classmethod
     @transaction.atomic
     def mutate_and_get_payload(cls, input, context, info):
-        event_id = input.get('event_id')
-        if not event_id:
+        receiving_person_id = get_pk_from_global_id(input.get('receiving_person_id'))
+        if not input.get('event_id'):
             event = input.get('event')
             if not event:
                 raise MutationException('No event was sent')
@@ -50,30 +51,30 @@ class CreateAssociatedEvent(relay.ClientIDMutation):
 
             event_serializer = EventSerializer(data=event, context={
                 'user': context.user,
-                'receiving_person_id': input.get('receiving_person_id')
+                'receiving_person_id': receiving_person_id
             })
             if not event_serializer.is_valid():
                 raise FormValuesException(event_serializer.errors)
             event = Event(**event)
             event.save()
             event_id = event.id
-
+        event_id = get_pk_from_global_id(input.get('event_id'))
         associated_event_serializer = AssociatedEventSerializer(
             data={
                 'event': event_id,
                 'creating_person': context.user.person.id,
-                'receiving_person': input.get('receiving_person_id')
+                'receiving_person': receiving_person_id
             },
             context={
                 'user': context.user,
-                'receiving_person_id': input.get('receiving_person_id')
+                'receiving_person_id': receiving_person_id
             }
         )
         if not associated_event_serializer.is_valid():
             raise FormValuesException(associated_event_serializer.errors)
         associated_event = AssociatedEvent(
             creating_person=context.user.person,
-            receiving_person_id=input.get('receiving_person_id'),
+            receiving_person_id=receiving_person_id,
             event_id=event_id
         )
         associated_event.save()

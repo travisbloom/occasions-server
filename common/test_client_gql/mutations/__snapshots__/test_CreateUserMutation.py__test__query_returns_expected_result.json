@@ -7,7 +7,7 @@
                     "line": 1
                 }
             ],
-            "message": "Whoops! Something went wrong on our end. We're looking in to it now."
+            "message": "Unknown type \"CreateUserInput\". Perhaps you meant \"CreateEventInput\", \"CreateStripeUserInput\", \"CreateLocationInput\", \"CreateTransactionInput\" or \"CreateAssociatedEventInput\"?"
         },
         {
             "locations": [
@@ -16,7 +16,7 @@
                     "line": 2
                 }
             ],
-            "message": "Whoops! Something went wrong on our end. We're looking in to it now."
+            "message": "Cannot query field \"createUser\" on type \"Mutation\". Did you mean \"createStripeUser\"?"
         }
     ]
 }

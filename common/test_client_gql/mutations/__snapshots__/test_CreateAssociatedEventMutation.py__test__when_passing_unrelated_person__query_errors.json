@@ -1,0 +1,21 @@
+{
+    "data": {
+        "createAssociatedEvent": null
+    },
+    "errors": [
+        {
+            "data": {
+                "receivingPerson": [
+                    "Invalid pk \"11\" - object does not exist."
+                ]
+            },
+            "locations": [
+                {
+                    "column": 3,
+                    "line": 2
+                }
+            ],
+            "message": "{'receiving_person': ['Invalid pk \"11\" - object does not exist.']}"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "data": {
+        "createAssociatedEvent": {
+            "associatedEvent": {
+                "creatingPerson": {
+                    "fullName": "User First Name User Last Name"
+                },
+                "event": {
+                    "name": "event_name_9"
+                },
+                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToxMQ==",
+                "receivingPerson": {
+                    "fullName": "FirstName#0 LastName#0"
+                }
+            }
+        }
+    }
+}

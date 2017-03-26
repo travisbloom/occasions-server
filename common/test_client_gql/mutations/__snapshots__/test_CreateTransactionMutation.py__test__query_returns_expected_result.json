@@ -7,7 +7,7 @@
                     "line": 1
                 }
             ],
-            "message": "Whoops! Something went wrong on our end. We're looking in to it now."
+            "message": "Variable \"$input\" of required type \"CreateTransactionInput!\" was not provided."
         }
     ]
 }
