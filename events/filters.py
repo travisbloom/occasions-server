@@ -11,6 +11,7 @@ class EventFilter(django_filters.FilterSet):
         model = Event
         fields = (
             'search',
+            'event_types'
         )
 
     def filter_search(self, queryset, name, value):

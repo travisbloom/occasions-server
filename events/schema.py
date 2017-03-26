@@ -58,11 +58,3 @@ class Query(AbstractType):
     event_type = relay.Node.Field(EventTypeNode)
     event_types = DjangoFilterConnectionField(
         EventTypeNode, filterset_class=EventTypeFilter)
-
-    def resolve_events(self, variables, context, info, *foo, **kwargs):
-        qs = Event.objects
-        if variables.get('event_types_pk_in'):
-            qs = qs.filter(event_types__pk__in=variables.get(
-                'event_types_pk_in')).distinct()
-        qs = EventFilter(data=variables, queryset=qs).qs
-        return qs
