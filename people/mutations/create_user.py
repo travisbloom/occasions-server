@@ -16,9 +16,9 @@ from rest_framework import serializers
 from common.exceptions import FormValuesException
 from common.gql.types import AbstractModelType
 
-from .models import User, Person, Relationship
-from .filters import PersonFilter
-from .schema import UserNode
+from people.models import User, Person, Relationship
+from people.filters import PersonFilter
+from people.schema import UserNode
 
 
 class CreateUserInputSerializers(serializers.Serializer):
@@ -56,7 +56,3 @@ class CreateUser(relay.ClientIDMutation):
             user,
             backend='rest_framework_social_oauth2.backends.DjangoOAuth2')
         return CreateUser(user=user)
-
-
-class PeopleMutation(AbstractType):
-    create_user = CreateUser.Field()

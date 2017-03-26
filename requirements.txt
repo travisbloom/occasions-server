@@ -44,3 +44,7 @@ social-auth-core==1.0.0
 sqlparse==0.2.2
 stripe==1.46.0
 wheel==0.26.0
+jsondiff==1.1.0
+pytest==3.0.7
+factory-boy==2.8.1
+pendulum==1.2.0

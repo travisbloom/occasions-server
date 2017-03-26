@@ -171,7 +171,7 @@ INTERNAL_IPS = (
 
 # logging
 RAVEN_CONFIG = {
-    'dsn': os.environ['OCCASIONS_SENTRY_DNS'],
+    'dsn': None if DEBUG else os.environ['OCCASIONS_SENTRY_DNS'],
     'release': raven.fetch_git_sha(os.path.dirname(os.pardir)),
 }
 

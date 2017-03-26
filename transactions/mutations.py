@@ -59,7 +59,7 @@ class AssociatedEventRelatedToPersonField(serializers.PrimaryKeyRelatedField):
         )
 
 
-class CreateAssociatedLocationSerializer(serializers.Serializer):
+class CreateTransactionSerializer(serializers.Serializer):
     receiving_person_id = PersonWithRelationToCurrentUserField()
     associated_location_id = LocationRelatedToPersonField()
     associated_event_id = AssociatedEventRelatedToPersonField()
@@ -86,7 +86,7 @@ class CreateTransaction(relay.ClientIDMutation):
             logger.warn(error_msg, extra={'request': context})
             raise MutationException(error_msg)
 
-        serializer = CreateAssociatedLocationSerializer(data=input, context={
+        serializer = CreateTransactionSerializer(data=input, context={
             'user': context.user,
             'receiving_person_id': input.get('receiving_person_id')
         })

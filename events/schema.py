@@ -38,7 +38,7 @@ class EventNode(AbstractModelType, DjangoObjectType):
             Product.objects
             .filter(
                 Q(event_id=self.id) |
-                Q(event_types__in=[event_type.id for event_type in self.event_types.all()])
+                Q(event_types__in=[event_type for event_type in self.event_types.all()])
             )
             .order_by('-event_id')
         )
@@ -66,27 +66,3 @@ class Query(AbstractType):
                 'event_types_pk_in')).distinct()
         qs = EventFilter(data=variables, queryset=qs).qs
         return qs
-
-
-class CreateAssociatedEvent(relay.ClientIDMutation):
-
-    class Input:
-        event_id = String(required=False)
-        creating_person_id = String(required=True)
-        receiving_person_id = String(required=True)
-
-    associated_event = Field(lambda: AssociatedEventNode)
-
-    @classmethod
-    def mutate_and_get_payload(cls, input, info):
-        associated_event = AssociatedEvent(
-            creating_person_id=input.get('creating_person_id'),
-            receiving_person_id=input.get('receiving_person_id'),
-            event_id=input.get('event_id'),
-        )
-        associated_event.save()
-        return CreateAssociatedEvent(associated_event=associated_event)
-
-
-class Mutation(AbstractType):
-    create_associated_event = Field(CreateAssociatedEvent)

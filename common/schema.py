@@ -8,7 +8,8 @@ import locations.schema
 
 from transactions.mutations import TransactionMutation
 from locations.mutations import LocationsMutation
-from people.mutations import PeopleMutation, CreateUser
+from people.mutations import CreateUser
+from events.mutations import EventsMutation
 
 
 class Query(
@@ -27,10 +28,9 @@ class Query(
 
 
 class Mutation(
-    PeopleMutation,
     TransactionMutation,
-    events.schema.Mutation,
     LocationsMutation,
+    EventsMutation,
     ObjectType
 ):
     pass

@@ -36,8 +36,8 @@ class OccasionsGraphQLView(GraphQLView):
 
     def format_error(self, error):
         """Override format error, useful for showing the entire stack trace when in development"""
-        raise error.original_error if hasattr(
-            error, 'original_error') else error
+        # raise error.original_error if hasattr(
+        #     error, 'original_error') else error
         if not isinstance(error, GraphQLError):
             return {'message': error}
 
