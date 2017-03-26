@@ -1,29 +1,14 @@
 import pendulum
-from factory.django import DjangoModelFactory
+import factory
 
-from events.models import (
+from people.models import (
     Person,
     User,
     Relationship
 )
 
 
-class UserFactory(factory.Factory):
-
-    class Meta:
-        model = User
-
-    username = 'UserEmail@email.com'
-    person__email = 'UserEmail@email.com'
-    stripe_user_id = 'STRIP_USER_ID'
-    person__first_name = 'User First Name'
-    person__last_name = 'User Last Name'
-    person__birth_date = pendulum.Date(1991, 1, 1)
-    datetime_created = pendulum(2017, 1, 1)
-    datetime_updated = pendulum(2017, 1, 1)
-
-
-class PersonFactory(factory.Factory):
+class PersonFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = Person
@@ -36,11 +21,23 @@ class PersonFactory(factory.Factory):
         1971, 1, 1).add(years=num, months=num * 2, days=num * 3))
 
 
-class RelationshipFactory(factory.Factory):
+class UserFactory(factory.django.DjangoModelFactory):
+
+    class Meta:
+        model = User
+
+    username = 'UserEmail@email.com'
+    stripe_user_id = 'STRIP_USER_ID'
+    person = factory.SubFactory(PersonFactory)
+    datetime_created = pendulum.create(2017, 1, 1)
+    datetime_updated = pendulum.create(2017, 1, 1)
+
+
+class RelationshipFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = Relationship
 
     to_person = factory.SubFactory(PersonFactory)
-    relationship_type = factory.Interator([relation_type[1]
-                                           for relation_type in Relationship.RELATIONSHIP_TYPE])
+    relationship_type = factory.Iterator([relation_type[1]
+                                          for relation_type in Relationship.RELATIONSHIP_TYPE])

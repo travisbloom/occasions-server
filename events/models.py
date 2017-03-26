@@ -19,8 +19,6 @@ class EventManager(models.Manager):
             .prefetch_related('event_types')
         )
 
-# Create your models here.
-
 
 class Event(BaseModel):
     TYPE_BIRTHDAY = 'birthday'

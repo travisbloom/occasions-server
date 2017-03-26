@@ -1,14 +1,14 @@
 import pendulum
-from factory.django import DjangoModelFactory
+import factory
 
-from events.models import (
+from locations.models import (
     Location,
     AssociatedLocation
 )
 from people.factories import PersonFactory
 
 
-class LocationFactory(factory.Factory):
+class LocationFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = Location
@@ -20,7 +20,7 @@ class LocationFactory(factory.Factory):
     state = factory.Iterator(["CT", "CA", "MA", "DE"])
 
 
-class AssociatedLocationFactory(factory.Factory):
+class AssociatedLocationFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = AssociatedLocation
