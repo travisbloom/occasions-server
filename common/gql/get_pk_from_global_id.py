@@ -1,4 +1,4 @@
-from graphene.relay import Node
+from common.relay import Node
 
 
 def get_pk_from_global_id(node_id):

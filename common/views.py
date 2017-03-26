@@ -62,7 +62,6 @@ class OccasionsGraphQLView(GraphQLView):
 
         return formatted_error
 
-    @login_required
     def can_display_graphiql(self, request, data):
         if request.user.is_superuser or request.user.is_staff:
             return super().can_display_graphiql(request, data)

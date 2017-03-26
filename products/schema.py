@@ -3,6 +3,7 @@ from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
 
 from common.gql.types import AbstractModelType
+from common.relay import Node
 from .models import Product
 
 
@@ -10,7 +11,7 @@ class ProductNode(AbstractModelType, DjangoObjectType):
     slug = ID(source='pk')
 
     class Meta:
-        interfaces = (relay.Node, )
+        interfaces = (Node, )
         model = Product
 
 

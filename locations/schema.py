@@ -3,6 +3,7 @@ from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
 
 from common.gql.types import AbstractModelType
+from common.relay import Node
 from .models import Location, AssociatedLocation
 
 
@@ -10,7 +11,7 @@ class LocationNode(AbstractModelType, DjangoObjectType):
     display_name = String()
 
     class Meta:
-        interfaces = (relay.Node, )
+        interfaces = (Node, )
         model = Location
 
     def resolve_display_name(self, args, context, info):
@@ -26,7 +27,7 @@ class LocationNode(AbstractModelType, DjangoObjectType):
 class AssociatedLocationNode(AbstractModelType, DjangoObjectType):
 
     class Meta:
-        interfaces = (relay.Node, )
+        interfaces = (Node, )
         model = AssociatedLocation
         filter_fields = ['person']
 

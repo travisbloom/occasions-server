@@ -5,6 +5,7 @@ from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
 
 from common.gql.types import AbstractModelType
+from common.relay import Node
 from .models import Event, AssociatedEvent, EventType
 from products.models import Product
 from products.schema import ProductNode
@@ -14,7 +15,7 @@ from .filters import EventFilter, EventTypeFilter
 class AssociatedEventNode(AbstractModelType, DjangoObjectType):
 
     class Meta:
-        interfaces = (relay.Node, )
+        interfaces = (Node, )
         model = AssociatedEvent
         filter_fields = ['creating_person', 'receiving_person']
 
@@ -23,7 +24,7 @@ class EventTypeNode(AbstractModelType, DjangoObjectType):
 
     class Meta:
         model = EventType
-        interfaces = (relay.Node, )
+        interfaces = (Node, )
 
 
 class EventNode(AbstractModelType, DjangoObjectType):
@@ -31,7 +32,7 @@ class EventNode(AbstractModelType, DjangoObjectType):
 
     class Meta:
         model = Event
-        interfaces = (relay.Node, )
+        interfaces = (Node, )
 
     def resolve_related_products(self, args, context, info):
         return (

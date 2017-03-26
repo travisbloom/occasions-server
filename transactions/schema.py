@@ -3,6 +3,7 @@ from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django import DjangoObjectType
 
 from common.gql.types import AbstractModelType
+from common.relay import Node
 from products.models import Product
 from .models import Transaction
 
@@ -10,7 +11,7 @@ from .models import Transaction
 class TransactionNode(AbstractModelType, DjangoObjectType):
 
     class Meta:
-        interfaces = (relay.Node, )
+        interfaces = (Node, )
         model = Transaction
 
 

@@ -2,51 +2,38 @@
     "data": {
         "associatedEvent": {
             "event": {
-                "dateStart": "2020-05-01",
-                "id": "RXZlbnROb2RlOjQx",
+                "dateStart": "2017-01-01",
+                "id": "RXZlbnROb2RlOjE=",
                 "isReoccuringYearly": true,
-                "name": "event_name_40",
+                "name": "event_name_0",
                 "timeStart": "13:30:30"
             },
             "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox",
-            "pk": "1",
             "receivingPerson": {
                 "associatedLocations": {
                     "edges": [
                         {
                             "node": {
-                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTox",
+                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToxMw==",
                                 "location": {
-                                    "displayName": "12 Main St. Apt #12, city_12 CT 11123",
-                                    "id": "TG9jYXRpb25Ob2RlOjEz"
-                                },
-                                "pk": "1"
-                            }
-                        },
-                        {
-                            "node": {
-                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToy",
-                                "location": {
-                                    "displayName": "13 Main St. Apt #13, city_13 CA 11124",
-                                    "id": "TG9jYXRpb25Ob2RlOjE0"
-                                },
-                                "pk": "2"
+                                    "displayName": "179 Main St. Apt #179, city_179 DE 11290",
+                                    "id": "TG9jYXRpb25Ob2RlOjE4MA=="
+                                }
                             }
                         }
                     ]
                 },
-                "fullName": "FirstName#46 LastName#46",
-                "id": "UGVyc29uTm9kZTo0Nw==",
-                "pk": "47"
+                "fullName": "FirstName#9 LastName#9",
+                "id": "UGVyc29uTm9kZToxMA=="
             }
         },
         "currentUser": {
-            "email": "UserEmail@email.com",
+            "email": "useremail@email.com",
             "hasStripeUser": true,
             "id": "VXNlck5vZGU6MQ==",
             "person": {
-                "fullName": "FirstName#46 LastName#46",
-                "id": "UGVyc29uTm9kZTo0Nw=="
+                "fullName": "UserFirstName UserLastName",
+                "id": "UGVyc29uTm9kZToxMDAw"
             }
         },
         "product": {

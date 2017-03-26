@@ -1,4 +1,5 @@
 from graphene import relay, Schema, ObjectType, Field
+from common.relay import Node
 
 import people.schema
 import events.schema
@@ -20,7 +21,7 @@ class Query(
     locations.schema.Query,
     ObjectType
 ):
-    node = relay.Node.Field()
+    node = Node.Field()
     current_user = Field(people.schema.UserNode)
 
     def resolve_current_user(self, args, context, info):

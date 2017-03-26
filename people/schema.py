@@ -6,6 +6,7 @@ from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth import login
 
 from common.gql.ratelimit import ratelimit_gql
+from common.relay import Node
 
 from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, ID, Boolean
 from graphene_django.filter import DjangoFilterConnectionField
@@ -23,7 +24,7 @@ from .filters import PersonFilter
 class AccessTokenNode(AbstractModelType, DjangoObjectType):
 
     class Meta:
-        interfaces = (relay.Node, )
+        interfaces = (Node, )
         model = AccessToken
         only_fields = (
             'expires',
@@ -37,7 +38,7 @@ class UserNode(AbstractModelType, DjangoObjectType):
     has_stripe_user = Boolean()
 
     class Meta:
-        interfaces = (relay.Node, )
+        interfaces = (Node, )
         model = User
         only_fields = (
             'isActive',
@@ -59,14 +60,14 @@ class PersonNode(AbstractModelType, DjangoObjectType):
     full_name = String()
 
     class Meta:
-        interfaces = (relay.Node, )
+        interfaces = (Node, )
         model = Person
 
 
 class RelationshipNode(AbstractModelType, DjangoObjectType):
 
     class Meta:
-        interfaces = (relay.Node, )
+        interfaces = (Node, )
         model = Relationship
 
 
