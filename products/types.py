@@ -1,4 +1,4 @@
-from graphene import AbstractType, ID
+from graphene import AbstractType, ID, List
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 

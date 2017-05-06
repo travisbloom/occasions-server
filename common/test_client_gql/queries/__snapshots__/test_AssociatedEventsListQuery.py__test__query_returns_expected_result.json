@@ -1,7 +1,7 @@
 {
     "data": {
         "currentUser": {
-            "id": "VXNlck5vZGU6MQ==",
+            "id": "VXNlck5vZGU6MQ== (UserNode:1)",
             "person": {
                 "createdEvents": {
                     "edges": [
@@ -9,15 +9,15 @@
                             "node": {
                                 "event": {
                                     "dateStart": "2017-10-01",
-                                    "id": "RXZlbnROb2RlOjEw",
+                                    "id": "RXZlbnROb2RlOjEw (EventNode:10)",
                                     "isReoccuringYearly": false,
                                     "name": "event_name_9",
                                     "timeStart": null
                                 },
-                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToxMA==",
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToxMA== (AssociatedEventNode:10)",
                                 "receivingPerson": {
                                     "fullName": "FirstName#0 LastName#0",
-                                    "id": "UGVyc29uTm9kZTox"
+                                    "id": "UGVyc29uTm9kZTox (PersonNode:1)"
                                 },
                                 "transactions": {
                                     "edges": []
@@ -28,15 +28,15 @@
                             "node": {
                                 "event": {
                                     "dateStart": "2017-09-01",
-                                    "id": "RXZlbnROb2RlOjk=",
+                                    "id": "RXZlbnROb2RlOjk= (EventNode:9)",
                                     "isReoccuringYearly": true,
                                     "name": "event_name_8",
                                     "timeStart": "13:30:30"
                                 },
-                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo5",
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo5 (AssociatedEventNode:9)",
                                 "receivingPerson": {
                                     "fullName": "FirstName#1 LastName#1",
-                                    "id": "UGVyc29uTm9kZToy"
+                                    "id": "UGVyc29uTm9kZToy (PersonNode:2)"
                                 },
                                 "transactions": {
                                     "edges": []
@@ -47,15 +47,15 @@
                             "node": {
                                 "event": {
                                     "dateStart": "2017-08-01",
-                                    "id": "RXZlbnROb2RlOjg=",
+                                    "id": "RXZlbnROb2RlOjg= (EventNode:8)",
                                     "isReoccuringYearly": false,
                                     "name": "event_name_7",
                                     "timeStart": null
                                 },
-                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo4",
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo4 (AssociatedEventNode:8)",
                                 "receivingPerson": {
                                     "fullName": "FirstName#2 LastName#2",
-                                    "id": "UGVyc29uTm9kZToz"
+                                    "id": "UGVyc29uTm9kZToz (PersonNode:3)"
                                 },
                                 "transactions": {
                                     "edges": []
@@ -66,15 +66,15 @@
                             "node": {
                                 "event": {
                                     "dateStart": "2017-07-01",
-                                    "id": "RXZlbnROb2RlOjc=",
+                                    "id": "RXZlbnROb2RlOjc= (EventNode:7)",
                                     "isReoccuringYearly": true,
                                     "name": "event_name_6",
                                     "timeStart": "13:30:30"
                                 },
-                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo3",
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo3 (AssociatedEventNode:7)",
                                 "receivingPerson": {
                                     "fullName": "FirstName#3 LastName#3",
-                                    "id": "UGVyc29uTm9kZTo0"
+                                    "id": "UGVyc29uTm9kZTo0 (PersonNode:4)"
                                 },
                                 "transactions": {
                                     "edges": []
@@ -85,15 +85,15 @@
                             "node": {
                                 "event": {
                                     "dateStart": "2017-06-01",
-                                    "id": "RXZlbnROb2RlOjY=",
+                                    "id": "RXZlbnROb2RlOjY= (EventNode:6)",
                                     "isReoccuringYearly": false,
                                     "name": "event_name_5",
                                     "timeStart": null
                                 },
-                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo2",
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo2 (AssociatedEventNode:6)",
                                 "receivingPerson": {
                                     "fullName": "FirstName#4 LastName#4",
-                                    "id": "UGVyc29uTm9kZTo1"
+                                    "id": "UGVyc29uTm9kZTo1 (PersonNode:5)"
                                 },
                                 "transactions": {
                                     "edges": []
@@ -104,15 +104,15 @@
                             "node": {
                                 "event": {
                                     "dateStart": "2017-05-01",
-                                    "id": "RXZlbnROb2RlOjU=",
+                                    "id": "RXZlbnROb2RlOjU= (EventNode:5)",
                                     "isReoccuringYearly": true,
                                     "name": "event_name_4",
                                     "timeStart": "13:30:30"
                                 },
-                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo1",
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo1 (AssociatedEventNode:5)",
                                 "receivingPerson": {
                                     "fullName": "FirstName#5 LastName#5",
-                                    "id": "UGVyc29uTm9kZTo2"
+                                    "id": "UGVyc29uTm9kZTo2 (PersonNode:6)"
                                 },
                                 "transactions": {
                                     "edges": []
@@ -123,15 +123,15 @@
                             "node": {
                                 "event": {
                                     "dateStart": "2017-04-01",
-                                    "id": "RXZlbnROb2RlOjQ=",
+                                    "id": "RXZlbnROb2RlOjQ= (EventNode:4)",
                                     "isReoccuringYearly": false,
                                     "name": "event_name_3",
                                     "timeStart": null
                                 },
-                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo0",
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo0 (AssociatedEventNode:4)",
                                 "receivingPerson": {
                                     "fullName": "FirstName#6 LastName#6",
-                                    "id": "UGVyc29uTm9kZTo3"
+                                    "id": "UGVyc29uTm9kZTo3 (PersonNode:7)"
                                 },
                                 "transactions": {
                                     "edges": []
@@ -142,15 +142,15 @@
                             "node": {
                                 "event": {
                                     "dateStart": "2017-03-01",
-                                    "id": "RXZlbnROb2RlOjM=",
+                                    "id": "RXZlbnROb2RlOjM= (EventNode:3)",
                                     "isReoccuringYearly": true,
                                     "name": "event_name_2",
                                     "timeStart": "13:30:30"
                                 },
-                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToz",
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToz (AssociatedEventNode:3)",
                                 "receivingPerson": {
                                     "fullName": "FirstName#7 LastName#7",
-                                    "id": "UGVyc29uTm9kZTo4"
+                                    "id": "UGVyc29uTm9kZTo4 (PersonNode:8)"
                                 },
                                 "transactions": {
                                     "edges": []
@@ -161,15 +161,15 @@
                             "node": {
                                 "event": {
                                     "dateStart": "2017-02-01",
-                                    "id": "RXZlbnROb2RlOjI=",
+                                    "id": "RXZlbnROb2RlOjI= (EventNode:2)",
                                     "isReoccuringYearly": false,
                                     "name": "event_name_1",
                                     "timeStart": null
                                 },
-                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToy",
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToy (AssociatedEventNode:2)",
                                 "receivingPerson": {
                                     "fullName": "FirstName#8 LastName#8",
-                                    "id": "UGVyc29uTm9kZTo5"
+                                    "id": "UGVyc29uTm9kZTo5 (PersonNode:9)"
                                 },
                                 "transactions": {
                                     "edges": []
@@ -180,15 +180,15 @@
                             "node": {
                                 "event": {
                                     "dateStart": "2017-01-01",
-                                    "id": "RXZlbnROb2RlOjE=",
+                                    "id": "RXZlbnROb2RlOjE= (EventNode:1)",
                                     "isReoccuringYearly": true,
                                     "name": "event_name_0",
                                     "timeStart": "13:30:30"
                                 },
-                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox",
+                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox (AssociatedEventNode:1)",
                                 "receivingPerson": {
                                     "fullName": "FirstName#9 LastName#9",
-                                    "id": "UGVyc29uTm9kZToxMA=="
+                                    "id": "UGVyc29uTm9kZToxMA== (PersonNode:10)"
                                 },
                                 "transactions": {
                                     "edges": []
@@ -198,7 +198,7 @@
                     ]
                 },
                 "fullName": "UserFirstName UserLastName",
-                "id": "UGVyc29uTm9kZToxMDAw"
+                "id": "UGVyc29uTm9kZToxMDAw (PersonNode:1000)"
             }
         }
     }

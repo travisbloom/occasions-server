@@ -5,6 +5,10 @@ from locations.models import (
     AssociatedLocation
 )
 
+def reset_location_factories():
+    LocationFactory.reset_sequence()
+    AssociatedLocationFactory.reset_sequence()
+
 
 class LocationFactory(factory.django.DjangoModelFactory):
 

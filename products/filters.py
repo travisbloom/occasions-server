@@ -1,4 +1,5 @@
 import django_filters
+from django.db.models import Q
 
 from events.models import EventType
 from .models import Product
@@ -14,7 +15,7 @@ class ProductFilter(django_filters.FilterSet):
             queryset
             .filter(
                 Q(event_id=value) |
-                Q(event_types__in=event_types) |
+                Q(event_types__in=event_types)
             )
             .ordering('-event_id')
         )

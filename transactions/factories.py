@@ -5,6 +5,10 @@ from transactions.models import (
 )
 
 
+def reset_transaction_factories():
+    TransactionFactory.reset_sequence()
+
+
 class TransactionFactory(factory.django.DjangoModelFactory):
 
     class Meta:

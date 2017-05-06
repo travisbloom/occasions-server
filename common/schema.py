@@ -1,4 +1,4 @@
-from graphene import Schema, ObjectType, Field
+from graphene import Schema, ObjectType, Field, String
 
 from common.relay import Node
 from events.mutations import EventMutations
@@ -41,9 +41,18 @@ schema = Schema(
 )
 
 
+class PublicQuery(ObjectType):
+    current_user = String()
+
+    def resolve_current_user(self, args, context, info):
+        return None
+
+
 class PublicMutation(ObjectType):
     create_user = CreateUser.Field()
 
+
 public_schema = Schema(
+    query=PublicQuery,
     mutation=PublicMutation
 )

@@ -9,6 +9,12 @@ from events.models import (
 from people.factories import PersonFactory
 
 
+def reset_event_factories():
+    EventTypeFactory.reset_sequence()
+    EventFactory.reset_sequence()
+    AssociatedEventFactory.reset_sequence()
+
+
 class EventTypeFactory(factory.django.DjangoModelFactory):
 
     class Meta:

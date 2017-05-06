@@ -1,10 +1,10 @@
 {
     "data": {
         "currentUser": {
-            "id": "VXNlck5vZGU6MQ==",
+            "id": "VXNlck5vZGU6MQ== (UserNode:1)",
             "person": {
                 "fullName": "UserFirstName UserLastName",
-                "id": "UGVyc29uTm9kZToxMDAw"
+                "id": "UGVyc29uTm9kZToxMDAw (PersonNode:1000)"
             }
         }
     }

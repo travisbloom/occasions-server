@@ -159,9 +159,9 @@ STATIC_URL = '/static/'
 
 # graphql
 
-GRAPHENE_SCHEMA = 'common.schema'
-GRAPHENE_SCHEMA_OUTPUT = 'assets/schema.json'
-GRAPHENE_SCHEMA_INDENT = 4
+GRAPHENE = {
+    'SCHEMA': 'common.schema.schema'
+}
 
 # auth
 AUTH_USER_MODEL = 'people.User'

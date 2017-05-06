@@ -1,5 +1,6 @@
 import factory
 import pendulum
+from factory import post_generation
 
 from locations.factories import AssociatedLocationFactory
 from people.models import (
@@ -7,6 +8,12 @@ from people.models import (
     User,
     Relationship
 )
+
+
+def reset_people_factories():
+    PersonFactory.reset_sequence()
+    UserFactory.reset_sequence()
+    RelationshipFactory.reset_sequence()
 
 
 class PersonFactory(factory.django.DjangoModelFactory):

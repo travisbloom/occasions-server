@@ -1,8 +1,12 @@
 import factory
 
+from events.models import EventType
 from products.models import (
     Product
 )
+
+def reset_product_factories():
+    ProductFactory.reset_sequence()
 
 
 class ProductFactory(factory.django.DjangoModelFactory):
@@ -16,11 +20,6 @@ class ProductFactory(factory.django.DjangoModelFactory):
     description = factory.LazyAttribute(lambda obj: "{}'s Description".format(obj.name))
     main_image_url = "http://placehold.it/350x150"
 
-    # @factory.post_generation
-    # def event_types(self, create, extracted, **kwargs):
-    #     if extracted:
-    #         # A list of groups were passed in, use them
-    #         for event_type in extracted:
-    #             self.event_types.add(event_type)
-    #     else:
-    #         self.event_types.add(EventType.objects.first())
+    @factory.post_generation
+    def post(self, create, extracted, **kwargs):
+        self.event_types.add(EventType.objects.first())

@@ -4,33 +4,33 @@
             "associatedEvent": {
                 "event": {
                     "dateStart": "2017-10-01",
-                    "id": "RXZlbnROb2RlOjEw",
+                    "id": "RXZlbnROb2RlOjEw (EventNode:10)",
                     "isReoccuringYearly": false,
                     "name": "event_name_9",
                     "timeStart": null
                 },
-                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToxMA=="
+                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToxMA== (AssociatedEventNode:10)"
             },
             "associatedLocation": {
-                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTo0",
+                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTo0 (AssociatedLocationNode:4)",
                 "location": {
-                    "displayName": "196 Main St. Apt #196, city_196 CT 11307",
-                    "id": "TG9jYXRpb25Ob2RlOjE5Nw=="
+                    "displayName": "3 Main St. Apt #3, city_3 CT 11114",
+                    "id": "TG9jYXRpb25Ob2RlOjQ= (LocationNode:4)"
                 }
             },
             "costUsd": 2.0,
-            "datetimeCreated": "MOCKED_AUTO_GENERATED_DATETIME",
-            "id": "VHJhbnNhY3Rpb25Ob2RlOjE=",
+            "datetimeCreated": "MOCK_OUT_AUTO_DATES",
+            "id": "VHJhbnNhY3Rpb25Ob2RlOjE= (TransactionNode:1)",
             "product": {
                 "description": "Product #0's Description",
-                "id": "UHJvZHVjdE5vZGU6UHJvZHVjdCAjMCBTbHVn",
+                "id": "UHJvZHVjdE5vZGU6UHJvZHVjdCAjMCBTbHVn (ProductNode:Product #0 Slug)",
                 "mainImageUrl": "http://placehold.it/350x150",
                 "name": "Product #0"
             },
             "productNotes": "Product notes: 0",
             "receivingPerson": {
                 "fullName": "FirstName#0 LastName#0",
-                "id": "UGVyc29uTm9kZTox"
+                "id": "UGVyc29uTm9kZTox (PersonNode:1)"
             }
         }
     }

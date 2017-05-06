@@ -1,8 +1,8 @@
-from events.factories import AssociatedEventFactory, EventFactory
-from locations.factories import AssociatedLocationFactory
-from people.factories import UserFactory, RelationshipFactory, PersonFactory
-from products.factories import ProductFactory
-from transactions.factories import TransactionFactory
+from events.factories import AssociatedEventFactory, EventFactory, reset_event_factories
+from locations.factories import AssociatedLocationFactory, reset_location_factories
+from people.factories import UserFactory, RelationshipFactory, PersonFactory, reset_people_factories
+from products.factories import ProductFactory, reset_product_factories
+from transactions.factories import TransactionFactory, reset_transaction_factories
 
 
 def build_user_mock_data(
@@ -11,8 +11,12 @@ def build_user_mock_data(
     with_associated_events=False,
     with_transactions=False,
 ):
-    UserFactory.reset_sequence()
-    AssociatedLocationFactory.reset_sequence()
+    reset_event_factories()
+    reset_location_factories()
+    reset_people_factories()
+    reset_product_factories()
+    reset_transaction_factories()
+
     user_email = "useremail@email.com"
     user = UserFactory(username=user_email)
     user_person = PersonFactory(
@@ -27,13 +31,10 @@ def build_user_mock_data(
         AssociatedLocationFactory(person=user.person)
 
     if with_relationships or with_associated_events or with_transactions:
-        RelationshipFactory.reset_sequence()
         for _ in range(10):
             RelationshipFactory(from_person=user.person)
 
     if with_associated_events or with_transactions:
-        EventFactory.reset_sequence()
-        AssociatedEventFactory.reset_sequence()
         for num in range(10):
             relationships = user.person.from_relationships.all()
             AssociatedEventFactory(
@@ -42,11 +43,9 @@ def build_user_mock_data(
             )
 
     if with_products or with_transactions:
-        ProductFactory.reset_sequence()
         products = [ProductFactory() for _ in range(10)]
 
     if with_transactions:
-        TransactionFactory.reset_sequence()
         for num in range(10):
             created_events = user.person.created_events.all()[num]
             receiving_person = created_events.receiving_person

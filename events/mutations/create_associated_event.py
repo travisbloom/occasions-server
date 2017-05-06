@@ -6,7 +6,7 @@ from common.exceptions import MutationException
 from common.gql import get_pk_from_global_id
 from events.models import Event, AssociatedEvent
 from events.serializers import EventSerializer, AssociatedEventSerializer
-from events.types import AssociatedEventNode
+from events.types.associated_event import AssociatedEventNode
 
 
 class CreateEventInput(InputObjectType):
