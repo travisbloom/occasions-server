@@ -1,11 +1,9 @@
 from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
-from django.views.decorators.csrf import csrf_exempt
 
-from .schema import schema, public_schema
+from .schema import schema
 from .views import OccasionsGraphQLView
-
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

@@ -1,6 +1,6 @@
-from graphene import relay, ObjectType, Mutation, String, Field, AbstractType
-from graphene_django.filter import DjangoFilterConnectionField
+from graphene import String, AbstractType
 from graphene_django import DjangoObjectType
+from graphene_django.filter import DjangoFilterConnectionField
 
 from common.gql.types import AbstractModelType
 from common.relay import Node
@@ -32,6 +32,6 @@ class AssociatedLocationNode(AbstractModelType, DjangoObjectType):
         filter_fields = ['person']
 
 
-class Query(AbstractType):
+class LocationQueries(AbstractType):
     locations = DjangoFilterConnectionField(LocationNode)
     person_locations = DjangoFilterConnectionField(AssociatedLocationNode)

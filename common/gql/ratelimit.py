@@ -2,9 +2,7 @@ from __future__ import absolute_import
 
 from functools import wraps
 
-from django.http import HttpRequest
 from django.conf import settings
-
 from ratelimit import ALL, UNSAFE
 from ratelimit.exceptions import Ratelimited
 from ratelimit.utils import is_ratelimited

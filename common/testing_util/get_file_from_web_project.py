@@ -1,5 +1,6 @@
 import glob
 import os
+
 from django.conf import settings
 
 web_project_dir = os.path.abspath(os.path.join(settings.BASE_DIR, "..", "occasions-web"))

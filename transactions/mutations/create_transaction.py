@@ -1,48 +1,20 @@
-from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, ID
-from graphene_django.filter import DjangoFilterConnectionField
-from common.gql.types import AbstractModelType
-from graphene.types.json import JSONString
-from rest_framework import serializers
-from raven.contrib.django.raven_compat.models import client as raven_client
 import logging
+
 from django.conf import settings
+from graphene import relay, String, Field, ID
+from rest_framework import serializers
 
 from common.exceptions import FormValuesException, MutationException
-from people.serializers import PersonWithRelationToCurrentUserField
-from people.schema import UserNode
 from common.gql import get_pk_from_global_id
-from locations.models import AssociatedLocation
 from events.models import AssociatedEvent
+from locations.models import AssociatedLocation
+from people.serializers import PersonWithRelationToCurrentUserField
 from products.models import Product
-
-from .models import Transaction
-from .schema import TransactionNode
-from .stripe import create_stripe_user, create_stripe_charge, mock_create_stripe_charge
+from transactions.models import Transaction
+from transactions.stripe import create_stripe_charge, mock_create_stripe_charge
+from transactions.types import TransactionNode
 
 logger = logging.getLogger('occasions')
-
-
-class CreateStripeUser(relay.ClientIDMutation):
-
-    class Input:
-        strip_transaction_id = String(required=True)
-        email = String(required=True)
-
-    user = Field(UserNode)
-
-    @classmethod
-    def mutate_and_get_payload(cls, input, context, info):
-        if context.user.stripe_user_id:
-            error_msg = 'User tried to create stripe account that already existed'
-            logger.warn(error_msg, extra={'request': context})
-            raise MutationException(error_msg)
-
-        create_stripe_user(
-            payload={
-                **input},
-            user=context.user,
-            request=context)
-        return CreateStripeUser(user=context.user)
 
 
 class LocationRelatedToPersonField(serializers.PrimaryKeyRelatedField):
@@ -122,6 +94,3 @@ class CreateTransaction(relay.ClientIDMutation):
         return CreateTransaction(transaction=transaction)
 
 
-class TransactionMutation(AbstractType):
-    create_transaction = CreateTransaction.Field()
-    create_stripe_user = CreateStripeUser.Field()

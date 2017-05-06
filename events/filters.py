@@ -1,7 +1,7 @@
 import django_filters
 from django.db.models import Q
 
-from .models import Event, EventType
+from .models import Event
 
 
 class EventFilter(django_filters.FilterSet):

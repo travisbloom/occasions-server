@@ -1,24 +1,14 @@
 from datetime import datetime
-from django.db.models import Q
-from oauth2_provider.models import AccessToken
-from django.db import IntegrityError
-from django.contrib.auth.password_validation import validate_password
-from django.contrib.auth import login
 
-from common.gql.ratelimit import ratelimit_gql
-from common.relay import Node
-
-from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, ID, Boolean
-from graphene_django.filter import DjangoFilterConnectionField
+from graphene import String, Field, AbstractType, Boolean
 from graphene_django import DjangoObjectType
+from graphene_django.filter import DjangoFilterConnectionField
+from oauth2_provider.models import AccessToken
 
-from rest_framework import serializers
-
-from common.exceptions import FormValuesException
 from common.gql.types import AbstractModelType
-
-from .models import User, Person, Relationship
+from common.relay import Node
 from .filters import PersonFilter
+from .models import User, Person, Relationship
 
 
 class AccessTokenNode(AbstractModelType, DjangoObjectType):
@@ -71,7 +61,7 @@ class RelationshipNode(AbstractModelType, DjangoObjectType):
         model = Relationship
 
 
-class Query(AbstractType):
+class PeopleQueries(AbstractType):
     users = DjangoFilterConnectionField(UserNode)
     people = DjangoFilterConnectionField(
         PersonNode, filterset_class=PersonFilter)

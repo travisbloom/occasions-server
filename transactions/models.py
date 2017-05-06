@@ -1,14 +1,13 @@
-from django.db import models
 from django.core.exceptions import ValidationError
-
+from django.db import models
 from model_utils import Choices
 
 # Create your models here.
 from common.models import BaseModel
-from products.models import Product
 from events.models import AssociatedEvent
-from people.models import User, Person
 from locations.models import AssociatedLocation
+from people.models import User, Person
+from products.models import Product
 
 
 class TransactionManager(models.Manager):

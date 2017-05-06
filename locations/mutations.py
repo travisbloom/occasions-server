@@ -1,28 +1,12 @@
-from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, ID, InputObjectType, InputField
-from graphene_django.filter import DjangoFilterConnectionField
-from common.gql.types import AbstractModelType
+from graphene import relay, String, Field, AbstractType, ID, InputObjectType, InputField
 from rest_framework import serializers
 
 from common.exceptions import FormValuesException
 from common.gql import get_pk_from_global_id
-
-from people.models import Person
+from locations.models import Location, AssociatedLocation
+from locations.serializers.location import LocationSerializer
+from locations.types import AssociatedLocationNode
 from people.serializers import PersonWithRelationToCurrentUserField
-from .models import Location, AssociatedLocation
-from .schema import AssociatedLocationNode
-
-
-class LocationSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Location
-        fields = (
-            'street_address_line1',
-            'street_address_line2',
-            'postal_code',
-            'city',
-            'state',
-        )
 
 
 class CreateAssociatedLocationSerializer(serializers.Serializer):
@@ -70,5 +54,5 @@ class CreateAssociatedLocation(relay.ClientIDMutation):
             associated_location=associated_location)
 
 
-class LocationsMutation(AbstractType):
+class LocationsMutations(AbstractType):
     create_associated_location = CreateAssociatedLocation.Field()

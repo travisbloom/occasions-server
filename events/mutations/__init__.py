@@ -1,6 +1,7 @@
-from graphene import AbstractType, Field
+from graphene import AbstractType
+
 from .create_associated_event import CreateAssociatedEvent
 
 
-class EventsMutation(AbstractType):
+class EventMutations(AbstractType):
     create_associated_event = CreateAssociatedEvent.Field()

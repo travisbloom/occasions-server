@@ -1,4 +1,4 @@
-from graphene import ID, AbstractType
+from graphene import AbstractType
 
 
 class AbstractModelType(AbstractType):

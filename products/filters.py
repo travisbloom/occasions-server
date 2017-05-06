@@ -1,7 +1,7 @@
 import django_filters
 
-from .models import Product
 from events.models import EventType
+from .models import Product
 
 
 class ProductFilter(django_filters.FilterSet):

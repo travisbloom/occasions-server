@@ -1,19 +1,17 @@
 from django.db.models import Q
-
-from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, ID, List
-from graphene_django.filter import DjangoFilterConnectionField
+from graphene import AbstractType, ID, List
 from graphene_django import DjangoObjectType
+from graphene_django.filter import DjangoFilterConnectionField
 
 from common.gql.types import AbstractModelType
 from common.relay import Node
-from .models import Event, AssociatedEvent, EventType
 from products.models import Product
-from products.schema import ProductNode
+from products.types import ProductNode
 from .filters import EventFilter, EventTypeFilter
+from .models import Event, AssociatedEvent, EventType
 
 
 class AssociatedEventNode(AbstractModelType, DjangoObjectType):
-
     class Meta:
         interfaces = (Node, )
         model = AssociatedEvent
@@ -45,7 +43,7 @@ class EventNode(AbstractModelType, DjangoObjectType):
         )
 
 
-class Query(AbstractType):
+class EventQueries(AbstractType):
     associated_events = DjangoFilterConnectionField(AssociatedEventNode)
     events = DjangoFilterConnectionField(
         EventNode,

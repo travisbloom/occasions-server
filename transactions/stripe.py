@@ -1,6 +1,7 @@
-from django.conf import settings
-import stripe
 import logging
+
+import stripe
+from django.conf import settings
 
 logger = logging.getLogger('occasions')
 stripe.api_key = settings.STRIPE_SECRET_KEY

@@ -1,10 +1,9 @@
-from graphene import relay, ObjectType, Mutation, String, Field, AbstractType
-from graphene_django.filter import DjangoFilterConnectionField
+from graphene import AbstractType
 from graphene_django import DjangoObjectType
+from graphene_django.filter import DjangoFilterConnectionField
 
 from common.gql.types import AbstractModelType
 from common.relay import Node
-from products.models import Product
 from .models import Transaction
 
 
@@ -15,5 +14,5 @@ class TransactionNode(AbstractModelType, DjangoObjectType):
         model = Transaction
 
 
-class Query(AbstractType):
+class TransactionQueries(AbstractType):
     transactions = DjangoFilterConnectionField(TransactionNode)

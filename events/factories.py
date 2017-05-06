@@ -1,11 +1,9 @@
-import pendulum
 import factory
+import pendulum
 
 from events.models import (
     EventType,
-    EventManager,
     Event,
-    AssociatedEventManager,
     AssociatedEvent,
 )
 from people.factories import PersonFactory

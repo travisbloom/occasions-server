@@ -1,8 +1,6 @@
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from workalendar.core import ChristianMixin
 from workalendar.usa import UnitedStates
-
-from events.models import Event
 
 
 class HolidaysToGenerate(UnitedStates, ChristianMixin):

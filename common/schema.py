@@ -1,37 +1,36 @@
-from graphene import relay, Schema, ObjectType, Field
+from graphene import Schema, ObjectType, Field
+
 from common.relay import Node
-
-import people.schema
-import events.schema
-import transactions.schema
-import products.schema
-import locations.schema
-
-from transactions.mutations import TransactionMutation
-from locations.mutations import LocationsMutation
+from events.mutations import EventMutations
+from events.types import EventQueries
+from locations.mutations import LocationsMutations
+from locations.types import LocationQueries
 from people.mutations import CreateUser
-from events.mutations import EventsMutation
+from people.types import PeopleQueries, UserNode
+from products.types import ProductQueries
+from transactions.mutations import TransactionMutations
+from transactions.types import TransactionQueries
 
 
 class Query(
-    transactions.schema.Query,
-    people.schema.Query,
-    events.schema.Query,
-    products.schema.Query,
-    locations.schema.Query,
+    TransactionQueries,
+    PeopleQueries,
+    EventQueries,
+    ProductQueries,
+    LocationQueries,
     ObjectType
 ):
     node = Node.Field()
-    current_user = Field(people.schema.UserNode)
+    current_user = Field(UserNode)
 
     def resolve_current_user(self, args, context, info):
         return context.user
 
 
 class Mutation(
-    TransactionMutation,
-    LocationsMutation,
-    EventsMutation,
+    TransactionMutations,
+    LocationsMutations,
+    EventMutations,
     ObjectType
 ):
     create_user = CreateUser.Field()

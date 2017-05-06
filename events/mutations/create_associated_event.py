@@ -1,24 +1,12 @@
-from django.db.models import Q
-from rest_framework import serializers
 from django.db import transaction
-
-from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, ID, List, InputField, InputObjectType
-from graphene_django.filter import DjangoFilterConnectionField
-from graphene_django import DjangoObjectType
+from graphene import relay, String, Field, ID, List, InputField, InputObjectType
 from graphene.types.datetime import DateTime, Time
 
-
 from common.exceptions import FormValuesException, MutationException
-from common.gql import AbstractModelType, get_pk_from_global_id
-from products.models import Product
-from products.schema import ProductNode
-
-from people.serializers import PersonWithRelationToCurrentUserField
-
-from events.filters import EventFilter, EventTypeFilter
-from events.models import Event, AssociatedEvent, EventType
-from events.schema import AssociatedEventNode
+from common.gql import get_pk_from_global_id
+from events.models import Event, AssociatedEvent
 from events.serializers import EventSerializer, AssociatedEventSerializer
+from events.types import AssociatedEventNode
 
 
 class CreateEventInput(InputObjectType):
@@ -29,7 +17,6 @@ class CreateEventInput(InputObjectType):
 
 
 class CreateAssociatedEvent(relay.ClientIDMutation):
-
     class Input:
         event = InputField(CreateEventInput)
         event_id = ID(required=False)
@@ -57,7 +44,7 @@ class CreateAssociatedEvent(relay.ClientIDMutation):
                 raise FormValuesException(event_serializer.errors)
             event = Event(**event)
             event.save()
-            event_id = event.id
+
         event_id = get_pk_from_global_id(input.get('event_id'))
         associated_event_serializer = AssociatedEventSerializer(
             data={

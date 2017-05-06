@@ -1,11 +1,10 @@
-import simplejson
 import inspect
-from django.test import TestCase, RequestFactory
-from django.core.urlresolvers import reverse
-from django.views.decorators.csrf import csrf_exempt
 
-from common.testing_util import get_file_from_web_project, generate_or_assert_snapshot_is_equal
+import simplejson
+from django.test import TestCase, RequestFactory
+
 from common.schema import schema
+from common.testing_util import get_file_from_web_project, generate_or_assert_snapshot_is_equal
 from common.views import OccasionsGraphQLView
 
 

@@ -1,6 +1,6 @@
-from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, Argument, ID
-from graphene_django.filter import DjangoFilterConnectionField
+from graphene import AbstractType, ID
 from graphene_django import DjangoObjectType
+from graphene_django.filter import DjangoFilterConnectionField
 
 from common.gql.types import AbstractModelType
 from common.relay import Node
@@ -15,5 +15,5 @@ class ProductNode(AbstractModelType, DjangoObjectType):
         model = Product
 
 
-class Query(AbstractType):
+class ProductQueries(AbstractType):
     products = DjangoFilterConnectionField(ProductNode)

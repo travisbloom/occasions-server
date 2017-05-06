@@ -1,4 +1,3 @@
-import pendulum
 import factory
 
 from locations.models import (

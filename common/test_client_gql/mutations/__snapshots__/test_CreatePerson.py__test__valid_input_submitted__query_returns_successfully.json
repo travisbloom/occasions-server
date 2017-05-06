@@ -1,0 +1,13 @@
+{
+    "errors": [
+        {
+            "locations": [
+                {
+                    "column": 31,
+                    "line": 1
+                }
+            ],
+            "message": "Syntax Error GraphQL request (1:31) Expected Name, found !\n\n1: mutation CreatePerson($input: !CreatePersonMutationInput) {\n                                 ^\n2:     createPerson(input: $input) {\n"
+        }
+    ]
+}

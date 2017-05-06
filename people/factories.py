@@ -1,12 +1,12 @@
-import pendulum
 import factory
+import pendulum
 
+from locations.factories import AssociatedLocationFactory
 from people.models import (
     Person,
     User,
     Relationship
 )
-from locations.factories import AssociatedLocationFactory
 
 
 class PersonFactory(factory.django.DjangoModelFactory):

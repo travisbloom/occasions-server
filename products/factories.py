@@ -1,4 +1,3 @@
-import pendulum
 import factory
 
 from products.models import (

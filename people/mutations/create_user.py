@@ -1,24 +1,12 @@
-from datetime import datetime
-from django.db.models import Q
-from oauth2_provider.models import AccessToken
-from django.db import IntegrityError
 from django.contrib.auth.password_validation import validate_password
-from django.contrib.auth import login
-
-from common.gql.ratelimit import ratelimit_gql
-
-from graphene import relay, ObjectType, Mutation, String, Field, AbstractType, ID, Boolean
-from graphene_django.filter import DjangoFilterConnectionField
-from graphene_django import DjangoObjectType
-
+from django.db import IntegrityError
+from graphene import relay, String, Field
 from rest_framework import serializers
 
 from common.exceptions import FormValuesException
-from common.gql.types import AbstractModelType
-
-from people.models import User, Person, Relationship
-from people.filters import PersonFilter
-from people.schema import UserNode
+from common.gql.ratelimit import ratelimit_gql
+from people.models import User
+from people.types import UserNode
 
 
 class CreateUserInputSerializers(serializers.Serializer):

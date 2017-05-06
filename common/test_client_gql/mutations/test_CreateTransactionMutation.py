@@ -1,9 +1,6 @@
-from django.test import TestCase
-
+from common.relay import Node
 from common.test_client_gql.graphql_test_case import GraphQLTestCase
 from common.testing_util import build_user_mock_data
-from common.relay import Node
-
 from products.models import Product
 
 

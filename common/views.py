@@ -1,20 +1,17 @@
-import rest_framework
 import logging
-import traceback
-from django.conf import settings
-from rest_framework.authentication import SessionAuthentication
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.decorators import authentication_classes, permission_classes, api_view
-from oauth2_provider.ext.rest_framework import OAuth2Authentication
-from rest_framework_social_oauth2.authentication import SocialAuthentication
-from django.contrib.auth.decorators import login_required
 
+import rest_framework
+from django.conf import settings
 from graphene_django.views import GraphQLView
 from graphql.error import GraphQLError
+from oauth2_provider.ext.rest_framework import OAuth2Authentication
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.decorators import authentication_classes, permission_classes, api_view
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_social_oauth2.authentication import SocialAuthentication
 
-from .exceptions import FormValuesException, StripeException, MutationException
+from .exceptions import FormValuesException
 from .utils.camelcase import camelize
-
 
 logger = logging.getLogger('occasions')
 

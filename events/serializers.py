@@ -1,8 +1,7 @@
 from rest_framework import serializers
 
+from events.models import Event, AssociatedEvent
 from people.serializers import PersonWithRelationToCurrentUserField
-
-from events.models import Event, AssociatedEvent, EventType
 
 
 class EventSerializer(serializers.ModelSerializer):
