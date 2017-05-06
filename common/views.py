@@ -1,63 +1,23 @@
 import logging
 
 import rest_framework
-from django.conf import settings
 from graphene_django.views import GraphQLView
-from graphql.error import GraphQLError
 from oauth2_provider.ext.rest_framework import OAuth2Authentication
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.decorators import authentication_classes, permission_classes, api_view
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_social_oauth2.authentication import SocialAuthentication
 
-from .exceptions import FormValuesException
-from .utils.camelcase import camelize
+from common.errors import GQLErrorHandler
 
 logger = logging.getLogger('occasions')
-
-
-def generic_error_message(formatted_error):
-    if not settings.DEBUG:
-        formatted_error[
-            'message'] = 'Whoops! Something went wrong on our end. We\'re looking in to it now.'
-        return formatted_error
-
-    return formatted_error
-
-
-def format_error_with_debug_info(error):
-    formatted_error = {}
-    if isinstance(error, GraphQLError):
-        formatted_error['message'] = error.message
-        if error.locations is not None:
-            formatted_error['locations'] = [
-                {'line': loc.line, 'column': loc.column}
-                for loc in error.locations
-            ]
-
-    used_error = error.original_error if hasattr(error, 'original_error') else error
-    # formatted_error['stack'] = traceback.format_tb(used_error.__traceback__)
-    if isinstance(used_error, FormValuesException):
-        formatted_error['data'] = camelize(error.original_error.args[0])
-    return formatted_error
 
 
 class OccasionsGraphQLView(GraphQLView):
 
     def format_error(self, error):
         """Override format error, useful for showing the entire stack trace when in development"""
-
-        formatted_error = format_error_with_debug_info(error)
-
-        try:
-            raise error.original_error if hasattr(error, 'original_error') else error
-        except FormValuesException:
-            pass
-        except Exception as e:
-            # FIXME this doesnt give good stacktrace in sentry
-            logger.exception('gql error', exc_info=True)
-
-        return formatted_error
+        return GQLErrorHandler(self).format_error(error)
 
     def can_display_graphiql(self, request, data):
         if request.user.is_superuser or request.user.is_staff:

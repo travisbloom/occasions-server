@@ -1,4 +1,5 @@
-ratelimit
+setuptools
+django_extensions==1.7.7
 cffi==1.9.1
 contextlib2==0.5.4
 cryptography==1.7.1
@@ -33,15 +34,14 @@ promise==0.4.2
 pyasn1==0.1.9
 pycparser==2.17
 PyJWT==1.4.2
-python-openid==2.2.5
-python3-openid==3.0.9
+python3-openid>=3.0.10
 raven==5.32.0
 requests==2.13.0
 requests-oauthlib==0.7.0
 singledispatch==3.4.0.3
 six==1.10.0
-social-auth-app-django==1.0.0
-social-auth-core==1.0.0
+social-auth-app-django==1.1.0
+social-auth-core==1.2.0
 sqlparse==0.2.2
 stripe==1.46.0
 wheel==0.26.0
@@ -50,3 +50,4 @@ pytest==3.0.7
 factory-boy==2.8.1
 pendulum==1.2.0
 simplejson==3.10.0
+pyyaml==3.12

@@ -3,16 +3,16 @@
         "createTransaction": {
             "transaction": {
                 "associatedLocation": {
-                    "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTo0",
+                    "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTo0 (AssociatedLocationNode:4)",
                     "location": {
                         "displayName": "96 Main St. Apt #96, city_96 CT 11207",
-                        "id": "TG9jYXRpb25Ob2RlOjk3"
+                        "id": "TG9jYXRpb25Ob2RlOjk3 (LocationNode:97)"
                     }
                 },
                 "costUsd": 2.0,
-                "id": "VHJhbnNhY3Rpb25Ob2RlOjEx",
+                "id": "VHJhbnNhY3Rpb25Ob2RlOjEx (TransactionNode:11)",
                 "product": {
-                    "id": "UHJvZHVjdE5vZGU6UHJvZHVjdCAjOSBTbHVn",
+                    "id": "UHJvZHVjdE5vZGU6UHJvZHVjdCAjOSBTbHVn (ProductNode:Product #9 Slug)",
                     "name": "Product #9"
                 },
                 "productNotes": "word dawg",

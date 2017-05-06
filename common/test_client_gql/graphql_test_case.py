@@ -5,6 +5,7 @@ from django.test import TestCase, RequestFactory
 
 from common.schema import schema
 from common.testing_util import get_file_from_web_project, generate_or_assert_snapshot_is_equal
+from common.utils.deep_transform import deep_transform
 from common.views import OccasionsGraphQLView
 
 
@@ -14,6 +15,15 @@ class GraphQLTestCase(TestCase):
     def setUp(self):
         self.requestFactory = RequestFactory()
         self.view = OccasionsGraphQLView.as_view(schema=schema)
+
+
+    def load_json(self, response):
+        json = simplejson.loads(response.content.decode())
+        return deep_transform(
+            json,
+            lambda key, val: key in ['datetimeCreated', 'datetimeUpdated'],
+            lambda key, val: 'MOCKED_AUTO_GENERATED_DATETIME'
+        )
 
     def generate_or_assert_gql_snapshot_is_equal(
         self,
@@ -35,9 +45,10 @@ class GraphQLTestCase(TestCase):
             print(response.content.decode())
 
         is_snapshot_equal = generate_or_assert_snapshot_is_equal(
-            simplejson.loads(response.content.decode()),
+            self.load_json(response),
             parent_method_name=inspect.stack()[1][3],
-            parent_method_file_name=inspect.stack()[1][1]
+            parent_method_file_name=inspect.stack()[1][1],
+            is_graphql=True
         )
 
         self.assertEqual(response.status_code, expected_code)

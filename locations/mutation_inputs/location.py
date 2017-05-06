@@ -1,7 +1,7 @@
-from graphene import String, InputField
+from graphene import String, InputObjectType
 
 
-class LocationInput(InputField):
+class LocationInput(InputObjectType):
     street_address_line1 = String(required=True)
     street_address_line2 = String(required=False)
     postal_code = String(required=True)

@@ -2,7 +2,7 @@ from django.db import transaction
 from graphene import relay, String, Field, ID, List, InputField, InputObjectType
 from graphene.types.datetime import DateTime, Time
 
-from common.exceptions import FormValuesException, MutationException
+from common.exceptions import MutationException
 from common.gql import get_pk_from_global_id
 from events.models import Event, AssociatedEvent
 from events.serializers import EventSerializer, AssociatedEventSerializer
@@ -40,8 +40,7 @@ class CreateAssociatedEvent(relay.ClientIDMutation):
                 'user': context.user,
                 'receiving_person_id': receiving_person_id
             })
-            if not event_serializer.is_valid():
-                raise FormValuesException(event_serializer.errors)
+            event_serializer.is_valid(raise_exception=True)
             event = Event(**event)
             event.save()
 
@@ -57,8 +56,7 @@ class CreateAssociatedEvent(relay.ClientIDMutation):
                 'receiving_person_id': receiving_person_id
             }
         )
-        if not associated_event_serializer.is_valid():
-            raise FormValuesException(associated_event_serializer.errors)
+        associated_event_serializer.is_valid(raise_exception=True)
         associated_event = AssociatedEvent(
             creating_person=context.user.person,
             receiving_person_id=receiving_person_id,

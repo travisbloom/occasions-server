@@ -4,12 +4,6 @@
     },
     "errors": [
         {
-            "locations": [
-                {
-                    "column": 3,
-                    "line": 2
-                }
-            ],
             "message": "User tried to create stripe account that already existed"
         }
     ]

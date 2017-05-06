@@ -9,12 +9,6 @@
                     "Invalid pk \"11\" - object does not exist."
                 ]
             },
-            "locations": [
-                {
-                    "column": 3,
-                    "line": 2
-                }
-            ],
             "message": "{'person_id': ['Invalid pk \"11\" - object does not exist.']}"
         }
     ]

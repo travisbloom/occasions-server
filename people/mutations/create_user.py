@@ -2,8 +2,8 @@ from django.contrib.auth.password_validation import validate_password
 from django.db import IntegrityError
 from graphene import relay, String, Field
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 
-from common.exceptions import FormValuesException
 from common.gql.ratelimit import ratelimit_gql
 from people.models import User
 from people.types import UserNode
@@ -26,9 +26,7 @@ class CreateUser(relay.ClientIDMutation):
     @ratelimit_gql(key='ip', rate='20/m', block=True)
     def mutate_and_get_payload(cls, input, context, info):
         serializer = CreateUserInputSerializers(data=input)
-        serializer.is_valid()
-        if not serializer.is_valid():
-            raise FormValuesException(serializer.errors)
+        serializer.is_valid(raise_exception=True)
         try:
             user = User(
                 username=User.objects.normalize_email(
@@ -36,7 +34,7 @@ class CreateUser(relay.ClientIDMutation):
             user.set_password(input.get('password'))
             user.save()
         except IntegrityError:
-            raise FormValuesException(
+            raise ValidationError(
                 {'username': 'A user with this information already exists'})
 
         return CreateUser(user=user)

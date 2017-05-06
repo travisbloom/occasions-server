@@ -28,9 +28,10 @@ SECRET_KEY = os.environ['OCCASIONS_DJANGO_SECRET_KEY']
 STRIPE_SECRET_KEY = os.environ['OCCASIONS_STRIPE_SECRET_KEY']
 STRIPE_TEST_USER_ID = os.environ['OCCASIONS_STRIPE_TEST_USER_ID']
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('OCCASIONS_ENVIRONMENT') == 'local'
+ENVIRONMENT = os.environ.get('OCCASIONS_ENVIRONMENT')
+DEBUG = ENVIRONMENT == 'local'
 ALLOWED_HOSTS = []
-TESTING = sys.argv[1:2] == ['test']
+TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
 
 if TESTING:
     logging.disable(logging.CRITICAL)

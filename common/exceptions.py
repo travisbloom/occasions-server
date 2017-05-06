@@ -1,8 +1,4 @@
 
-class FormValuesException(Exception):
-    pass
-
-
 class StripeException(Exception):
     pass
 

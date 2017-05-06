@@ -2,10 +2,10 @@
     "data": {
         "createAssociatedLocation": {
             "associatedLocation": {
-                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToxNA==",
+                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToxNA== (AssociatedLocationNode:14)",
                 "location": {
                     "displayName": "First Street Line Second Street Line, NYC NY 10011",
-                    "id": "TG9jYXRpb25Ob2RlOjY4"
+                    "id": "TG9jYXRpb25Ob2RlOjY4 (LocationNode:68)"
                 }
             }
         }

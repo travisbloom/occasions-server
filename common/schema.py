@@ -3,7 +3,7 @@ from graphene import Schema, ObjectType, Field
 from common.relay import Node
 from events.mutations import EventMutations
 from events.types import EventQueries
-from locations.mutations import LocationsMutations
+from locations.mutations.create_associated_location import LocationsMutations
 from locations.types import LocationQueries
 from people.mutations import CreateUser
 from people.types import PeopleQueries, UserNode

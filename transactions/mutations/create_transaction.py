@@ -4,7 +4,7 @@ from django.conf import settings
 from graphene import relay, String, Field, ID
 from rest_framework import serializers
 
-from common.exceptions import FormValuesException, MutationException
+from common.exceptions import MutationException
 from common.gql import get_pk_from_global_id
 from events.models import AssociatedEvent
 from locations.models import AssociatedLocation
@@ -70,8 +70,7 @@ class CreateTransaction(relay.ClientIDMutation):
             'user': context.user,
             'receiving_person_id': formatted_input.get('receiving_person_id')
         })
-        if not serializer.is_valid():
-            raise FormValuesException(serializer.errors)
+        serializer.is_valid(raise_exception=True)
 
         product = Product.objects.get(pk=formatted_input.get('product_id'))
         transaction = Transaction(

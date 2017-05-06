@@ -7,12 +7,6 @@
             "data": {
                 "username": "A user with this information already exists"
             },
-            "locations": [
-                {
-                    "column": 3,
-                    "line": 2
-                }
-            ],
             "message": "{'username': 'A user with this information already exists'}"
         }
     ]

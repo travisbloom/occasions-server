@@ -1,10 +1,12 @@
+import logging
+
 from graphene import relay, String, Field
-from transactions.test import logger
 
 from common.exceptions import MutationException
 from people.types import UserNode
 from transactions.stripe import create_stripe_user
 
+logger = logging.getLogger('occasions')
 
 class CreateStripeUser(relay.ClientIDMutation):
 
