@@ -32,7 +32,6 @@ class CreateAssociatedEventMutationTestCase(GraphQLTestCase):
         unrelated_person = PersonFactory()
         self.generate_or_assert_gql_snapshot_is_equal(
             self.file_name,
-            expected_code=200,
             variables={
                 'input': {
                     'event': None,

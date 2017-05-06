@@ -1,7 +1,36 @@
 {
-    "errors": [
-        {
-            "message": "Syntax Error GraphQL request (1:31) Expected Name, found !\n\n1: mutation CreatePerson($input: !CreatePersonMutationInput) {\n                                 ^\n2:     createPerson(input: $input) {\n"
+    "data": {
+        "createPerson": {
+            "person": {
+                "associatedLocations": {
+                    "edges": [
+                        {
+                            "node": {
+                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToxNA== (AssociatedLocationNode:14)",
+                                "location": {
+                                    "displayName": "First Street Line Second Street Line, NYC NY 10011",
+                                    "id": "TG9jYXRpb25Ob2RlOjE0 (LocationNode:14)"
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToxNQ== (AssociatedLocationNode:15)",
+                                "location": {
+                                    "displayName": "Second Street Address Second Street Line, NYC NY 10011",
+                                    "id": "TG9jYXRpb25Ob2RlOjE1 (LocationNode:15)"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "datetimeCreated": "MOCK_OUT_AUTO_DATES",
+                "email": "trigga@trey.com",
+                "firstName": "Travis",
+                "fullName": "Travis Bloom",
+                "id": "UGVyc29uTm9kZToxMDAx (PersonNode:1001)",
+                "lastName": "Bloom"
+            }
         }
-    ]
+    }
 }

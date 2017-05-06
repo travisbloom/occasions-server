@@ -1,0 +1,40 @@
+{
+    "data": {
+        "createPerson": null
+    },
+    "errors": [
+        {
+            "data": {
+                "birthDate": [
+                    "Date has wrong format. Use one of these formats instead: YYYY[-MM[-DD]]."
+                ],
+                "email": [
+                    "Enter a valid email address."
+                ],
+                "firstName": [
+                    "This field may not be blank."
+                ],
+                "lastName": [
+                    "This field may not be blank."
+                ],
+                "locations": [
+                    {
+                        "city": [
+                            "This field may not be blank."
+                        ],
+                        "postalCode": [
+                            "This field may not be blank."
+                        ],
+                        "state": [
+                            "This field may not be blank."
+                        ],
+                        "streetAddressLine1": [
+                            "This field may not be blank."
+                        ]
+                    }
+                ]
+            },
+            "message": "{'locations': [{'city': ['This field may not be blank.'], 'street_address_line1': ['This field may not be blank.'], 'state': ['This field may not be blank.'], 'postal_code': ['This field may not be blank.']}], 'email': ['Enter a valid email address.'], 'birth_date': ['Date has wrong format. Use one of these formats instead: YYYY[-MM[-DD]].'], 'last_name': ['This field may not be blank.'], 'first_name': ['This field may not be blank.']}"
+        }
+    ]
+}

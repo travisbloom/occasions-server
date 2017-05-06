@@ -30,7 +30,7 @@ class GraphQLTestCase(TestCase):
         file_name,
         variables=None,
         endpoint='graphql',
-        expected_code=200
+        should_error=False
     ):
         file_contents = get_file_from_web_project(file_name)
         request = self.requestFactory.post(endpoint, {
@@ -41,9 +41,6 @@ class GraphQLTestCase(TestCase):
         request.user = self.user if hasattr(self, 'user') else None
         response = self.view(request)
 
-        if response.status_code != expected_code:
-            print(response.content.decode())
-
         is_snapshot_equal = generate_or_assert_snapshot_is_equal(
             self.load_json(response),
             parent_method_name=inspect.stack()[1][3],
@@ -51,5 +48,5 @@ class GraphQLTestCase(TestCase):
             is_graphql=True
         )
 
-        self.assertEqual(response.status_code, expected_code)
+        self.assertEqual(response.status_code != 200, should_error)
         self.assertEqual(is_snapshot_equal, True)

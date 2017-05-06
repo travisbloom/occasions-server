@@ -6,7 +6,7 @@ from locations.serializers.location import LocationSerializer
 from people.serializers import PersonWithRelationToCurrentUserField
 
 
-class CreateAssociatedLocationSerializer(serializers.ModelSerializer):
+class AssociatedLocationSerializer(serializers.ModelSerializer):
     person_id = PersonWithRelationToCurrentUserField()
     location = LocationSerializer()
 

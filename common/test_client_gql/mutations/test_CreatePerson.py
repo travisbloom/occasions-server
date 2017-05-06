@@ -10,9 +10,10 @@ valid_location_payload = {
 }
 
 valid_person_payload = {
-    'first_name': 'Travis',
-    'last_name': 'Bloom',
-    'email': 'trigga@trey.com'
+    'firstName': 'Travis',
+    'lastName': 'Bloom',
+    'email': 'trigga@trey.com',
+    'birthDate': '2017-02-23'
 }
 
 
@@ -34,7 +35,48 @@ class CreatePersonMutationTestCase(GraphQLTestCase):
                 'input': {
                     **valid_person_payload,
                     'locations': [
-                        valid_location_payload
+                        valid_location_payload,
+                        {
+                            **valid_location_payload,
+                            'streetAddressLine1': 'Second Street Address'
+                        }
                     ]
+                }
+            })
+
+    def test__invalid_input_submitted__query_errors(self):
+        person = self.user
+
+        self.generate_or_assert_gql_snapshot_is_equal(
+            self.file_name,
+
+            variables={
+                'input': {
+                    'firstName': '',
+                    'lastName': '',
+                    'email': 'trigga',
+                    'birthDate': 'foo23',
+                    'locations': [
+                        {
+                            'streetAddressLine1': '',
+                            'postalCode': '',
+                            'city': '',
+                            'state': '',
+                        }
+                    ]
+                }
+            })
+
+
+    def test__no_locations_submitted__query_errors(self):
+        person = self.user
+
+        self.generate_or_assert_gql_snapshot_is_equal(
+            self.file_name,
+
+            variables={
+                'input': {
+                    **valid_person_payload,
+                    'locations': []
                 }
             })

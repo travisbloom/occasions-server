@@ -5,7 +5,7 @@ from events.mutations import EventMutations
 from events.types import EventQueries
 from locations.mutations.create_associated_location import LocationsMutations
 from locations.types import LocationQueries
-from people.mutations import CreateUser
+from people.mutations import CreateUser, PeopleMutations
 from people.types import PeopleQueries, UserNode
 from products.types import ProductQueries
 from transactions.mutations import TransactionMutations
@@ -31,9 +31,10 @@ class Mutation(
     TransactionMutations,
     LocationsMutations,
     EventMutations,
+    PeopleMutations,
     ObjectType
 ):
-    create_user = CreateUser.Field()
+    pass
 
 schema = Schema(
     query=Query,

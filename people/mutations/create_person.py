@@ -1,8 +1,9 @@
 from django.db.transaction import atomic
 from graphene import relay, List, String, Field
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 
-from common.exceptions import FormValuesException
+from locations.models import AssociatedLocation, Location
 from locations.mutation_inputs.location import LocationInput
 from locations.serializers.location import LocationSerializer
 from people.models import Person
@@ -15,6 +16,7 @@ class CreatePersonInputSerializer(serializers.ModelSerializer):
     class Meta:
         model = Person
         fields = (
+            'locations',
             'first_name',
             'last_name',
             'email',
@@ -23,15 +25,21 @@ class CreatePersonInputSerializer(serializers.ModelSerializer):
 
     @atomic
     def create(self, validated_data):
-        locations = validated_data.pop('profile')
+        locations = validated_data.pop('locations')
         person = Person(**validated_data)
         person.save()
+        if not locations:
+            raise ValidationError('People must have at least one address.')
         for location in locations:
-            location = LocationSerializer(**location)
+            location = Location(**location)
             location.save()
-        return user
+            associated_location = AssociatedLocation(
+                location=location, person=person)
+            associated_location.save()
+        return person
 
-class CreatePersonMutation(relay.ClientIDMutation):
+
+class CreatePerson(relay.ClientIDMutation):
     class Input:
         locations = List(LocationInput)
         first_name = String(required=True)
@@ -48,4 +56,4 @@ class CreatePersonMutation(relay.ClientIDMutation):
         serializer.is_valid(raise_exception=True)
         person = serializer.save()
 
-        return CreatePersonMutation(person=person)
+        return CreatePerson(person=person)
