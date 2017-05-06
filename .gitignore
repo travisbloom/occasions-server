@@ -3,3 +3,4 @@ env/*
 db.sqlite3
 assets/schema.json
 .cache
+.idea
