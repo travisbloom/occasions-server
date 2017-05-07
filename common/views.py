@@ -8,7 +8,9 @@ from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_social_oauth2.authentication import SocialAuthentication
 
+from common import settings
 from common.errors import GQLErrorHandler
+from common.testing_util.view_authentication import MockUserLoginAuthentication
 
 logger = logging.getLogger('occasions')
 
@@ -30,14 +32,23 @@ class OccasionsGraphQLView(GraphQLView):
             return request.data
         return super().parse_body(request)
 
+
+    @staticmethod
+    def get_view_authentication_classes():
+        auth_classes = []
+        if settings.DEBUG:
+            auth_classes += [MockUserLoginAuthentication]
+        auth_classes += [
+            SessionAuthentication,
+            OAuth2Authentication,
+            SocialAuthentication,
+        ]
+        return auth_classes
+
     @classmethod
     def wrap_as_django_rest_framework_view(cls, *args, **kwargs):
         view = cls.as_view(*args, **kwargs)
         view = permission_classes((IsAuthenticated,))(view)
-        view = authentication_classes((
-            SessionAuthentication,
-            OAuth2Authentication,
-            SocialAuthentication,
-        ))(view)
+        view = authentication_classes(cls.get_view_authentication_classes())(view)
         view = api_view(['POST', 'GET'])(view)
         return view
