@@ -22,10 +22,20 @@ class AccessTokenNode(AbstractModelType, DjangoObjectType):
         )
 
 
+class PersonNode(AbstractModelType, DjangoObjectType):
+    full_name = String()
+
+    class Meta:
+        interfaces = (Node, )
+        model = Person
+
+
 class UserNode(AbstractModelType, DjangoObjectType):
     access_token = Field(AccessTokenNode)
     email = String(source='username')
     has_stripe_user = Boolean()
+    related_people = DjangoFilterConnectionField(
+        PersonNode, filterset_class=PersonFilter)
 
     class Meta:
         interfaces = (Node, )
@@ -38,20 +48,15 @@ class UserNode(AbstractModelType, DjangoObjectType):
             'person',
         )
 
+    def resolve_related_people(self, args, context, info):
+        return Person.objects.filter(to_relationships__from_person=self.pk)
+
     def resolve_has_stripe_user(self, args, context, info):
         return bool(self.stripe_user_id)
 
     def resolve_access_token(self, args, context, info):
         return self.accesstoken_set.filter(
             expires__gt=datetime.now()).order_by('-expires').first()
-
-
-class PersonNode(AbstractModelType, DjangoObjectType):
-    full_name = String()
-
-    class Meta:
-        interfaces = (Node, )
-        model = Person
 
 
 class RelationshipNode(AbstractModelType, DjangoObjectType):
