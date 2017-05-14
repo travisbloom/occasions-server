@@ -14,6 +14,9 @@ class Location(BaseModel):
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100, default='USA', blank=True)
 
+    def __str__(self):
+        return "{}".format(self.display_name)
+
     @property
     def display_name(self):
         return "{street_address_line1}{street_address_line2}, {city} {state} {postal_code}".format(
@@ -41,3 +44,7 @@ class AssociatedLocation(BaseModel):
         unique_together = (
             ('person', 'location'),
         )
+
+    def __str__(self):
+        return "{} ({})".format(self.location, self.person)
+

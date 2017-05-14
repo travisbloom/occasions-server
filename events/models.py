@@ -9,6 +9,9 @@ class EventType(BaseModel):
     name = models.CharField(max_length=255, primary_key=True)
     display_name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.display_name
+
 
 class EventManager(models.Manager):
 
@@ -42,6 +45,9 @@ class Event(BaseModel):
 
     objects = EventManager()
 
+    def __str__(self):
+        return self.name
+
 
 class AssociatedEventManager(models.Manager):
 
@@ -60,3 +66,10 @@ class AssociatedEvent(BaseModel):
     event = models.ForeignKey(Event, related_name='created_events')
 
     objects = AssociatedEventManager()
+
+    def __str__(self):
+        return "{}: created by {}, for {}".format(
+            self.event,
+            self.creating_person,
+            self.receiving_person
+        )

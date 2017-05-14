@@ -21,6 +21,13 @@ class User(AbstractUser):
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_updated = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return "{}".format(self.username)
+
+    @property
+    def full_name(self):
+        return self.person.full_name
+
 
 class Person(BaseModel):
     # users should also be people in case we want to implement some
@@ -39,6 +46,9 @@ class Person(BaseModel):
     last_name = models.CharField(max_length=30, blank=False)
     email = models.EmailField(blank=False)
     birth_date = models.DateField(null=True, blank=True)
+
+    def __str__(self):
+        return "{}".format(self.full_name)
 
     @property
     def full_name(self):
@@ -60,3 +70,10 @@ class Relationship(BaseModel):
     to_person = models.ForeignKey(Person, related_name='to_relationships')
     relationship_type = models.CharField(
         max_length=20, choices=RELATIONSHIP_TYPE)
+
+    def __str__(self):
+        return "relation {} from {} to {}".format(
+            self.relationship_type,
+            self.from_person,
+            self.to_person
+        )

@@ -40,3 +40,6 @@ class Product(BaseModel):
     main_image_url = models.URLField()
 
     objects = ProductManager()
+
+    def __str__(self):
+        return self.name

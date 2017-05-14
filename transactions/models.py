@@ -52,6 +52,14 @@ class Transaction(BaseModel):
     class Meta:
         default_related_name = 'transactions'
 
+    def __str__(self):
+        return "{} from {} to {} on {}".format(
+            self.product,
+            self.user.person,
+            self.receiving_person,
+            self.datetime_created
+        )
+
     def clean(self, *args, **kwargs):
         if (self.associated_location.person_id != self.associated_event.receiving_person_id and
                 self.associated_location.person_id != self.associated_event.creating_person_id):

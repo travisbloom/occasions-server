@@ -31,7 +31,9 @@ STRIPE_TEST_USER_ID = os.environ['OCCASIONS_STRIPE_TEST_USER_ID']
 ENVIRONMENT = os.environ.get('OCCASIONS_ENVIRONMENT')
 DEBUG = ENVIRONMENT == 'local'
 ALLOWED_HOSTS = []
+APP_URL = 'http://localhost:8080/'
 TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
+JQUERY_URL = 'admin/js/jquery.js'
 
 if TESTING:
     logging.disable(logging.CRITICAL)
@@ -39,15 +41,12 @@ if TESTING:
 # Application definition
 
 INSTALLED_APPS = [
-    'people.apps.PeopleConfig',
-    'events.apps.EventsConfig',
-    'locations.apps.LocationsConfig',
-    'products.apps.ProductsConfig',
-    'transactions.apps.TransactionsConfig',
-
     'django_extensions',
     'django_graphiql',
     'graphene_django',
+
+    'dal',
+    'dal_select2',
 
     'oauth2_provider',
     'social_django',
@@ -66,7 +65,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'debug_toolbar',
-    'debug_panel'
+    'debug_panel',
+
+    'people.apps.PeopleConfig',
+    'events.apps.EventsConfig',
+    'locations.apps.LocationsConfig',
+    'products.apps.ProductsConfig',
+    'transactions.apps.TransactionsConfig',
 ]
 
 
@@ -155,7 +160,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/a/'
 
 # graphql
 
@@ -203,7 +208,7 @@ LOGGING = {
             'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
         },
         'console': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
             'formatter': 'verbose'
         }
@@ -215,7 +220,7 @@ LOGGING = {
             'propagate': False,
         },
         'django': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'handlers': ['console', 'sentry'],
             'propagate': True,
         },
