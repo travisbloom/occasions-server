@@ -2,14 +2,15 @@
     "data": {
         "associatedEvent": {
             "event": {
-                "dateStart": "2017-01-01",
                 "id": "RXZlbnROb2RlOjE= (EventNode:1)",
                 "isReoccuringYearly": true,
                 "name": "event_name_0",
+                "nextDate": {
+                    "dateStart": "2022-01-01"
+                },
                 "relatedProducts": {
                     "edges": []
-                },
-                "timeStart": "13:30:30"
+                }
             },
             "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox (AssociatedEventNode:1)",
             "receivingPerson": {

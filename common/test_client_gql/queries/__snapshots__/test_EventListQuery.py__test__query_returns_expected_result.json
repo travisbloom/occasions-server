@@ -4,102 +4,112 @@
             "edges": [
                 {
                     "node": {
-                        "dateStart": "2017-10-01",
                         "id": "RXZlbnROb2RlOjEw (EventNode:10)",
                         "isReoccuringYearly": false,
                         "name": "event_name_9",
-                        "slug": "event_name_9_slug",
-                        "timeStart": null
+                        "nextDate": {
+                            "dateStart": "2024-06-01"
+                        },
+                        "slug": "event_name_9_slug"
                     }
                 },
                 {
                     "node": {
-                        "dateStart": "2017-09-01",
                         "id": "RXZlbnROb2RlOjk= (EventNode:9)",
                         "isReoccuringYearly": true,
                         "name": "event_name_8",
-                        "slug": "event_name_8_slug",
-                        "timeStart": "13:30:30"
+                        "nextDate": {
+                            "dateStart": "2024-05-01"
+                        },
+                        "slug": "event_name_8_slug"
                     }
                 },
                 {
                     "node": {
-                        "dateStart": "2017-08-01",
                         "id": "RXZlbnROb2RlOjg= (EventNode:8)",
                         "isReoccuringYearly": false,
                         "name": "event_name_7",
-                        "slug": "event_name_7_slug",
-                        "timeStart": null
+                        "nextDate": {
+                            "dateStart": "2024-04-01"
+                        },
+                        "slug": "event_name_7_slug"
                     }
                 },
                 {
                     "node": {
-                        "dateStart": "2017-07-01",
                         "id": "RXZlbnROb2RlOjc= (EventNode:7)",
                         "isReoccuringYearly": true,
                         "name": "event_name_6",
-                        "slug": "event_name_6_slug",
-                        "timeStart": "13:30:30"
+                        "nextDate": {
+                            "dateStart": "2024-03-01"
+                        },
+                        "slug": "event_name_6_slug"
                     }
                 },
                 {
                     "node": {
-                        "dateStart": "2017-06-01",
                         "id": "RXZlbnROb2RlOjY= (EventNode:6)",
                         "isReoccuringYearly": false,
                         "name": "event_name_5",
-                        "slug": "event_name_5_slug",
-                        "timeStart": null
+                        "nextDate": {
+                            "dateStart": "2024-02-01"
+                        },
+                        "slug": "event_name_5_slug"
                     }
                 },
                 {
                     "node": {
-                        "dateStart": "2017-05-01",
                         "id": "RXZlbnROb2RlOjU= (EventNode:5)",
                         "isReoccuringYearly": true,
                         "name": "event_name_4",
-                        "slug": "event_name_4_slug",
-                        "timeStart": "13:30:30"
+                        "nextDate": {
+                            "dateStart": "2024-01-01"
+                        },
+                        "slug": "event_name_4_slug"
                     }
                 },
                 {
                     "node": {
-                        "dateStart": "2017-04-01",
                         "id": "RXZlbnROb2RlOjQ= (EventNode:4)",
                         "isReoccuringYearly": false,
                         "name": "event_name_3",
-                        "slug": "event_name_3_slug",
-                        "timeStart": null
+                        "nextDate": {
+                            "dateStart": "2023-12-01"
+                        },
+                        "slug": "event_name_3_slug"
                     }
                 },
                 {
                     "node": {
-                        "dateStart": "2017-03-01",
                         "id": "RXZlbnROb2RlOjM= (EventNode:3)",
                         "isReoccuringYearly": true,
                         "name": "event_name_2",
-                        "slug": "event_name_2_slug",
-                        "timeStart": "13:30:30"
+                        "nextDate": {
+                            "dateStart": "2023-11-01"
+                        },
+                        "slug": "event_name_2_slug"
                     }
                 },
                 {
                     "node": {
-                        "dateStart": "2017-02-01",
                         "id": "RXZlbnROb2RlOjI= (EventNode:2)",
                         "isReoccuringYearly": false,
                         "name": "event_name_1",
-                        "slug": "event_name_1_slug",
-                        "timeStart": null
+                        "nextDate": {
+                            "dateStart": "2023-10-01"
+                        },
+                        "slug": "event_name_1_slug"
                     }
                 },
                 {
                     "node": {
-                        "dateStart": "2017-01-01",
                         "id": "RXZlbnROb2RlOjE= (EventNode:1)",
                         "isReoccuringYearly": true,
                         "name": "event_name_0",
-                        "slug": "event_name_0_slug",
-                        "timeStart": "13:30:30"
+                        "nextDate": {
+                            "dateStart": "2023-09-01"
+                        },
+                        "slug": "event_name_0_slug"
                     }
                 }
             ]

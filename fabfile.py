@@ -18,6 +18,7 @@ def fixtures():
         # events
         'event_types',
         'events',
+        'event_dates',
         'associated_events',
 
         # transactions

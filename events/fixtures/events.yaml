@@ -4,7 +4,6 @@
         slug: "new_years"
         name: "New Years"
         event_types: ["celebration"]
-        date_start: "2017-01-01"
         is_default_event: true
         is_reoccuring_yearly: true
         datetime_created: "2017-09-02T20:00:00.000Z"
@@ -16,7 +15,6 @@
         slug: "valentines_day"
         name: "Valentine's Day"
         event_types: ["romantic"]
-        date_start: "2017-02-14"
         is_default_event: true
         is_reoccuring_yearly: true
         datetime_created: "2017-09-02T20:00:00.000Z"
@@ -28,7 +26,6 @@
         slug: "ash_wednesday"
         name: "Ash Wednesday"
         event_types: ["christian", "religious"]
-        date_start: "2017-03-01"
         is_default_event: true
         is_reoccuring_yearly: true
         datetime_created: "2017-09-02T20:00:00.000Z"
@@ -40,7 +37,6 @@
         slug: "purim"
         name: "Purim"
         event_types: ["religious", "jewish"]
-        date_start: "2017-03-12"
         is_default_event: true
         is_reoccuring_yearly: true
         datetime_created: "2017-09-02T20:00:00.000Z"
@@ -52,7 +48,6 @@
         slug: "st_patricks_day"
         name: "St. Patrick's Day"
         event_types: ["celebration", "christian"]
-        date_start: "2017-03-17"
         is_default_event: true
         is_reoccuring_yearly: true
         datetime_created: "2017-09-02T20:00:00.000Z"
@@ -64,7 +59,6 @@
         slug: "palm_sunday"
         name: "Palm Sunday"
         event_types: ["religious", "christian"]
-        date_start: "2017-04-09"
         is_default_event: true
         is_reoccuring_yearly: true
         datetime_created: "2017-09-02T20:00:00.000Z"
@@ -76,7 +70,6 @@
         slug: "passover"
         name: "Passover"
         event_types: ["religious", "jewish"]
-        date_start: "2017-04-11"
         is_default_event: true
         is_reoccuring_yearly: true
         datetime_created: "2017-09-02T20:00:00.000Z"
@@ -88,7 +81,6 @@
         slug: "good_friday"
         name: "Good Friday"
         event_types: ["religious", "christian"]
-        date_start: "2017-04-14"
         is_default_event: true
         is_reoccuring_yearly: true
         datetime_created: "2017-09-02T20:00:00.000Z"
@@ -100,7 +92,6 @@
         slug: "easter"
         name: "Easter"
         event_types: ["religious", "christian"]
-        date_start: "2017-04-16"
         is_default_event: true
         is_reoccuring_yearly: true
         datetime_created: "2017-09-02T20:00:00.000Z"
@@ -112,7 +103,6 @@
         slug: "taxday"
         name: "Tax Day"
         event_types: ["humorous", "american"]
-        date_start: "2017-08-18"
         is_default_event: true
         is_reoccuring_yearly: true
         datetime_created: "2017-09-02T20:00:00.000Z"
@@ -124,7 +114,6 @@
         slug: "monthers_day"
         name: "Mother's Day"
         event_types: ["religious", "christian"]
-        date_start: "2017-05-14"
         is_default_event: true
         is_reoccuring_yearly: true
         datetime_created: "2017-09-02T20:00:00.000Z"
@@ -136,7 +125,6 @@
         slug: "ramadan"
         name: "Ramadan"
         event_types: ["religious", "muslim"]
-        date_start: "2017-05-27"
         is_default_event: true
         is_reoccuring_yearly: true
         datetime_created: "2017-09-02T20:00:00.000Z"
@@ -148,7 +136,6 @@
         slug: "christian"
         name: "Christmas"
         event_types: ["religious", "christian"]
-        date_start: "2017-12-26"
         is_default_event: true
         is_reoccuring_yearly: true
         datetime_created: "2017-09-02T20:00:00.000Z"

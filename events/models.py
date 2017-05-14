@@ -1,5 +1,6 @@
 from django.db import models
 from model_utils import Choices
+import pendulum
 
 from common.models import BaseModel
 from people.models import Person
@@ -38,8 +39,6 @@ class Event(BaseModel):
     name = models.CharField(max_length=255)
     slug = models.SlugField(blank=True, default='')
     event_types = models.ManyToManyField(EventType, related_name='events')
-    date_start = models.DateField()
-    time_start = models.TimeField(blank=True, null=True)
     is_default_event = models.BooleanField(default=True)
     is_reoccuring_yearly = models.BooleanField(default=True)
 
@@ -47,6 +46,20 @@ class Event(BaseModel):
 
     def __str__(self):
         return self.name
+
+    @property
+    def next_date(self):
+        return self.event_dates.filter(
+            date_start__gte=pendulum.now().subtract(days=1)
+        ).first()
+
+
+class EventDate(models.Model):
+    event = models.ForeignKey(Event, related_name='event_dates')
+    date_start = models.DateField()
+
+    def __str__(self):
+        return "{} on {}".format(self.event, self.date_start)
 
 
 class AssociatedEventManager(models.Manager):

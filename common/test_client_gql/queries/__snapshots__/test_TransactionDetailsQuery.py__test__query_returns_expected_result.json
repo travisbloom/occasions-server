@@ -3,13 +3,15 @@
         "transaction": {
             "associatedEvent": {
                 "event": {
-                    "dateStart": "2017-10-01",
                     "id": "RXZlbnROb2RlOjEw (EventNode:10)",
                     "isReoccuringYearly": false,
-                    "name": "event_name_9",
-                    "timeStart": null
+                    "name": "event_name_9"
                 },
                 "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToxMA== (AssociatedEventNode:10)"
+            },
+            "associatedEventDate": {
+                "dateStart": "2026-02-01",
+                "id": "RXZlbnREYXRlTm9kZToxMA== (EventDateNode:10)"
             },
             "associatedLocation": {
                 "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTo0 (AssociatedLocationNode:4)",

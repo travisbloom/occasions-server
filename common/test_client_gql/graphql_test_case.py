@@ -1,15 +1,16 @@
 import inspect
 
 import simplejson
-from django.test import TestCase, RequestFactory
+from django.test import RequestFactory
 
 from common.schema import schema
 from common.testing_util import get_file_from_web_project, generate_or_assert_snapshot_is_equal
+from common.testing_util.base_test_case import BaseTestCase
 from common.utils.deep_transform import deep_transform
 from common.views import OccasionsGraphQLView
 
 
-class GraphQLTestCase(TestCase):
+class GraphQLTestCase(BaseTestCase):
     fixtures = ('event_types',)
 
     def setUp(self):

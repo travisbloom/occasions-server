@@ -38,6 +38,8 @@ def build_user_mock_data(
         for num in range(10):
             relationships = user.person.from_relationships.all()
             AssociatedEventFactory(
+                post__has_event_date=True,
+                post__has_event_type=True,
                 creating_person=user.person,
                 receiving_person=relationships[num].to_person
             )
@@ -52,6 +54,7 @@ def build_user_mock_data(
             TransactionFactory(
                 user=user,
                 associated_event=created_events,
+                associated_event_date=created_events.event.next_date,
                 receiving_person=receiving_person,
                 product=products[num],
                 associated_location=receiving_person.associated_locations.first()

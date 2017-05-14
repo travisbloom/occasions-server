@@ -4,7 +4,7 @@ from model_utils import Choices
 
 # Create your models here.
 from common.models import BaseModel
-from events.models import AssociatedEvent
+from events.models import AssociatedEvent, EventDate
 from locations.models import AssociatedLocation
 from people.models import User, Person
 from products.models import Product
@@ -41,6 +41,8 @@ class Transaction(BaseModel):
     product = models.ForeignKey(Product)
     associated_event = models.ForeignKey(
         AssociatedEvent, blank=True, null=True)
+    associated_event_date = models.ForeignKey(
+        EventDate, blank=True, null=True)
     associated_location = models.ForeignKey(AssociatedLocation)
     # ex: custom message for recipient on postcard
     product_notes = models.TextField()
@@ -69,6 +71,28 @@ class Transaction(BaseModel):
                     ' the creating or recieving person.'
                 )
             })
+
+        if not self.receiving_person.to_relationships.filter(from_person_id=self.user.person.pk):
+            raise ValidationError({
+                'receiving_person': (
+                    'This person is not a contact of the user.'
+                )
+            })
+
+        if self.associated_event:
+            if not self.associated_event_date:
+                raise ValidationError({
+                    'associated_event_date': (
+                        'An event date is required when associating a'
+                        ' transaction with an event.'
+                    )
+                })
+            if self.associated_event.event_id != self.associated_event_date.event_id:
+                raise ValidationError({
+                    'associated_event_date': (
+                        'This event date does not correspond to the passed event.'
+                    )
+                })
 
         if not hasattr(self, 'cost_usd'):
             self.cost_usd = self.product.cost_usd

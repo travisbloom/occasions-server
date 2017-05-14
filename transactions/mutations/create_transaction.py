@@ -73,8 +73,10 @@ class CreateTransaction(relay.ClientIDMutation):
         serializer.is_valid(raise_exception=True)
 
         product = Product.objects.get(pk=formatted_input.get('product_id'))
+        associated_event = AssociatedEvent.objects.get(pk=get_pk_from_global_id(input.get('associated_event_id')))
         transaction = Transaction(
             **formatted_input,
+            associated_event_date=associated_event.event.next_date,
             cost_usd=product.cost_usd,
             user=context.user)
         transaction.save()
