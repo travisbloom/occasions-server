@@ -94,7 +94,7 @@ class Transaction(BaseModel):
                     )
                 })
 
-        if not hasattr(self, 'cost_usd'):
+        if not self.cost_usd:
             self.cost_usd = self.product.cost_usd
 
         super(Transaction, self).clean(*args, **kwargs)

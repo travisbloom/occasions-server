@@ -5,11 +5,11 @@
     "errors": [
         {
             "data": {
-                "receivingPerson": [
+                "receivingPersonId": [
                     "Invalid pk \"11\" - object does not exist."
                 ]
             },
-            "message": "{'receiving_person': ['Invalid pk \"11\" - object does not exist.']}"
+            "message": "{'receiving_person_id': ['Invalid pk \"11\" - object does not exist.']}"
         }
     ]
 }

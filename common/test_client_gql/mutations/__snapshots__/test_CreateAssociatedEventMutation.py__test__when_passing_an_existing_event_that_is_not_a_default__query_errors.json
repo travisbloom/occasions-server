@@ -1,0 +1,15 @@
+{
+    "data": {
+        "createAssociatedEvent": null
+    },
+    "errors": [
+        {
+            "data": {
+                "eventId": [
+                    "Invalid pk \"12\" - object does not exist."
+                ]
+            },
+            "message": "{'event_id': ['Invalid pk \"12\" - object does not exist.']}"
+        }
+    ]
+}

@@ -6,6 +6,7 @@ from rest_framework import serializers
 
 from common.exceptions import MutationException
 from common.gql import get_pk_from_global_id
+from common.gql.get_pk_from_global_id import convert_input_global_ids_to_pks
 from events.models import AssociatedEvent
 from locations.models import AssociatedLocation
 from people.serializers import PersonWithRelationToCurrentUserField
@@ -57,15 +58,9 @@ class CreateTransaction(relay.ClientIDMutation):
     def mutate_and_get_payload(cls, input, context, info):
         if not context.user.stripe_user_id:
             error_msg = 'User tried to create a transaction before they have a stripe account'
-            logger.warn(error_msg, extra={'request': context})
+            logger.warning(error_msg, extra={'request': context})
             raise MutationException(error_msg)
-        formatted_input = {
-            **input,
-            'receiving_person_id': get_pk_from_global_id(input.get('receiving_person_id')),
-            'associated_location_id': get_pk_from_global_id(input.get('associated_location_id')),
-            'associated_event_id': get_pk_from_global_id(input.get('associated_event_id')),
-            'product_id': get_pk_from_global_id(input.get('product_id')),
-        }
+        formatted_input = convert_input_global_ids_to_pks(input)
         serializer = CreateTransactionSerializer(data=formatted_input, context={
             'user': context.user,
             'receiving_person_id': formatted_input.get('receiving_person_id')
@@ -73,7 +68,7 @@ class CreateTransaction(relay.ClientIDMutation):
         serializer.is_valid(raise_exception=True)
 
         product = Product.objects.get(pk=formatted_input.get('product_id'))
-        associated_event = AssociatedEvent.objects.get(pk=get_pk_from_global_id(input.get('associated_event_id')))
+        associated_event = AssociatedEvent.objects.get(pk=formatted_input.get('associated_event_id'))
         transaction = Transaction(
             **formatted_input,
             associated_event_date=associated_event.event.next_date,

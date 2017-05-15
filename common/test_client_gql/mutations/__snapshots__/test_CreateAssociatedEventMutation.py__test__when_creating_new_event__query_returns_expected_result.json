@@ -12,9 +12,9 @@
                             "id": "RXZlbnRUeXBlTm9kZTphbm5pdmVyc2FyeQ== (EventTypeNode:anniversary)"
                         }
                     ],
-                    "name": "event_name_10",
+                    "name": "testEvent",
                     "nextDate": {
-                        "dateStart": "2025-10-01"
+                        "dateStart": "2018-09-01"
                     }
                 },
                 "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToxMQ== (AssociatedEventNode:11)",

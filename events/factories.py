@@ -37,7 +37,7 @@ class EventFactory(factory.django.DjangoModelFactory):
     is_reoccuring_yearly = factory.Sequence(lambda num: num % 2 == 0)
 
     @factory.post_generation
-    def post(self, create, extracted, has_event_date=False, has_event_type=False, **kwargs):
+    def post(self, create, extracted, has_event_date=True, has_event_type=True, **kwargs):
         if has_event_date:
             EventDateFactory(event=self)
         if has_event_type:

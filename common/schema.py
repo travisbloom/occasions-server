@@ -43,7 +43,7 @@ schema = Schema(
 
 
 class PublicQuery(ObjectType):
-    current_user = String()
+    current_user = Field(UserNode)
 
     def resolve_current_user(self, args, context, info):
         return None

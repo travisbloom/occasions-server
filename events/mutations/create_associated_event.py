@@ -1,19 +1,19 @@
 from django.db import transaction
 from graphene import relay, String, Field, ID, List, InputField, InputObjectType
-from graphene.types.datetime import DateTime, Time
 
-from common.exceptions import MutationException
-from common.gql import get_pk_from_global_id
-from events.models import Event, AssociatedEvent
-from events.serializers import EventSerializer, AssociatedEventSerializer
+from common.gql.get_pk_from_global_id import convert_input_global_ids_to_pks
+from events.serializers import AssociatedEventSerializer
 from events.types.associated_event import AssociatedEventNode
+
+
+class CreateEventNextDateInput(InputObjectType):
+    date_start = String()
 
 
 class CreateEventInput(InputObjectType):
     event_types = List(ID)
     name = String(required=False)
-    date_start = DateTime(required=False)
-    time_start = Time(required=False)
+    next_date = InputField(CreateEventNextDateInput)
 
 
 class CreateAssociatedEvent(relay.ClientIDMutation):
@@ -27,41 +27,13 @@ class CreateAssociatedEvent(relay.ClientIDMutation):
     @classmethod
     @transaction.atomic
     def mutate_and_get_payload(cls, input, context, info):
-        receiving_person_id = get_pk_from_global_id(input.get('receiving_person_id'))
-        if not input.get('event_id'):
-            event = input.get('event')
-            if not event:
-                raise MutationException('No event was sent')
-            # TODO figure out how to set graphene to be a date not datetime
-            if event.get('date_start'):
-                event['date_start'] = event['date_start'].date()
-
-            event_serializer = EventSerializer(data=event, context={
-                'user': context.user,
-                'receiving_person_id': receiving_person_id
-            })
-            event_serializer.is_valid(raise_exception=True)
-            event = Event(**event)
-            event.save()
-
-        event_id = get_pk_from_global_id(input.get('event_id'))
+        formatted_input = convert_input_global_ids_to_pks(input, ('event_types',))
         associated_event_serializer = AssociatedEventSerializer(
-            data={
-                'event': event_id,
-                'creating_person': context.user.person.id,
-                'receiving_person': receiving_person_id
-            },
+            data=formatted_input,
             context={
                 'user': context.user,
-                'receiving_person_id': receiving_person_id
             }
         )
         associated_event_serializer.is_valid(raise_exception=True)
-        associated_event = AssociatedEvent(
-            creating_person=context.user.person,
-            receiving_person_id=receiving_person_id,
-            event_id=event_id
-        )
-        associated_event.save()
-
+        associated_event = associated_event_serializer.save()
         return CreateAssociatedEvent(associated_event=associated_event)

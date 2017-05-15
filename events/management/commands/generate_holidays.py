@@ -16,5 +16,3 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         holidays = HolidaysToGenerate()
-        import pdb
-        pdb.set_trace()

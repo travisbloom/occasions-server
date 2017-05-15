@@ -1,7 +1,6 @@
 from django.db.models import Q
 from graphene import List, Field, ConnectionField
 from graphene_django import DjangoObjectType
-from graphene_django.filter import DjangoFilterConnectionField
 
 from common.gql import AbstractModelType
 from common.relay import Node
@@ -18,11 +17,15 @@ class EventDateNode(AbstractModelType, DjangoObjectType):
             'date_start',
         )
 
+def fixme_circular_dependency():
+    from events.types import EventTypeNode
+    return EventTypeNode
 
 class EventNode(AbstractModelType, DjangoObjectType):
     related_products = ConnectionField(ProductNode)
     event_dates = List(EventDateNode)
     next_date = Field(EventDateNode)
+    event_types = List(fixme_circular_dependency)
 
     class Meta:
         model = Event
@@ -30,6 +33,9 @@ class EventNode(AbstractModelType, DjangoObjectType):
 
     def resolve_event_dates(self, args, context, info):
         return self.event_dates.all()
+
+    def resolve_event_types(self, args, context, info):
+        return self.event_types.all()
 
     def resolve_related_products(self, args, context, info):
         return (
