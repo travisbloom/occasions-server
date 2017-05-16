@@ -17,6 +17,8 @@ import sys
 import raven
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from corsheaders.defaults import default_headers
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -172,7 +174,9 @@ GRAPHENE = {
 # auth
 AUTH_USER_MODEL = 'people.User'
 CORS_ORIGIN_ALLOW_ALL = True
-
+CORS_ALLOW_HEADERS = default_headers + (
+    'x-has-mock-user',
+)
 AUTHENTICATION_BACKENDS = (
     'rest_framework_social_oauth2.backends.DjangoOAuth2',
     'django.contrib.auth.backends.ModelBackend',

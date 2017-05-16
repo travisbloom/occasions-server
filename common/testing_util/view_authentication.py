@@ -13,4 +13,6 @@ class MockUserLoginAuthentication(BaseAuthentication):
         Returns a `User` if the request session currently has a logged in user.
         Otherwise returns `None`.
         """
-        return (User.objects.get(pk=1), None)
+        if request.META.get('HTTP_X_HAS_MOCK_USER', None) == 'true':
+            return (User.objects.get(pk=1), None)
+        return None

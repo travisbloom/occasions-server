@@ -12,7 +12,7 @@ class Command(BaseCommand):
             authorization_grant_type=Application.GRANT_PASSWORD,
             client_type=Application.CLIENT_CONFIDENTIAL,
             client_id='MOCK_CLIENT_ID',
-            client_secret='MOCK_CLIENT_ID',
+            client_secret='MOCK_CLIENT_SECRET',
             name='Occasions',
             user=User.objects.filter(is_superuser=True).first()
         )
