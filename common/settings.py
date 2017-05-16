@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'debug_panel',
 
+    'common.apps.CommonConfig',
     'people.apps.PeopleConfig',
     'events.apps.EventsConfig',
     'locations.apps.LocationsConfig',

@@ -29,7 +29,9 @@ def fixtures():
 
 
 def bootstrap_db():
+    local('rm db.sqlite3')
     local('./manage.py migrate')
+    local('./manage.py build_mock_oauth_provider')
     local('./manage.py loaddata users')
     local('fab fixtures')
     local('./manage.py changepassword travisbloom@gmail.com')

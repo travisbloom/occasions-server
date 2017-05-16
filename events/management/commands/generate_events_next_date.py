@@ -4,12 +4,12 @@ from django.core.management.base import BaseCommand
 from events.models import Event, EventDate
 
 
-class GenerateEventsNextDateCommand(BaseCommand):
+class Command(BaseCommand):
     help = 'Generate the an EventDate for all events that are about to pass their next date'
 
     def handle(self, *args, **options):
         pass
-    
+
     @staticmethod
     def generate_next_dates_for_events():
 
