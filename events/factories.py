@@ -20,8 +20,7 @@ class EventTypeFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = EventType
 
-    id = factory.Sequence(lambda num: num + 1)
-    name = factory.Iterator(["event_type_1", "event_type_2", "event_type_3", "event_type_4"])
+    name = factory.Sequence(lambda num: "event_type_{}".format(num))
     display_name = factory.LazyAttribute(lambda obj: "{} display name".format(obj.name))
 
 
@@ -41,7 +40,7 @@ class EventFactory(factory.django.DjangoModelFactory):
         if has_event_date:
             EventDateFactory(event=self)
         if has_event_type:
-            self.event_types.add(EventType.objects.first())
+            self.event_types.add(EventType.objects.first() or EventTypeFactory())
 
 
 
