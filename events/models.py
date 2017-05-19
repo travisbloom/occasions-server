@@ -9,6 +9,7 @@ from people.models import Person
 class EventType(BaseModel):
     name = models.CharField(max_length=255, primary_key=True)
     display_name = models.CharField(max_length=255)
+    is_externally_visible = models.BooleanField(blank=True, default=True)
 
     def __str__(self):
         return self.display_name
@@ -24,18 +25,6 @@ class EventManager(models.Manager):
 
 
 class Event(BaseModel):
-    TYPE_BIRTHDAY = 'birthday'
-    TYPE_ANNIVERSARY = 'anniversary'
-    TYPE_RELIGIOUS = 'religious'
-    TYPE_GEOPOLITICAL = 'geopolitical'
-
-    EVENT_TYPES = Choices(
-        TYPE_BIRTHDAY,
-        TYPE_ANNIVERSARY,
-        TYPE_RELIGIOUS,
-        TYPE_GEOPOLITICAL,
-    )
-
     name = models.CharField(max_length=255)
     slug = models.SlugField(blank=True, default='')
     event_types = models.ManyToManyField(EventType, related_name='events')

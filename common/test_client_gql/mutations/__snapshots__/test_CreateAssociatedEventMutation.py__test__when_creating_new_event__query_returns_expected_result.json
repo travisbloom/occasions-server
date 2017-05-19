@@ -3,23 +3,23 @@
         "createAssociatedEvent": {
             "associatedEvent": {
                 "creatingPerson": {
-                    "fullName": "UserFirstName UserLastName"
+                    "fullName": "Travis Bloom"
                 },
                 "event": {
                     "eventTypes": [
                         {
-                            "displayName": "Special Days",
-                            "id": "RXZlbnRUeXBlTm9kZTphbm5pdmVyc2FyeQ== (EventTypeNode:anniversary)"
+                            "displayName": "Celebration",
+                            "id": "RXZlbnRUeXBlTm9kZTpjZWxlYnJhdGlvbg== (EventTypeNode:celebration)"
                         }
                     ],
                     "name": "testEvent",
                     "nextDate": {
-                        "dateStart": "2018-09-01"
+                        "dateStart": "2017-03-01"
                     }
                 },
-                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToxMQ== (AssociatedEventNode:11)",
+                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo1 (AssociatedEventNode:5)",
                 "receivingPerson": {
-                    "fullName": "FirstName#9 LastName#9"
+                    "fullName": "FirstName#1 LastName#1"
                 }
             }
         }

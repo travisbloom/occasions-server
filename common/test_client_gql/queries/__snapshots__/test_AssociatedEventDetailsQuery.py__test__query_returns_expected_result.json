@@ -4,9 +4,9 @@
             "event": {
                 "id": "RXZlbnROb2RlOjE= (EventNode:1)",
                 "isReoccuringYearly": true,
-                "name": "event_name_0",
+                "name": "Mother's Day",
                 "nextDate": {
-                    "dateStart": "2022-01-01"
+                    "dateStart": "2017-05-21"
                 },
                 "relatedProducts": {
                     "edges": []
@@ -14,8 +14,8 @@
             },
             "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox (AssociatedEventNode:1)",
             "receivingPerson": {
-                "fullName": "FirstName#9 LastName#9",
-                "id": "UGVyc29uTm9kZToxMA== (PersonNode:10)"
+                "fullName": "FirstName#1 LastName#1",
+                "id": "UGVyc29uTm9kZToz (PersonNode:3)"
             },
             "transactions": {
                 "edges": []

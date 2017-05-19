@@ -34,7 +34,7 @@
                     }
                 ]
             },
-            "message": "{'first_name': ['This field may not be blank.'], 'email': ['Enter a valid email address.'], 'last_name': ['This field may not be blank.'], 'locations': [{'street_address_line1': ['This field may not be blank.'], 'postal_code': ['This field may not be blank.'], 'state': ['This field may not be blank.'], 'city': ['This field may not be blank.']}], 'birth_date': ['Date has wrong format. Use one of these formats instead: YYYY[-MM[-DD]].']}"
+            "message": "{'locations': [{'postal_code': ['This field may not be blank.'], 'street_address_line1': ['This field may not be blank.'], 'state': ['This field may not be blank.'], 'city': ['This field may not be blank.']}], 'birth_date': ['Date has wrong format. Use one of these formats instead: YYYY[-MM[-DD]].'], 'first_name': ['This field may not be blank.'], 'email': ['Enter a valid email address.'], 'last_name': ['This field may not be blank.']}"
         }
     ]
 }

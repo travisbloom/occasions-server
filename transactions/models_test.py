@@ -9,7 +9,6 @@ class TransactionTestCase(TestCase):
         super().setUp()
         build_user_mock_data(
             with_products=False,
-            with_relationships=False,
             with_associated_events=False,
         )
 

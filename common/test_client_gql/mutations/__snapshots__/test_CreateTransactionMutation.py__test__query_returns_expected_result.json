@@ -3,17 +3,17 @@
         "createTransaction": {
             "transaction": {
                 "associatedLocation": {
-                    "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTo0 (AssociatedLocationNode:4)",
+                    "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTox (AssociatedLocationNode:1)",
                     "location": {
-                        "displayName": "3 Main St. Apt #3, city_3 MA 11114",
-                        "id": "TG9jYXRpb25Ob2RlOjQ= (LocationNode:4)"
+                        "displayName": "0 Main St. Apt #0, city_0 MA 11111",
+                        "id": "TG9jYXRpb25Ob2RlOjE= (LocationNode:1)"
                     }
                 },
                 "costUsd": 2.0,
-                "id": "VHJhbnNhY3Rpb25Ob2RlOjEx (TransactionNode:11)",
+                "id": "VHJhbnNhY3Rpb25Ob2RlOjk= (TransactionNode:9)",
                 "product": {
-                    "id": "UHJvZHVjdE5vZGU6UHJvZHVjdCAjOSBTbHVn (ProductNode:Product #9 Slug)",
-                    "name": "Product #9"
+                    "id": "UHJvZHVjdE5vZGU6UHJvZHVjdCAjMSBTbHVn (ProductNode:Product #1 Slug)",
+                    "name": "Product #1"
                 },
                 "productNotes": "word dawg",
                 "stripeTransactionId": "TESTING_CHARGE_ID"

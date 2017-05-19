@@ -16,9 +16,7 @@ class CreateAssociatedLocationMutationTestCase(GraphQLTestCase):
 
     def setUp(self):
         self.file_name = "CreateAssociatedLocationMutation.graphql"
-        self.user = build_user_mock_data(
-            with_relationships=True
-        )
+        self.user = build_user_mock_data()
         return super().setUp()
 
     def test__valid_input_submitted__query_returns_successfully(self):

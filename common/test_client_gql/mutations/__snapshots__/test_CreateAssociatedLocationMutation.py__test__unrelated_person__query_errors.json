@@ -6,10 +6,10 @@
         {
             "data": {
                 "personId": [
-                    "Invalid pk \"11\" - object does not exist."
+                    "Invalid pk \"4\" - object does not exist."
                 ]
             },
-            "message": "{'person_id': ['Invalid pk \"11\" - object does not exist.']}"
+            "message": "{'person_id': ['Invalid pk \"4\" - object does not exist.']}"
         }
     ]
 }

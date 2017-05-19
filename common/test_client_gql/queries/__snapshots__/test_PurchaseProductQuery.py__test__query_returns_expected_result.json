@@ -4,9 +4,9 @@
             "event": {
                 "id": "RXZlbnROb2RlOjE= (EventNode:1)",
                 "isReoccuringYearly": true,
-                "name": "event_name_0",
+                "name": "Mother's Day",
                 "nextDate": {
-                    "dateStart": "2024-07-01"
+                    "dateStart": "2017-05-21"
                 }
             },
             "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox (AssociatedEventNode:1)",
@@ -15,26 +15,44 @@
                     "edges": [
                         {
                             "node": {
-                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToxMw== (AssociatedLocationNode:13)",
+                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToy (AssociatedLocationNode:2)",
                                 "location": {
-                                    "displayName": "12 Main St. Apt #12, city_12 MA 11123",
-                                    "id": "TG9jYXRpb25Ob2RlOjEz (LocationNode:13)"
+                                    "displayName": "1 Main St. Apt #1, city_1 DE 11112",
+                                    "id": "TG9jYXRpb25Ob2RlOjI= (LocationNode:2)"
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToz (AssociatedLocationNode:3)",
+                                "location": {
+                                    "displayName": "2 Main St. Apt #2, city_2 CT 11113",
+                                    "id": "TG9jYXRpb25Ob2RlOjM= (LocationNode:3)"
+                                }
+                            }
+                        },
+                        {
+                            "node": {
+                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTo0 (AssociatedLocationNode:4)",
+                                "location": {
+                                    "displayName": "3 Main St. Apt #3, city_3 CA 11114",
+                                    "id": "TG9jYXRpb25Ob2RlOjQ= (LocationNode:4)"
                                 }
                             }
                         }
                     ]
                 },
-                "fullName": "FirstName#9 LastName#9",
-                "id": "UGVyc29uTm9kZToxMA== (PersonNode:10)"
+                "fullName": "FirstName#1 LastName#1",
+                "id": "UGVyc29uTm9kZToz (PersonNode:3)"
             }
         },
         "currentUser": {
-            "email": "useremail@email.com",
+            "email": "travisbloom@gmail.com",
             "hasStripeUser": true,
             "id": "VXNlck5vZGU6MQ== (UserNode:1)",
             "person": {
-                "fullName": "UserFirstName UserLastName",
-                "id": "UGVyc29uTm9kZToxMDAw (PersonNode:1000)"
+                "fullName": "Travis Bloom",
+                "id": "UGVyc29uTm9kZTox (PersonNode:1)"
             }
         },
         "product": {

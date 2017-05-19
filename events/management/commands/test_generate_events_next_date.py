@@ -2,7 +2,7 @@ import pendulum
 
 from common.testing_util.base_test_case import BaseTestCase
 from events.factories import EventFactory, EventDateFactory
-from events.management.commands.generate_events_next_date import GenerateEventsNextDateCommand
+from events.management.commands.generate_events_next_date import Command as GenerateEventsNextDateCommand
 
 
 class GenerateEventsNextDateCommandTestCase(BaseTestCase):

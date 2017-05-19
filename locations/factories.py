@@ -4,11 +4,20 @@ from locations.models import (
     Location,
     AssociatedLocation
 )
+from people.models import Person
+
 
 def reset_location_factories():
     LocationFactory.reset_sequence()
     AssociatedLocationFactory.reset_sequence()
 
+
+def generate_initial_location_data(small_sample):
+    for person in Person.objects.all():
+        for _ in range(2 if small_sample else 5):
+            AssociatedLocationFactory(
+                person=person
+            )
 
 class LocationFactory(factory.django.DjangoModelFactory):
 

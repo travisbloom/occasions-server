@@ -11,7 +11,6 @@ from common.views import OccasionsGraphQLView
 
 
 class GraphQLTestCase(BaseTestCase):
-    fixtures = ('event_types',)
 
     def setUp(self):
         self.requestFactory = RequestFactory()

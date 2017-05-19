@@ -7,7 +7,6 @@ from common.models import BaseModel
 
 
 class User(AbstractUser):
-    birth_date = models.DateField(null=True, blank=True)
     username = models.EmailField(
         _('username'),
         max_length=150,

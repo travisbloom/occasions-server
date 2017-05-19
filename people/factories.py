@@ -1,5 +1,8 @@
+from itertools import chain, cycle
+
 import factory
 import pendulum
+from django.contrib.auth.hashers import make_password
 from factory import post_generation
 
 from locations.factories import AssociatedLocationFactory
@@ -16,12 +19,49 @@ def reset_people_factories():
     RelationshipFactory.reset_sequence()
 
 
+def generate_people_initial_testing_data(small_sample):
+    main_user = User(
+        username='travisbloom@gmail.com',
+        stripe_user_id='MOCK_STRIPE_USER_ID'
+    )
+    main_user.set_password('changeme')
+    main_user.save()
+    main_person = Person(
+        user=main_user,
+        first_name='Travis',
+        last_name='Bloom',
+        email='travisbloom@gmail.com',
+        birth_date=pendulum.create(1991, 2, 23).date()
+    )
+    main_person.save()
+    users = []
+    if not small_sample:
+        users = [
+            UserFactory(person=None)
+            for _ in range(3)
+        ]
+        for user in users:
+            PersonFactory(user=user)
+    people = [
+        PersonFactory()
+        for _ in range(2 if small_sample else 20)
+    ]
+    people_chain = cycle(people)
+    for user in [main_user] + users:
+        for _ in range(2 if small_sample else 9):
+            relationship = Relationship(
+                from_person=user.person,
+                to_person=next(people_chain)
+            )
+            relationship.save()
+    return main_user
+
+
 class PersonFactory(factory.django.DjangoModelFactory):
 
     class Meta:
         model = Person
 
-    id = factory.Sequence(lambda num: num + 1)
     first_name = factory.Sequence(lambda num: 'FirstName#{}'.format(num))
     last_name = factory.Sequence(lambda num: 'LastName#{}'.format(num))
     email = factory.LazyAttribute(
@@ -38,8 +78,16 @@ class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = User
 
-    id = factory.Sequence(lambda num: num + 1)
     stripe_user_id = 'cus_A4XJVCVTSgVA7G'
+    person = factory.SubFactory(PersonFactory)
+    username = factory.Sequence(
+        lambda num: User.objects.normalize_email(
+            "email_{}@email.com".format(num)
+        )
+    )
+    password = factory.Sequence(
+        lambda num: make_password("password{}".format(num))
+    )
 
 
 class RelationshipFactory(factory.django.DjangoModelFactory):
@@ -47,7 +95,6 @@ class RelationshipFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Relationship
 
-    id = factory.Sequence(lambda num: num + 1)
     to_person = factory.SubFactory(PersonFactory)
     relationship_type = factory.Iterator([relation_type[1]
                                           for relation_type in Relationship.RELATIONSHIP_TYPE])

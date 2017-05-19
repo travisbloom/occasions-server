@@ -1,5 +1,10 @@
+from itertools import chain, cycle
+
 import factory
 
+from events.models import EventType
+from people.models import User
+from products.models import Product
 from transactions.models import (
     Transaction
 )
@@ -7,6 +12,30 @@ from transactions.models import (
 
 def reset_transaction_factories():
     TransactionFactory.reset_sequence()
+
+
+def generate_transactions_initial_data(small_sample):
+    products_chain = cycle(Product.objects.all())
+    users = User.objects.all().prefetch_related(
+        'person',
+        'person__created_events',
+        'person__created_events__receiving_person',
+        'person__created_events__receiving_person__associated_locations',
+        'person__created_events__event',
+        'person__created_events__event__event_dates',
+    )
+
+    for user in users:
+        for associated_event in user.person.created_events.all():
+            for _ in range(2 if small_sample else 8):
+                TransactionFactory(
+                    user=user,
+                    receiving_person=associated_event.receiving_person,
+                    product=next(products_chain),
+                    associated_event=associated_event,
+                    associated_event_date=associated_event.event.event_dates.first(),
+                    associated_location=associated_event.receiving_person.associated_locations.first()
+                )
 
 
 class TransactionFactory(factory.django.DjangoModelFactory):

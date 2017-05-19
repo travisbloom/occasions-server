@@ -6,7 +6,7 @@ class EventCatalogQueryTestCase(GraphQLTestCase):
 
     def setUp(self):
         self.file_name = "EventCatalogQuery.graphql"
-        self.user = build_user_mock_data()
+        self.user = build_user_mock_data(with_associated_events=True)
         return super().setUp()
 
     def test__query_returns_expected_result(self):

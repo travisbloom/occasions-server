@@ -1,8 +1,0 @@
--   model: events.associatedevent
-    pk: 1
-    fields:
-        creating_person_id: 1
-        receiving_person_id: 2
-        event_id: 2
-        datetime_created: "2016-09-02T20:00:00.000Z"
-        datetime_updated: "2016-09-02T20:00:00.000Z"

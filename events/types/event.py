@@ -17,9 +17,11 @@ class EventDateNode(AbstractModelType, DjangoObjectType):
             'date_start',
         )
 
+
 def fixme_circular_dependency():
     from events.types import EventTypeNode
     return EventTypeNode
+
 
 class EventNode(AbstractModelType, DjangoObjectType):
     related_products = ConnectionField(ProductNode)
