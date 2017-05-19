@@ -22,7 +22,9 @@ def reset_people_factories():
 def generate_people_initial_testing_data(small_sample):
     main_user = User(
         username='travisbloom@gmail.com',
-        stripe_user_id='MOCK_STRIPE_USER_ID'
+        stripe_user_id='MOCK_STRIPE_USER_ID',
+        is_staff=True,
+        is_superuser=True
     )
     main_user.set_password('changeme')
     main_user.save()
