@@ -8,7 +8,7 @@ from oauth2_provider.models import AccessToken
 from common.gql.types import AbstractModelType
 from common.relay import Node
 from .filters import PersonFilter
-from .models import User, Person, Relationship
+from .models import User, Person, Relationship, RelationshipType
 
 
 class AccessTokenNode(AbstractModelType, DjangoObjectType):
@@ -59,11 +59,23 @@ class UserNode(AbstractModelType, DjangoObjectType):
             expires__gt=datetime.now()).order_by('-expires').first()
 
 
+class RelationshipTypeNode(AbstractModelType, DjangoObjectType):
+    class Meta:
+        interfaces = (Node, )
+        model = RelationshipType
+        only_fields = ()
+
+
 class RelationshipNode(AbstractModelType, DjangoObjectType):
 
     class Meta:
         interfaces = (Node, )
         model = Relationship
+        only_fields = (
+            'to_person',
+            'from_person',
+            'relationship_type'
+        )
 
 
 class PeopleQueries(AbstractType):

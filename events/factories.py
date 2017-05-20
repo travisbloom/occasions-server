@@ -17,6 +17,7 @@ from people.models import User
 
 def reset_event_factories():
     EventTypeFactory.reset_sequence()
+    EventDateFactory.reset_sequence()
     EventFactory.reset_sequence()
     AssociatedEventFactory.reset_sequence()
 
