@@ -65,9 +65,9 @@ class Person(BaseModel):
 class RelationshipType(BaseModel):
     name = models.CharField(max_length=255, primary_key=True)
     from_person_male_display_name = models.CharField(max_length=100)
-    from_person_female_display_name = models.CharField(max_length=100, default='', blank=True)
-    to_person_male_display_name = models.CharField(max_length=100, default='', blank=True)
-    to_person_female_display_name = models.CharField(max_length=100, default='', blank=True)
+    from_person_female_display_name = models.CharField(max_length=100)
+    to_person_male_display_name = models.CharField(max_length=100)
+    to_person_female_display_name = models.CharField(max_length=100)
 
     def __str__(self):
         return "{}".format(self.name)
@@ -81,21 +81,15 @@ class Relationship(BaseModel):
 
     @staticmethod
     def from_person_name(from_person, relationship_type):
-        if from_person.gender == Person.GENDER_FEMALE and relationship_type.from_person_female_display_name:
+        if from_person.gender == Person.GENDER_FEMALE:
             return relationship_type.from_person_female_display_name
         return relationship_type.from_person_male_display_name
 
     @staticmethod
     def to_person_name(to_person, relationship_type):
         if to_person.gender == Person.GENDER_FEMALE:
-            if relationship_type.to_person_female_display_name:
-                return relationship_type.to_person_female_display_name
-            if relationship_type.from_person_female_display_name:
-                return relationship_type.from_person_female_display_name
-            return relationship_type.from_person_male_display_name
-        elif relationship_type.to_person_male_display_name:
-            return relationship_type.to_person_male_display_name
-        return relationship_type.from_person_male_display_name
+            return relationship_type.to_person_female_display_name
+        return relationship_type.to_person_male_display_name
 
     def __str__(self):
         return "relation {} from {} to {}".format(

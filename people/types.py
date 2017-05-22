@@ -1,13 +1,13 @@
 from datetime import datetime
 
-from graphene import String, Field, AbstractType, Boolean
+from graphene import String, Field, AbstractType, Boolean, Connection
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 from oauth2_provider.models import AccessToken
 
 from common.gql.types import AbstractModelType
 from common.relay import Node
-from .filters import PersonFilter
+from .filters import PersonFilter, RelationshipTypeFilter
 from .models import User, Person, Relationship, RelationshipType
 
 
@@ -22,7 +22,43 @@ class AccessTokenNode(AbstractModelType, DjangoObjectType):
         )
 
 
+class RelationshipTypeNode(AbstractModelType, DjangoObjectType):
+    class Meta:
+        interfaces = (Node, )
+        model = RelationshipType
+        only_fields = ()
+
+
+class RelationshipNode(AbstractModelType, DjangoObjectType):
+
+    class Meta:
+        interfaces = (Node, )
+        model = Relationship
+        only_fields = (
+            'to_person',
+            'from_person',
+            'relationship_type'
+        )
+
+
+class PersonFromRelationshipsConnection(Connection):
+    class Meta:
+        node = RelationshipNode
+
+    class Edge:
+        relation = String()
+
+        def resolve_relation(self, *args):
+            return self.node.to_person_name(
+                self.node.to_person,
+                self.node.relationship_type
+            )
+
+
 class PersonNode(AbstractModelType, DjangoObjectType):
+    from_relationships = DjangoFilterConnectionField(
+        PersonFromRelationshipsConnection
+    )
     full_name = String()
 
     class Meta:
@@ -59,27 +95,15 @@ class UserNode(AbstractModelType, DjangoObjectType):
             expires__gt=datetime.now()).order_by('-expires').first()
 
 
-class RelationshipTypeNode(AbstractModelType, DjangoObjectType):
-    class Meta:
-        interfaces = (Node, )
-        model = RelationshipType
-        only_fields = ()
-
-
-class RelationshipNode(AbstractModelType, DjangoObjectType):
-
-    class Meta:
-        interfaces = (Node, )
-        model = Relationship
-        only_fields = (
-            'to_person',
-            'from_person',
-            'relationship_type'
-        )
-
-
 class PeopleQueries(AbstractType):
     users = DjangoFilterConnectionField(UserNode)
     people = DjangoFilterConnectionField(
-        PersonNode, filterset_class=PersonFilter)
+        PersonNode,
+        filterset_class=PersonFilter
+    )
     relationships = DjangoFilterConnectionField(RelationshipNode)
+    relationship_types = DjangoFilterConnectionField(
+        RelationshipTypeNode,
+        filterset_class=RelationshipTypeFilter
+    )
+
