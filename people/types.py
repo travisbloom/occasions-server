@@ -82,6 +82,7 @@ class UserNode(AbstractModelType, DjangoObjectType):
             'datetimeCreated',
             'datetimeUpdated',
             'person',
+            'transactions',
         )
 
     def resolve_related_people(self, args, context, info):

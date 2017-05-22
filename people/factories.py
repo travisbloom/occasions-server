@@ -1,3 +1,4 @@
+import os
 from itertools import chain, cycle
 
 import factory
@@ -24,7 +25,7 @@ def generate_people_initial_testing_data(small_sample):
     relationship_types = generate_default_relationship_types()
     main_user = User(
         username='travisbloom@gmail.com',
-        stripe_user_id='MOCK_STRIPE_USER_ID',
+        stripe_user_id=os.environ.get('OCCASIONS_STRIPE_TEST_USER_ID'),
         is_staff=True,
         is_superuser=True
     )

@@ -35,7 +35,7 @@ class Transaction(BaseModel):
         STATUS_COMPLETE,
     )
     # TODO add lob-specific meta data
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, related_name='transactions')
     receiving_person = models.ForeignKey(Person)
     cost_usd = models.DecimalField(max_digits=5, decimal_places=2)
     product = models.ForeignKey(Product)
