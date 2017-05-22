@@ -1,5 +1,4 @@
 from django.db import models
-from model_utils import Choices
 import pendulum
 
 from common.models import BaseModel

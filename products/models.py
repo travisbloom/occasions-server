@@ -18,7 +18,7 @@ class ProductManager(models.Manager):
 # TODO consider adding django-polymorphic to represent different types of
 # products
 class Product(BaseModel):
-    TYPE_CARD = 'card'
+    TYPE_CARD = 'CARD'
 
     PRODUCT_TYPE = Choices(
         TYPE_CARD,

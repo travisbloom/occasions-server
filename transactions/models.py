@@ -23,10 +23,10 @@ class TransactionManager(models.Manager):
 
 
 class Transaction(BaseModel):
-    STATUS_CREATED = 'created'
-    STATUS_PAID = 'paid'
-    STATUS_PENDING = 'pending'
-    STATUS_COMPLETE = 'complete'
+    STATUS_CREATED = 'CREATED'
+    STATUS_PAID = 'PAID'
+    STATUS_PENDING = 'PENDING'
+    STATUS_COMPLETE = 'COMPLETE'
 
     STATUS_CHOICES = Choices(
         STATUS_CREATED,

@@ -32,9 +32,9 @@ class Person(BaseModel):
     GENDER_MALE = 'MALE'
     GENDER_FEMALE = 'FEMALE'
 
-    GENDER_CHOICES = (
-        (GENDER_MALE, GENDER_MALE),
-        (GENDER_FEMALE, GENDER_FEMALE)
+    GENDER_CHOICES = Choices(
+        GENDER_MALE,
+        GENDER_FEMALE
     )
     # users should also be people in case we want to implement some
     # kind of "friending" mechanic between different users
