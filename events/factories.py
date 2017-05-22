@@ -97,8 +97,8 @@ class EventFactory(factory.django.DjangoModelFactory):
 
     name = factory.Sequence(lambda num: 'event_name_{}'.format(num))
     slug = factory.LazyAttribute(lambda obj: slugify(obj.name))
-    is_default_event = factory.Sequence(lambda num: num % 2 == 0)
-    is_reoccuring_yearly = factory.Sequence(lambda num: num % 2 == 0)
+    is_default_event = False
+    is_reoccuring_yearly = True
 
     @factory.post_generation
     def post(self, create, extracted, has_event_date=True, has_event_type=True, **kwargs):
