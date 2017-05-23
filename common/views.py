@@ -9,6 +9,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_social_oauth2.authentication import SocialAuthentication
 
 from common import settings
+from common.context import Context
 from common.errors import GQLErrorHandler
 from common.testing_util.view_authentication import MockUserLoginAuthentication
 
@@ -16,6 +17,8 @@ logger = logging.getLogger('occasions')
 
 
 class OccasionsGraphQLView(GraphQLView):
+    def get_context(self, request):
+        return Context(request)
 
     def format_error(self, error):
         """Override format error, useful for showing the entire stack trace when in development"""

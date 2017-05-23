@@ -40,6 +40,15 @@ class RelationshipNode(AbstractModelType, DjangoObjectType):
             'relationship_type'
         )
 
+    def resolve_to_person(self, args, context, info):
+        return context.person_loader.load(self.to_person_id)
+
+    def resolve_from_person(self, args, context, info):
+        return context.person_loader.load(self.from_person_id)
+
+    def resolve_relationship_type(self, args, context, info):
+        return context.relationship_type_loader.load(self.relationship_type_id)
+
 
 class PersonFromRelationshipsConnection(Connection):
     class Meta:
@@ -48,10 +57,14 @@ class PersonFromRelationshipsConnection(Connection):
     class Edge:
         relation = String()
 
-        def resolve_relation(self, *args):
-            return self.node.to_person_name(
-                self.node.to_person,
-                self.node.relationship_type
+        def resolve_relation(self, args, context, info):
+            return context.person_loader.load(self.node.to_person_id).then(
+                    lambda person: context.relationship_type_loader.load(self.node.relationship_type_id).then(
+                    lambda relationship_type: self.node.to_person_name(
+                        self.node.to_person,
+                        self.node.relationship_type
+                    )
+                )
             )
 
 
@@ -64,6 +77,19 @@ class PersonNode(AbstractModelType, DjangoObjectType):
     class Meta:
         interfaces = (Node, )
         model = Person
+        only_fields = (
+            'gender',
+            'first_name',
+            'last_name',
+            'email',
+            'birth_date',
+            'from_relationships',
+            'datetime_created',
+            'received_transactions',
+            'associated_locations',
+            'created_events',
+            'received_events'
+        )
 
 
 class UserNode(AbstractModelType, DjangoObjectType):

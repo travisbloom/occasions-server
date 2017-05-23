@@ -2,6 +2,7 @@ import inspect
 
 import simplejson
 from django.test import RequestFactory
+from snapshottest import TestCase as SnapshotTestCase
 
 from common.schema import schema
 from common.testing_util import get_file_from_web_project, generate_or_assert_snapshot_is_equal
@@ -10,7 +11,7 @@ from common.utils.deep_transform import deep_transform
 from common.views import OccasionsGraphQLView
 
 
-class GraphQLTestCase(BaseTestCase):
+class GraphQLTestCase(SnapshotTestCase, BaseTestCase):
 
     def setUp(self):
         self.requestFactory = RequestFactory()

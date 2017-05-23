@@ -29,7 +29,17 @@ class AssociatedLocationNode(AbstractModelType, DjangoObjectType):
     class Meta:
         interfaces = (Node, )
         model = AssociatedLocation
-        filter_fields = ['person']
+        only_fields = (
+            'person',
+            'location'
+        )
+        filter_fields = ('person',)
+
+    def resolve_person(self, args, context, info):
+        return context.person_loader.load(self.person_id)
+
+    def resolve_location(self, args, context, info):
+        return context.location_loader.load(self.location_id)
 
 
 class LocationQueries(AbstractType):

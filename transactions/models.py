@@ -10,18 +10,6 @@ from people.models import User, Person
 from products.models import Product
 
 
-class TransactionManager(models.Manager):
-
-    def get_queryset(self):
-        return super().get_queryset().select_related(
-            'product',
-            'associated_event',
-            'associated_event__event',
-            'associated_location',
-            'associated_location__location'
-        )
-
-
 class Transaction(BaseModel):
     STATUS_CREATED = 'CREATED'
     STATUS_PAID = 'PAID'
@@ -36,7 +24,7 @@ class Transaction(BaseModel):
     )
     # TODO add lob-specific meta data
     user = models.ForeignKey(User, related_name='transactions')
-    receiving_person = models.ForeignKey(Person)
+    receiving_person = models.ForeignKey(Person, related_name='received_transactions')
     cost_usd = models.DecimalField(max_digits=5, decimal_places=2)
     product = models.ForeignKey(Product)
     associated_event = models.ForeignKey(
@@ -48,8 +36,6 @@ class Transaction(BaseModel):
     product_notes = models.TextField()
     stripe_transaction_id = models.CharField(
         max_length=255, blank=True, default='')
-
-    objects = TransactionManager()
 
     class Meta:
         default_related_name = 'transactions'

@@ -14,15 +14,6 @@ class EventType(BaseModel):
         return self.display_name
 
 
-class EventManager(models.Manager):
-
-    def get_queryset(self):
-        return (
-            super().get_queryset()
-            .prefetch_related('event_types')
-        )
-
-
 class Event(BaseModel):
     name = models.CharField(max_length=255)
     slug = models.SlugField(blank=True, default='')
@@ -33,8 +24,6 @@ class Event(BaseModel):
     )
     is_default_event = models.BooleanField(default=True)
     is_reoccuring_yearly = models.BooleanField(default=True)
-
-    objects = EventManager()
 
     def __str__(self):
         return self.name
@@ -59,23 +48,11 @@ class EventDate(models.Model):
         return "{} on {}".format(self.event, self.date_start)
 
 
-class AssociatedEventManager(models.Manager):
-
-    def get_queryset(self):
-        return (
-            super().get_queryset()
-            .select_related('event', 'receiving_person')
-            .prefetch_related('event__event_types')
-        )
-
-
 class AssociatedEvent(BaseModel):
     creating_person = models.ForeignKey(Person, related_name='created_events')
     receiving_person = models.ForeignKey(
         Person, related_name='received_events')
     event = models.ForeignKey(Event, related_name='created_events')
-
-    objects = AssociatedEventManager()
 
     def __str__(self):
         return "{}: created by {}, for {}".format(

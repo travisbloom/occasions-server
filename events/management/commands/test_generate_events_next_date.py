@@ -41,7 +41,7 @@ class GenerateEventsNextDateCommandTestCase(BaseTestCase):
         )
 
     def test__when_calling_generate_next_dates_for_events__properly_updates_relevant_events(self):
-        with self.assertNumQueries(4):
+        with self.assertNumQueries(3):
             GenerateEventsNextDateCommand.generate_next_dates_for_events()
         self.event_to_update.refresh_from_db()
         self.event_without_update.refresh_from_db()

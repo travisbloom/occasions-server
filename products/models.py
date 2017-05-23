@@ -6,15 +6,6 @@ from common.models import BaseModel
 from events.models import EventType, Event
 
 
-class ProductManager(models.Manager):
-
-    def get_queryset(self):
-        return (
-            super().get_queryset()
-            .prefetch_related('event_types')
-        )
-
-
 # TODO consider adding django-polymorphic to represent different types of
 # products
 class Product(BaseModel):
@@ -41,8 +32,6 @@ class Product(BaseModel):
         choices=PRODUCT_TYPE,
         default=TYPE_CARD)
     main_image_url = models.URLField()
-
-    objects = ProductManager()
 
     def __str__(self):
         return self.name
