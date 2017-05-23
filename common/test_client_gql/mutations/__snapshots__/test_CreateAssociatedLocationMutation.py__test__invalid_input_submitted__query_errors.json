@@ -10,8 +10,7 @@
                         "This field may not be blank."
                     ]
                 }
-            },
-            "message": "{'location': {'street_address_line1': ['This field may not be blank.']}}"
+            }
         }
     ]
 }

@@ -8,8 +8,7 @@
                 "receivingPersonId": [
                     "Invalid pk \"4\" - object does not exist."
                 ]
-            },
-            "message": "{'receiving_person_id': ['Invalid pk \"4\" - object does not exist.']}"
+            }
         }
     ]
 }

@@ -3,8 +3,6 @@
         "createStripeUser": null
     },
     "errors": [
-        {
-            "message": "User tried to create stripe account that already existed"
-        }
+        {}
     ]
 }

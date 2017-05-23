@@ -47,6 +47,7 @@ class SnapshotGenerator:
         if 'errors' in data:
             self.error_stack = data['errors'][0].pop('stack')
             self.error_locations = data['errors'][0].pop('locations')
+            self.message = data['errors'][0].pop('message')
 
         def transform_value(val):
             if isinstance(val, dict):

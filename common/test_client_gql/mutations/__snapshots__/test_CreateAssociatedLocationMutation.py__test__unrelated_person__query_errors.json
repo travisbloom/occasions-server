@@ -8,8 +8,7 @@
                 "personId": [
                     "Invalid pk \"4\" - object does not exist."
                 ]
-            },
-            "message": "{'person_id': ['Invalid pk \"4\" - object does not exist.']}"
+            }
         }
     ]
 }

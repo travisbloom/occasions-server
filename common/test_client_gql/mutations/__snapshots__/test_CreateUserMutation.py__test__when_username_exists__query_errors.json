@@ -6,8 +6,7 @@
         {
             "data": {
                 "username": "A user with this information already exists"
-            },
-            "message": "{'username': 'A user with this information already exists'}"
+            }
         }
     ]
 }

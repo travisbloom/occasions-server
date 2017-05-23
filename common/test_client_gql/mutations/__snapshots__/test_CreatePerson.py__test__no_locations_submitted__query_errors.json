@@ -6,8 +6,7 @@
         {
             "data": [
                 "People must have at least one address."
-            ],
-            "message": "['People must have at least one address.']"
+            ]
         }
     ]
 }

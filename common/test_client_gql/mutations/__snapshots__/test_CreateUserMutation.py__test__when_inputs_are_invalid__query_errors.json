@@ -8,8 +8,7 @@
                 "username": [
                     "This field may not be blank."
                 ]
-            },
-            "message": "{'username': ['This field may not be blank.']}"
+            }
         }
     ]
 }
