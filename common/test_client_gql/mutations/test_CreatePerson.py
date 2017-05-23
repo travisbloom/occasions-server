@@ -24,7 +24,6 @@ valid_person_payload = {
 
 
 class CreatePersonMutationTestCase(GraphQLTestCase):
-
     def setUp(self):
         self.file_name = "CreatePersonMutation.graphql"
         self.user = build_user_mock_data()
@@ -75,7 +74,6 @@ class CreatePersonMutationTestCase(GraphQLTestCase):
                     ]
                 }
             })
-
 
     def test__no_locations_submitted__query_errors(self):
         person = self.user

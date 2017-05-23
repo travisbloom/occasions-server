@@ -1,22 +1,22 @@
 {
-    "errors": [
+  "errors": [
+    {
+      "locations": [
         {
-            "locations": [
-                {
-                    "column": 11,
-                    "line": 4
-                }
-            ],
-            "message": "Cannot query field \"username\" on type \"UserNode\"."
-        },
-        {
-            "locations": [
-                {
-                    "column": 11,
-                    "line": 5
-                }
-            ],
-            "message": "Cannot query field \"accessTokens\" on type \"UserNode\". Did you mean \"accessToken\"?"
+          "column": 11,
+          "line": 4
         }
-    ]
+      ],
+      "message": "Cannot query field \"username\" on type \"UserNode\"."
+    },
+    {
+      "locations": [
+        {
+          "column": 11,
+          "line": 5
+        }
+      ],
+      "message": "Cannot query field \"accessTokens\" on type \"UserNode\". Did you mean \"accessToken\"?"
+    }
+  ]
 }

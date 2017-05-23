@@ -83,7 +83,6 @@ class RelationshipType(BaseModel):
 
 
 class Relationship(BaseModel):
-
     from_person = models.ForeignKey(Person, related_name='from_relationships')
     to_person = models.ForeignKey(Person, related_name='to_relationships')
     relationship_type = models.ForeignKey(RelationshipType)

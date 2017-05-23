@@ -1,14 +1,14 @@
 {
-    "data": {
-        "createAssociatedEvent": null
-    },
-    "errors": [
-        {
-            "data": {
-                "receivingPersonId": [
-                    "Invalid pk \"4\" - object does not exist."
-                ]
-            }
-        }
-    ]
+  "data": {
+    "createAssociatedEvent": null
+  },
+  "errors": [
+    {
+      "data": {
+        "receivingPersonId": [
+          "Invalid pk \"4\" - object does not exist."
+        ]
+      }
+    }
+  ]
 }

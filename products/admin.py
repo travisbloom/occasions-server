@@ -6,6 +6,8 @@ from products.models import Product
 
 def related_event(product):
     return product.event.name if product.event else None
+
+
 related_event.short_description = 'Related Event'
 
 

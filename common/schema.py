@@ -1,4 +1,4 @@
-from graphene import Schema, ObjectType, Field, String
+from graphene import Schema, ObjectType, Field
 
 from common.relay import Node
 from events.mutations import EventMutations
@@ -10,6 +10,7 @@ from people.types import PeopleStaffQueries, UserNode, PeopleQueries
 from products.types import ProductQueries
 from transactions.mutations import TransactionMutations
 from transactions.types import TransactionStaffQueries
+
 
 class StaffType(
     TransactionStaffQueries,
@@ -41,6 +42,7 @@ class Mutation(
     ObjectType
 ):
     pass
+
 
 schema = Schema(
     query=Query,

@@ -3,7 +3,6 @@ from common.testing_util import build_user_mock_data
 
 
 class AppQueryTestCase(GraphQLTestCase):
-
     def setUp(self):
         self.file_name = "AppQuery.graphql"
         self.user = build_user_mock_data(

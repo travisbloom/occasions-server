@@ -28,4 +28,3 @@ class Command(BaseCommand):
         generate_events_initial_testing_data(small_sample=True)
         generate_products_initial_data(small_sample=True)
         generate_transactions_initial_data(small_sample=True)
-

@@ -70,6 +70,7 @@ class SnapshotGenerator:
                 return list(transform_value(x) for x in val)
             else:
                 return val
+
         return transform_value(data)
 
     def execute(self, should_update=False):
@@ -101,7 +102,8 @@ class SnapshotGenerator:
             print("\n Error Stack:\n{}".format(JSON.stringify(self.error_stack)))
         if self.error_locations:
             print("\n Error Locations:\n{}".format(JSON.stringify(self.error_locations)))
-        print("\nIf this is the expected result, you can update this snapshot by running the testing suite with the env variable OVERRIDE_SNAPSHOTS=true")
+        print(
+            "\nIf this is the expected result, you can update this snapshot by running the testing suite with the env variable OVERRIDE_SNAPSHOTS=true")
 
 
 def generate_or_assert_snapshot_is_equal(

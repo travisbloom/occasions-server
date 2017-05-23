@@ -1,66 +1,66 @@
 {
-    "data": {
-        "associatedEvent": {
-            "event": {
-                "id": "RXZlbnROb2RlOjE= (EventNode:1)",
-                "isReoccuringYearly": true,
-                "name": "Father's Day",
-                "nextDate": {
-                    "dateStart": "2017-06-18"
-                }
-            },
-            "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox (AssociatedEventNode:1)",
-            "receivingPerson": {
-                "associatedLocations": {
-                    "edges": [
-                        {
-                            "node": {
-                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToy (AssociatedLocationNode:2)",
-                                "location": {
-                                    "displayName": "1 Main St. Apt #1, city_1 DE 11112",
-                                    "id": "TG9jYXRpb25Ob2RlOjI= (LocationNode:2)"
-                                }
-                            }
-                        },
-                        {
-                            "node": {
-                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToz (AssociatedLocationNode:3)",
-                                "location": {
-                                    "displayName": "2 Main St. Apt #2, city_2 CT 11113",
-                                    "id": "TG9jYXRpb25Ob2RlOjM= (LocationNode:3)"
-                                }
-                            }
-                        },
-                        {
-                            "node": {
-                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTo0 (AssociatedLocationNode:4)",
-                                "location": {
-                                    "displayName": "3 Main St. Apt #3, city_3 CA 11114",
-                                    "id": "TG9jYXRpb25Ob2RlOjQ= (LocationNode:4)"
-                                }
-                            }
-                        }
-                    ]
-                },
-                "fullName": "FirstName#1 LastName#1",
-                "id": "UGVyc29uTm9kZToz (PersonNode:3)"
-            }
-        },
-        "currentUser": {
-            "email": "travisbloom@gmail.com",
-            "hasStripeUser": true,
-            "id": "VXNlck5vZGU6MQ== (UserNode:1)",
-            "person": {
-                "fullName": "Travis Bloom",
-                "id": "UGVyc29uTm9kZTox (PersonNode:1)"
-            }
-        },
-        "product": {
-            "costUsd": 2.0,
-            "description": "Product #0's Description",
-            "id": "UHJvZHVjdE5vZGU6UHJvZHVjdCAjMCBTbHVn (ProductNode:Product #0 Slug)",
-            "name": "Product #0",
-            "slug": "Product #0 Slug"
+  "data": {
+    "associatedEvent": {
+      "event": {
+        "id": "RXZlbnROb2RlOjE= (EventNode:1)",
+        "isReoccuringYearly": true,
+        "name": "Father's Day",
+        "nextDate": {
+          "dateStart": "2017-06-18"
         }
+      },
+      "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox (AssociatedEventNode:1)",
+      "receivingPerson": {
+        "associatedLocations": {
+          "edges": [
+            {
+              "node": {
+                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToy (AssociatedLocationNode:2)",
+                "location": {
+                  "displayName": "1 Main St. Apt #1, city_1 DE 11112",
+                  "id": "TG9jYXRpb25Ob2RlOjI= (LocationNode:2)"
+                }
+              }
+            },
+            {
+              "node": {
+                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToz (AssociatedLocationNode:3)",
+                "location": {
+                  "displayName": "2 Main St. Apt #2, city_2 CT 11113",
+                  "id": "TG9jYXRpb25Ob2RlOjM= (LocationNode:3)"
+                }
+              }
+            },
+            {
+              "node": {
+                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTo0 (AssociatedLocationNode:4)",
+                "location": {
+                  "displayName": "3 Main St. Apt #3, city_3 CA 11114",
+                  "id": "TG9jYXRpb25Ob2RlOjQ= (LocationNode:4)"
+                }
+              }
+            }
+          ]
+        },
+        "fullName": "FirstName#1 LastName#1",
+        "id": "UGVyc29uTm9kZToz (PersonNode:3)"
+      }
+    },
+    "currentUser": {
+      "email": "travisbloom@gmail.com",
+      "hasStripeUser": true,
+      "id": "VXNlck5vZGU6MQ== (UserNode:1)",
+      "person": {
+        "fullName": "Travis Bloom",
+        "id": "UGVyc29uTm9kZTox (PersonNode:1)"
+      }
+    },
+    "product": {
+      "costUsd": 2.0,
+      "description": "Product #0's Description",
+      "id": "UHJvZHVjdE5vZGU6UHJvZHVjdCAjMCBTbHVn (ProductNode:Product #0 Slug)",
+      "name": "Product #0",
+      "slug": "Product #0 Slug"
     }
+  }
 }

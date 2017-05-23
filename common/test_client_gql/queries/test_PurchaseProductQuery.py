@@ -4,7 +4,6 @@ from common.testing_util import build_user_mock_data
 
 
 class PurchaseProductQueryTestCase(GraphQLTestCase):
-
     def setUp(self):
         self.file_name = "PurchaseProductQuery.graphql"
         self.user = build_user_mock_data(

@@ -20,7 +20,7 @@ def create_stripe_user(payload, user, request):
         logger.exception(
             'create_stripe_user request failed', extra={
                 'request': request})
-        raise(e)
+        raise (e)
 
     user.stripe_user_id = customer.id
     user.save()

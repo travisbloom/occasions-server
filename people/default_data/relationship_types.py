@@ -52,4 +52,3 @@ def generate_default_relationship_types():
     ]
     [relationship.save() for relationship in relationships]
     return relationships
-

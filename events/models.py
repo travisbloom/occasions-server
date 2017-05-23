@@ -1,5 +1,5 @@
-from django.db import models
 import pendulum
+from django.db import models
 
 from common.models import BaseModel
 from people.models import Person

@@ -1,13 +1,12 @@
 from promise import promisify
-from pydash import group_by
 from promise.dataloader import DataLoader
+from pydash import group_by
 
-from events.models import EventType, EventToEventType
+from events.models import EventToEventType
 from products.models import ProductToEventType
 
 
 class EventTypesByEventLoader(DataLoader):
-
     @promisify
     def batch_load_fn(self, keys):
         indexed = group_by(
@@ -21,7 +20,6 @@ class EventTypesByEventLoader(DataLoader):
 
 
 class EventTypesByProductLoader(DataLoader):
-
     @promisify
     def batch_load_fn(self, keys):
         indexed = group_by(

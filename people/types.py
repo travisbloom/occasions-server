@@ -12,9 +12,8 @@ from .models import User, Person, Relationship, RelationshipType
 
 
 class AccessTokenNode(AbstractModelType, DjangoObjectType):
-
     class Meta:
-        interfaces = (Node, )
+        interfaces = (Node,)
         model = AccessToken
         only_fields = (
             'expires',
@@ -24,15 +23,14 @@ class AccessTokenNode(AbstractModelType, DjangoObjectType):
 
 class RelationshipTypeNode(AbstractModelType, DjangoObjectType):
     class Meta:
-        interfaces = (Node, )
+        interfaces = (Node,)
         model = RelationshipType
         only_fields = ()
 
 
 class RelationshipNode(AbstractModelType, DjangoObjectType):
-
     class Meta:
-        interfaces = (Node, )
+        interfaces = (Node,)
         model = Relationship
         only_fields = (
             'to_person',
@@ -59,7 +57,7 @@ class PersonFromRelationshipsConnection(Connection):
 
         def resolve_relation(self, args, context, info):
             return context.person_loader.load(self.node.to_person_id).then(
-                    lambda person: context.relationship_type_loader.load(self.node.relationship_type_id).then(
+                lambda person: context.relationship_type_loader.load(self.node.relationship_type_id).then(
                     lambda relationship_type: self.node.to_person_name(
                         self.node.to_person,
                         self.node.relationship_type
@@ -75,7 +73,7 @@ class PersonNode(AbstractModelType, DjangoObjectType):
     full_name = String()
 
     class Meta:
-        interfaces = (Node, )
+        interfaces = (Node,)
         model = Person
         only_fields = (
             'gender',
@@ -100,7 +98,7 @@ class UserNode(AbstractModelType, DjangoObjectType):
         PersonNode, filterset_class=PersonFilter)
 
     class Meta:
-        interfaces = (Node, )
+        interfaces = (Node,)
         model = User
         only_fields = (
             'isActive',
@@ -136,4 +134,3 @@ class PeopleStaffQueries(AbstractType):
         filterset_class=PersonFilter
     )
     relationships = DjangoFilterConnectionField(RelationshipNode)
-

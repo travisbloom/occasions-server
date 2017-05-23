@@ -8,9 +8,8 @@ from .models import Transaction
 
 
 class TransactionNode(AbstractModelType, DjangoObjectType):
-
     class Meta:
-        interfaces = (Node, )
+        interfaces = (Node,)
         model = Transaction
         only_fields = (
             'user',

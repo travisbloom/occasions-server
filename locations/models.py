@@ -35,7 +35,6 @@ class AssociatedLocation(BaseModel):
     person = models.ForeignKey(Person, related_name='associated_locations')
     location = models.ForeignKey(Location)
 
-
     class Meta:
         db_table = 'app_associated_location'
         unique_together = (
@@ -44,4 +43,3 @@ class AssociatedLocation(BaseModel):
 
     def __str__(self):
         return "{} ({})".format(self.location, self.person)
-

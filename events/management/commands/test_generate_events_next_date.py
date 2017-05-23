@@ -6,7 +6,6 @@ from events.management.commands.generate_events_next_date import Command as Gene
 
 
 class GenerateEventsNextDateCommandTestCase(BaseTestCase):
-
     def setUp(self):
         self.base_date = pendulum.Date.today()
         self.date_to_update_off = self.base_date.add(days=3)

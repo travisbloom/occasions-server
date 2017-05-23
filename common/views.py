@@ -35,7 +35,6 @@ class OccasionsGraphQLView(GraphQLView):
             return request.data
         return super().parse_body(request)
 
-
     @staticmethod
     def get_view_authentication_classes():
         auth_classes = []

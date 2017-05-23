@@ -6,8 +6,7 @@ from events.models import EventType
 
 
 class EventTypeNode(AbstractModelType, DjangoObjectType):
-
     class Meta:
         model = EventType
-        interfaces = (Node, )
+        interfaces = (Node,)
         only_fields = ('name', 'display_name')

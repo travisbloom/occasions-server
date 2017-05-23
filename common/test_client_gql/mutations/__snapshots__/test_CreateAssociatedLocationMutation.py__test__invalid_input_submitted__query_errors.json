@@ -1,16 +1,16 @@
 {
-    "data": {
-        "createAssociatedLocation": null
-    },
-    "errors": [
-        {
-            "data": {
-                "location": {
-                    "streetAddressLine1": [
-                        "This field may not be blank."
-                    ]
-                }
-            }
+  "data": {
+    "createAssociatedLocation": null
+  },
+  "errors": [
+    {
+      "data": {
+        "location": {
+          "streetAddressLine1": [
+            "This field may not be blank."
+          ]
         }
-    ]
+      }
+    }
+  ]
 }

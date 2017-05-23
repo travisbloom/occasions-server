@@ -1,27 +1,27 @@
 {
-    "data": {
-        "createAssociatedEvent": {
-            "associatedEvent": {
-                "creatingPerson": {
-                    "fullName": "Travis Bloom"
-                },
-                "event": {
-                    "eventTypes": [
-                        {
-                            "displayName": "Romantic",
-                            "id": "RXZlbnRUeXBlTm9kZTpyb21hbnRpYw== (EventTypeNode:romantic)"
-                        }
-                    ],
-                    "name": "event_name_2",
-                    "nextDate": {
-                        "dateStart": "2017-03-01"
-                    }
-                },
-                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo1 (AssociatedEventNode:5)",
-                "receivingPerson": {
-                    "fullName": "FirstName#1 LastName#1"
-                }
+  "data": {
+    "createAssociatedEvent": {
+      "associatedEvent": {
+        "creatingPerson": {
+          "fullName": "Travis Bloom"
+        },
+        "event": {
+          "eventTypes": [
+            {
+              "displayName": "Romantic",
+              "id": "RXZlbnRUeXBlTm9kZTpyb21hbnRpYw== (EventTypeNode:romantic)"
             }
+          ],
+          "name": "event_name_2",
+          "nextDate": {
+            "dateStart": "2017-03-01"
+          }
+        },
+        "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo1 (AssociatedEventNode:5)",
+        "receivingPerson": {
+          "fullName": "FirstName#1 LastName#1"
         }
+      }
     }
+  }
 }

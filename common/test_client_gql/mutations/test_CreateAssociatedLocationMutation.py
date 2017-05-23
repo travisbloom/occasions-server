@@ -13,7 +13,6 @@ valid_location_payload = {
 
 
 class CreateAssociatedLocationMutationTestCase(GraphQLTestCase):
-
     def setUp(self):
         self.file_name = "CreateAssociatedLocationMutation.graphql"
         self.user = build_user_mock_data()

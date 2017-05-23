@@ -7,7 +7,7 @@ from events.models import AssociatedEvent
 
 class AssociatedEventNode(AbstractModelType, DjangoObjectType):
     class Meta:
-        interfaces = (Node, )
+        interfaces = (Node,)
         model = AssociatedEvent
         filter_fields = ('creating_person', 'receiving_person')
         only_fields = (

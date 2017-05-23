@@ -1,4 +1,3 @@
-
 class StripeException(Exception):
     pass
 

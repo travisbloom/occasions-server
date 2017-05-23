@@ -12,7 +12,7 @@ from products.types import ProductNode
 class EventDateNode(AbstractModelType, DjangoObjectType):
     class Meta:
         model = EventDate
-        interfaces = (Node, )
+        interfaces = (Node,)
         only_fields = (
             'date_start',
         )
@@ -26,7 +26,7 @@ class EventNode(AbstractModelType, DjangoObjectType):
 
     class Meta:
         model = Event
-        interfaces = (Node, )
+        interfaces = (Node,)
         only_fields = (
             'name',
             'slug',
@@ -48,13 +48,12 @@ class EventNode(AbstractModelType, DjangoObjectType):
     def resolve_related_products(self, args, context, info):
         return (
             Product.objects
-            .filter(
+                .filter(
                 Q(event_id=self.id) |
                 Q(event_types__in=[
                     event_type for event_type in self.event_types.all()
                 ])
             )
-            .order_by('-event_id')
-            .distinct()
+                .order_by('-event_id')
+                .distinct()
         )
-

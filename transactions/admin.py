@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.urls import reverse
 
 from common import settings
 from common.admin import BaseModelAdmin
@@ -10,17 +9,24 @@ from transactions.types import TransactionNode
 
 def user(transaction):
     return transaction.user.full_name
+
+
 user.short_description = 'User'
 user.admin_order_field = 'user__person__first_name'
 
+
 def receiving_person(transaction):
     return transaction.receiving_person.full_name
+
+
 receiving_person.short_description = 'Receiving Person'
 receiving_person.admin_order_field = 'receiving_person__first_name'
 
 
 def event(transaction):
     return transaction.associated_event.event.name
+
+
 event.short_description = 'Event'
 event.admin_order_field = 'associated_event__event__name'
 
@@ -61,4 +67,3 @@ class TransactionAdmin(BaseModelAdmin):
             settings.APP_URL,
             Node.to_global_id(TransactionNode.__name__, obj.pk)
         )
-

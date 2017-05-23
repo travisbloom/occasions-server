@@ -1,45 +1,45 @@
 {
-    "data": {
-        "createPerson": null
-    },
-    "errors": [
-        {
-            "data": {
-                "birthDate": [
-                    "Date has wrong format. Use one of these formats instead: YYYY[-MM[-DD]]."
-                ],
-                "email": [
-                    "Enter a valid email address."
-                ],
-                "firstName": [
-                    "This field may not be blank."
-                ],
-                "gender": [
-                    "\"MLE\" is not a valid choice."
-                ],
-                "lastName": [
-                    "This field may not be blank."
-                ],
-                "locations": [
-                    {
-                        "city": [
-                            "This field may not be blank."
-                        ],
-                        "postalCode": [
-                            "This field may not be blank."
-                        ],
-                        "state": [
-                            "This field may not be blank."
-                        ],
-                        "streetAddressLine1": [
-                            "This field may not be blank."
-                        ]
-                    }
-                ],
-                "relationshipType": [
-                    "Invalid pk \"foo\" - object does not exist."
-                ]
-            }
-        }
-    ]
+  "data": {
+    "createPerson": null
+  },
+  "errors": [
+    {
+      "data": {
+        "birthDate": [
+          "Date has wrong format. Use one of these formats instead: YYYY[-MM[-DD]]."
+        ],
+        "email": [
+          "Enter a valid email address."
+        ],
+        "firstName": [
+          "This field may not be blank."
+        ],
+        "gender": [
+          "\"MLE\" is not a valid choice."
+        ],
+        "lastName": [
+          "This field may not be blank."
+        ],
+        "locations": [
+          {
+            "city": [
+              "This field may not be blank."
+            ],
+            "postalCode": [
+              "This field may not be blank."
+            ],
+            "state": [
+              "This field may not be blank."
+            ],
+            "streetAddressLine1": [
+              "This field may not be blank."
+            ]
+          }
+        ],
+        "relationshipType": [
+          "Invalid pk \"foo\" - object does not exist."
+        ]
+      }
+    }
+  ]
 }

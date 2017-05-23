@@ -1,21 +1,21 @@
 {
-    "data": {
-        "createAssociatedEvent": null
-    },
-    "errors": [
-        {
-            "data": {
-                "event": {
-                    "name": [
-                        "This field may not be blank."
-                    ],
-                    "nextDate": {
-                        "dateStart": [
-                            "Date has wrong format. Use one of these formats instead: YYYY[-MM[-DD]]."
-                        ]
-                    }
-                }
-            }
+  "data": {
+    "createAssociatedEvent": null
+  },
+  "errors": [
+    {
+      "data": {
+        "event": {
+          "name": [
+            "This field may not be blank."
+          ],
+          "nextDate": {
+            "dateStart": [
+              "Date has wrong format. Use one of these formats instead: YYYY[-MM[-DD]]."
+            ]
+          }
         }
-    ]
+      }
+    }
+  ]
 }

@@ -1,13 +1,13 @@
 {
-    "data": {
-        "createAssociatedLocation": {
-            "associatedLocation": {
-                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTo5 (AssociatedLocationNode:9)",
-                "location": {
-                    "displayName": "First Street Line Second Street Line, NYC NY 10011",
-                    "id": "TG9jYXRpb25Ob2RlOjk= (LocationNode:9)"
-                }
-            }
+  "data": {
+    "createAssociatedLocation": {
+      "associatedLocation": {
+        "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTo5 (AssociatedLocationNode:9)",
+        "location": {
+          "displayName": "First Street Line Second Street Line, NYC NY 10011",
+          "id": "TG9jYXRpb25Ob2RlOjk= (LocationNode:9)"
         }
+      }
     }
+  }
 }

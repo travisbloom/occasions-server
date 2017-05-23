@@ -5,7 +5,6 @@ from people.models import Person
 
 
 class PersonWithRelationToCurrentUserField(serializers.PrimaryKeyRelatedField):
-
     def get_queryset(self):
         user = self.context['user']
         return Person.objects.filter(

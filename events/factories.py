@@ -85,7 +85,6 @@ def generate_events_initial_testing_data(small_sample):
 
 
 class EventTypeFactory(factory.django.DjangoModelFactory):
-
     class Meta:
         model = EventType
 
@@ -94,7 +93,6 @@ class EventTypeFactory(factory.django.DjangoModelFactory):
 
 
 class EventFactory(factory.django.DjangoModelFactory):
-
     class Meta:
         model = Event
 
@@ -113,7 +111,6 @@ class EventFactory(factory.django.DjangoModelFactory):
             ])
 
 
-
 class EventDateFactory(factory.django.DjangoModelFactory):
     event = factory.SubFactory(EventFactory)
     date_start = factory.Sequence(lambda num: pendulum.now().add(months=num))
@@ -123,7 +120,6 @@ class EventDateFactory(factory.django.DjangoModelFactory):
 
 
 class AssociatedEventFactory(factory.django.DjangoModelFactory):
-
     class Meta:
         model = AssociatedEvent
 

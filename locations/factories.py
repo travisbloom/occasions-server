@@ -19,8 +19,8 @@ def generate_initial_location_data(small_sample):
                 person=person
             )
 
-class LocationFactory(factory.django.DjangoModelFactory):
 
+class LocationFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = Location
 
@@ -33,7 +33,6 @@ class LocationFactory(factory.django.DjangoModelFactory):
 
 
 class AssociatedLocationFactory(factory.django.DjangoModelFactory):
-
     class Meta:
         model = AssociatedLocation
 

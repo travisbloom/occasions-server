@@ -11,7 +11,7 @@ class LocationNode(AbstractModelType, DjangoObjectType):
     display_name = String()
 
     class Meta:
-        interfaces = (Node, )
+        interfaces = (Node,)
         model = Location
 
     def resolve_display_name(self, args, context, info):
@@ -25,9 +25,8 @@ class LocationNode(AbstractModelType, DjangoObjectType):
 
 
 class AssociatedLocationNode(AbstractModelType, DjangoObjectType):
-
     class Meta:
-        interfaces = (Node, )
+        interfaces = (Node,)
         model = AssociatedLocation
         only_fields = (
             'person',

@@ -17,13 +17,13 @@ class Command(BaseCommand):
         us_holidays = get_us_holidays_initial_data()
         events = (
             Event.objects
-            .filter(
+                .filter(
                 is_default_event=True,
                 is_reoccuring_yearly=True
             )
-            .exclude(event_dates__date_start__gte=pendulum.Date.today().add(weeks=1))\
-            .prefetch_related('event_dates')
-            )
+                .exclude(event_dates__date_start__gte=pendulum.Date.today().add(weeks=1)) \
+                .prefetch_related('event_dates')
+        )
         event_dates_to_create = []
         for event in events:
             furthest_out_event = sorted(
@@ -45,13 +45,13 @@ class Command(BaseCommand):
 
         events = (
             Event.objects
-            .filter(
+                .filter(
                 is_default_event=False,
                 is_reoccuring_yearly=True
             )
-            .exclude(event_dates__date_start__gte=pendulum.Date.today().add(weeks=1))\
-            .prefetch_related('event_dates')
-            )
+                .exclude(event_dates__date_start__gte=pendulum.Date.today().add(weeks=1)) \
+                .prefetch_related('event_dates')
+        )
         event_dates_to_create = []
         for event in events:
             furthest_out_event = sorted(

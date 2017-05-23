@@ -1,25 +1,25 @@
 {
-    "data": {
-        "associatedEvent": {
-            "event": {
-                "id": "RXZlbnROb2RlOjE= (EventNode:1)",
-                "isReoccuringYearly": true,
-                "name": "Father's Day",
-                "nextDate": {
-                    "dateStart": "2017-06-18"
-                },
-                "relatedProducts": {
-                    "edges": []
-                }
-            },
-            "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox (AssociatedEventNode:1)",
-            "receivingPerson": {
-                "fullName": "FirstName#1 LastName#1",
-                "id": "UGVyc29uTm9kZToz (PersonNode:3)"
-            },
-            "transactions": {
-                "edges": []
-            }
+  "data": {
+    "associatedEvent": {
+      "event": {
+        "id": "RXZlbnROb2RlOjE= (EventNode:1)",
+        "isReoccuringYearly": true,
+        "name": "Father's Day",
+        "nextDate": {
+          "dateStart": "2017-06-18"
+        },
+        "relatedProducts": {
+          "edges": []
         }
+      },
+      "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox (AssociatedEventNode:1)",
+      "receivingPerson": {
+        "fullName": "FirstName#1 LastName#1",
+        "id": "UGVyc29uTm9kZToz (PersonNode:3)"
+      },
+      "transactions": {
+        "edges": []
+      }
     }
+  }
 }

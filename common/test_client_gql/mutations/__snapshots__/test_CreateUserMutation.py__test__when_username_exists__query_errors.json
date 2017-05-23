@@ -1,12 +1,12 @@
 {
-    "data": {
-        "createUser": null
-    },
-    "errors": [
-        {
-            "data": {
-                "username": "A user with this information already exists"
-            }
-        }
-    ]
+  "data": {
+    "createUser": null
+  },
+  "errors": [
+    {
+      "data": {
+        "username": "A user with this information already exists"
+      }
+    }
+  ]
 }

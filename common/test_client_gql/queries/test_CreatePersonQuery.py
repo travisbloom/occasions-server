@@ -3,7 +3,6 @@ from common.testing_util import build_user_mock_data
 
 
 class CreatePersonQueryTestCase(GraphQLTestCase):
-
     def setUp(self):
         self.file_name = "CreatePersonQuery.graphql"
         self.user = build_user_mock_data()

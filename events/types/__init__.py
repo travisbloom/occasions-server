@@ -1,11 +1,11 @@
 from graphene import AbstractType, ID, List
 from graphene_django.filter import DjangoFilterConnectionField
 
+from events.filters import EventFilter, EventTypeFilter
 from events.models import Event
 from events.types.associated_event import AssociatedEventNode
 from events.types.event import EventNode
 from events.types.event_type import EventTypeNode
-from events.filters import EventFilter, EventTypeFilter
 
 
 class EventQueries(AbstractType):

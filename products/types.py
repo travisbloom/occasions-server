@@ -12,7 +12,7 @@ class ProductNode(AbstractModelType, DjangoObjectType):
     event_types = List('events.types.EventTypeNode')
 
     class Meta:
-        interfaces = (Node, )
+        interfaces = (Node,)
         model = Product
         only_fields = (
             'name',

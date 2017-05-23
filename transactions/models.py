@@ -51,7 +51,7 @@ class Transaction(BaseModel):
 
     def clean(self, *args, **kwargs):
         if (self.associated_location.person_id != self.associated_event.receiving_person_id and
-                self.associated_location.person_id != self.associated_event.creating_person_id):
+                    self.associated_location.person_id != self.associated_event.creating_person_id):
             raise ValidationError({
                 'associated_location': (
                     'The shipping address must belong to'

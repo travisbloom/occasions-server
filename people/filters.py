@@ -37,6 +37,3 @@ class RelationshipTypeFilter(django_filters.FilterSet):
             Q(to_person_male_display_name__icontains=value) |
             Q(to_person_female_display_name__icontains=value)
         )
-
-
-

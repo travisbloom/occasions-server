@@ -1,36 +1,36 @@
 {
-    "data": {
-        "createPerson": {
-            "person": {
-                "associatedLocations": {
-                    "edges": [
-                        {
-                            "node": {
-                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTo5 (AssociatedLocationNode:9)",
-                                "location": {
-                                    "displayName": "First Street Line Second Street Line, NYC NY 10011",
-                                    "id": "TG9jYXRpb25Ob2RlOjk= (LocationNode:9)"
-                                }
-                            }
-                        },
-                        {
-                            "node": {
-                                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToxMA== (AssociatedLocationNode:10)",
-                                "location": {
-                                    "displayName": "Second Street Address Second Street Line, NYC NY 10011",
-                                    "id": "TG9jYXRpb25Ob2RlOjEw (LocationNode:10)"
-                                }
-                            }
-                        }
-                    ]
-                },
-                "datetimeCreated": "MOCK_OUT_AUTO_DATES",
-                "email": "trigga@trey.com",
-                "firstName": "Travis",
-                "fullName": "Travis Bloom",
-                "id": "UGVyc29uTm9kZTo0 (PersonNode:4)",
-                "lastName": "Bloom"
+  "data": {
+    "createPerson": {
+      "person": {
+        "associatedLocations": {
+          "edges": [
+            {
+              "node": {
+                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTo5 (AssociatedLocationNode:9)",
+                "location": {
+                  "displayName": "First Street Line Second Street Line, NYC NY 10011",
+                  "id": "TG9jYXRpb25Ob2RlOjk= (LocationNode:9)"
+                }
+              }
+            },
+            {
+              "node": {
+                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZToxMA== (AssociatedLocationNode:10)",
+                "location": {
+                  "displayName": "Second Street Address Second Street Line, NYC NY 10011",
+                  "id": "TG9jYXRpb25Ob2RlOjEw (LocationNode:10)"
+                }
+              }
             }
-        }
+          ]
+        },
+        "datetimeCreated": "MOCK_OUT_AUTO_DATES",
+        "email": "trigga@trey.com",
+        "firstName": "Travis",
+        "fullName": "Travis Bloom",
+        "id": "UGVyc29uTm9kZTo0 (PersonNode:4)",
+        "lastName": "Bloom"
+      }
     }
+  }
 }

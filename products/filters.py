@@ -13,11 +13,11 @@ class ProductFilter(django_filters.FilterSet):
         event_types = EventType.filter(events__in=[value]).values_list('id')
         return (
             queryset
-            .filter(
+                .filter(
                 Q(event_id=value) |
                 Q(event_types__in=event_types)
             )
-            .ordering('-event_id')
+                .ordering('-event_id')
         )
 
     def filter_info_icontains(self, queryset, value):

@@ -1,39 +1,39 @@
 {
-    "data": {
-        "transaction": {
-            "associatedEvent": {
-                "event": {
-                    "id": "RXZlbnROb2RlOjEx (EventNode:11)",
-                    "isReoccuringYearly": true,
-                    "name": "event_name_1"
-                },
-                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo0 (AssociatedEventNode:4)"
-            },
-            "associatedEventDate": {
-                "dateStart": "2017-02-01",
-                "id": "RXZlbnREYXRlTm9kZToxMQ== (EventDateNode:11)"
-            },
-            "associatedLocation": {
-                "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTox (AssociatedLocationNode:1)",
-                "location": {
-                    "displayName": "0 Main St. Apt #0, city_0 MA 11111",
-                    "id": "TG9jYXRpb25Ob2RlOjE= (LocationNode:1)"
-                }
-            },
-            "costUsd": 2.0,
-            "datetimeCreated": "MOCK_OUT_AUTO_DATES",
-            "id": "VHJhbnNhY3Rpb25Ob2RlOjE= (TransactionNode:1)",
-            "product": {
-                "description": "Product #1's Description",
-                "id": "UHJvZHVjdE5vZGU6UHJvZHVjdCAjMSBTbHVn (ProductNode:Product #1 Slug)",
-                "mainImageUrl": "http://placehold.it/350x150",
-                "name": "Product #1"
-            },
-            "productNotes": "Product notes: 0",
-            "receivingPerson": {
-                "fullName": "FirstName#0 LastName#0",
-                "id": "UGVyc29uTm9kZToy (PersonNode:2)"
-            }
+  "data": {
+    "transaction": {
+      "associatedEvent": {
+        "event": {
+          "id": "RXZlbnROb2RlOjEx (EventNode:11)",
+          "isReoccuringYearly": true,
+          "name": "event_name_1"
+        },
+        "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo0 (AssociatedEventNode:4)"
+      },
+      "associatedEventDate": {
+        "dateStart": "2017-02-01",
+        "id": "RXZlbnREYXRlTm9kZToxMQ== (EventDateNode:11)"
+      },
+      "associatedLocation": {
+        "id": "QXNzb2NpYXRlZExvY2F0aW9uTm9kZTox (AssociatedLocationNode:1)",
+        "location": {
+          "displayName": "0 Main St. Apt #0, city_0 MA 11111",
+          "id": "TG9jYXRpb25Ob2RlOjE= (LocationNode:1)"
         }
+      },
+      "costUsd": 2.0,
+      "datetimeCreated": "MOCK_OUT_AUTO_DATES",
+      "id": "VHJhbnNhY3Rpb25Ob2RlOjE= (TransactionNode:1)",
+      "product": {
+        "description": "Product #1's Description",
+        "id": "UHJvZHVjdE5vZGU6UHJvZHVjdCAjMSBTbHVn (ProductNode:Product #1 Slug)",
+        "mainImageUrl": "http://placehold.it/350x150",
+        "name": "Product #1"
+      },
+      "productNotes": "Product notes: 0",
+      "receivingPerson": {
+        "fullName": "FirstName#0 LastName#0",
+        "id": "UGVyc29uTm9kZToy (PersonNode:2)"
+      }
     }
+  }
 }

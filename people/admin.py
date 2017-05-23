@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from common.admin import BaseModelAdmin
-from .models import User, Person, Relationship
+from .models import User, Person
 
 
 @admin.register(User)
@@ -33,8 +33,6 @@ class PersonAdmin(BaseModelAdmin):
         'id'
     )
 
-
 # @admin.register(Relationship)
 # class RelationshipAdmin(BaseModelAdmin):
 #     pass
-

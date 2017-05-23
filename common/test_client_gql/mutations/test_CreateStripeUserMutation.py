@@ -3,7 +3,6 @@ from common.testing_util import build_user_mock_data
 
 
 class CreateStripeUserMutationTestCase(GraphQLTestCase):
-
     def setUp(self):
         self.file_name = "CreateStripeUserMutation.graphql"
         self.user = build_user_mock_data(

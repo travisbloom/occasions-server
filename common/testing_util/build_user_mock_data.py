@@ -1,4 +1,3 @@
-from common import settings
 from events.factories import reset_event_factories, \
     generate_events_initial_testing_data
 from locations.factories import reset_location_factories, generate_initial_location_data
@@ -9,9 +8,9 @@ from transactions.factories import reset_transaction_factories, generate_transac
 
 
 def build_user_mock_data(
-    with_products=False,
-    with_associated_events=False,
-    with_transactions=False,
+        with_products=False,
+        with_associated_events=False,
+        with_transactions=False,
 ):
     reset_event_factories()
     reset_location_factories()

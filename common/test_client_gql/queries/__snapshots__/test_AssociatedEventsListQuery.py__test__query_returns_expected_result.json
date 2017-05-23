@@ -1,95 +1,95 @@
 {
-    "data": {
-        "currentUser": {
-            "id": "VXNlck5vZGU6MQ== (UserNode:1)",
-            "person": {
-                "createdEvents": {
-                    "edges": [
-                        {
-                            "node": {
-                                "event": {
-                                    "id": "RXZlbnROb2RlOjEx (EventNode:11)",
-                                    "isReoccuringYearly": true,
-                                    "name": "event_name_1",
-                                    "nextDate": {
-                                        "dateStart": "2017-02-01"
-                                    }
-                                },
-                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo0 (AssociatedEventNode:4)",
-                                "receivingPerson": {
-                                    "fullName": "FirstName#0 LastName#0",
-                                    "id": "UGVyc29uTm9kZToy (PersonNode:2)"
-                                },
-                                "transactions": {
-                                    "edges": []
-                                }
-                            }
-                        },
-                        {
-                            "node": {
-                                "event": {
-                                    "id": "RXZlbnROb2RlOjI= (EventNode:2)",
-                                    "isReoccuringYearly": true,
-                                    "name": "Independence Day",
-                                    "nextDate": {
-                                        "dateStart": "2017-07-04"
-                                    }
-                                },
-                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToz (AssociatedEventNode:3)",
-                                "receivingPerson": {
-                                    "fullName": "FirstName#0 LastName#0",
-                                    "id": "UGVyc29uTm9kZToy (PersonNode:2)"
-                                },
-                                "transactions": {
-                                    "edges": []
-                                }
-                            }
-                        },
-                        {
-                            "node": {
-                                "event": {
-                                    "id": "RXZlbnROb2RlOjEw (EventNode:10)",
-                                    "isReoccuringYearly": true,
-                                    "name": "event_name_0",
-                                    "nextDate": {
-                                        "dateStart": "2017-01-01"
-                                    }
-                                },
-                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToy (AssociatedEventNode:2)",
-                                "receivingPerson": {
-                                    "fullName": "FirstName#1 LastName#1",
-                                    "id": "UGVyc29uTm9kZToz (PersonNode:3)"
-                                },
-                                "transactions": {
-                                    "edges": []
-                                }
-                            }
-                        },
-                        {
-                            "node": {
-                                "event": {
-                                    "id": "RXZlbnROb2RlOjE= (EventNode:1)",
-                                    "isReoccuringYearly": true,
-                                    "name": "Father's Day",
-                                    "nextDate": {
-                                        "dateStart": "2017-06-18"
-                                    }
-                                },
-                                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox (AssociatedEventNode:1)",
-                                "receivingPerson": {
-                                    "fullName": "FirstName#1 LastName#1",
-                                    "id": "UGVyc29uTm9kZToz (PersonNode:3)"
-                                },
-                                "transactions": {
-                                    "edges": []
-                                }
-                            }
-                        }
-                    ]
+  "data": {
+    "currentUser": {
+      "id": "VXNlck5vZGU6MQ== (UserNode:1)",
+      "person": {
+        "createdEvents": {
+          "edges": [
+            {
+              "node": {
+                "event": {
+                  "id": "RXZlbnROb2RlOjEx (EventNode:11)",
+                  "isReoccuringYearly": true,
+                  "name": "event_name_1",
+                  "nextDate": {
+                    "dateStart": "2017-02-01"
+                  }
                 },
-                "fullName": "Travis Bloom",
-                "id": "UGVyc29uTm9kZTox (PersonNode:1)"
+                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo0 (AssociatedEventNode:4)",
+                "receivingPerson": {
+                  "fullName": "FirstName#0 LastName#0",
+                  "id": "UGVyc29uTm9kZToy (PersonNode:2)"
+                },
+                "transactions": {
+                  "edges": []
+                }
+              }
+            },
+            {
+              "node": {
+                "event": {
+                  "id": "RXZlbnROb2RlOjI= (EventNode:2)",
+                  "isReoccuringYearly": true,
+                  "name": "Independence Day",
+                  "nextDate": {
+                    "dateStart": "2017-07-04"
+                  }
+                },
+                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToz (AssociatedEventNode:3)",
+                "receivingPerson": {
+                  "fullName": "FirstName#0 LastName#0",
+                  "id": "UGVyc29uTm9kZToy (PersonNode:2)"
+                },
+                "transactions": {
+                  "edges": []
+                }
+              }
+            },
+            {
+              "node": {
+                "event": {
+                  "id": "RXZlbnROb2RlOjEw (EventNode:10)",
+                  "isReoccuringYearly": true,
+                  "name": "event_name_0",
+                  "nextDate": {
+                    "dateStart": "2017-01-01"
+                  }
+                },
+                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZToy (AssociatedEventNode:2)",
+                "receivingPerson": {
+                  "fullName": "FirstName#1 LastName#1",
+                  "id": "UGVyc29uTm9kZToz (PersonNode:3)"
+                },
+                "transactions": {
+                  "edges": []
+                }
+              }
+            },
+            {
+              "node": {
+                "event": {
+                  "id": "RXZlbnROb2RlOjE= (EventNode:1)",
+                  "isReoccuringYearly": true,
+                  "name": "Father's Day",
+                  "nextDate": {
+                    "dateStart": "2017-06-18"
+                  }
+                },
+                "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox (AssociatedEventNode:1)",
+                "receivingPerson": {
+                  "fullName": "FirstName#1 LastName#1",
+                  "id": "UGVyc29uTm9kZToz (PersonNode:3)"
+                },
+                "transactions": {
+                  "edges": []
+                }
+              }
             }
-        }
+          ]
+        },
+        "fullName": "Travis Bloom",
+        "id": "UGVyc29uTm9kZTox (PersonNode:1)"
+      }
     }
+  }
 }

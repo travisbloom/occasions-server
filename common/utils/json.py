@@ -4,9 +4,8 @@ import simplejson
 
 
 class JSON:
-
     @classmethod
-    def stringify(cls, value: Any, indent=4):
+    def stringify(cls, value: Any, indent=2):
         return simplejson.dumps(value, sort_keys=True, indent=indent, ensure_ascii=False)
 
     @classmethod

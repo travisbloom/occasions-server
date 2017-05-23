@@ -8,8 +8,8 @@ from transactions.stripe import create_stripe_user
 
 logger = logging.getLogger('occasions')
 
-class CreateStripeUser(relay.ClientIDMutation):
 
+class CreateStripeUser(relay.ClientIDMutation):
     class Input:
         strip_transaction_id = String(required=True)
         email = String(required=True)

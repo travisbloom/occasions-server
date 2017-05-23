@@ -1,14 +1,14 @@
 {
-    "data": {
-        "createUser": null
-    },
-    "errors": [
-        {
-            "data": {
-                "username": [
-                    "This field may not be blank."
-                ]
-            }
-        }
-    ]
+  "data": {
+    "createUser": null
+  },
+  "errors": [
+    {
+      "data": {
+        "username": [
+          "This field may not be blank."
+        ]
+      }
+    }
+  ]
 }

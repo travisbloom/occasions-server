@@ -29,6 +29,7 @@ def get_nth_weekday_in_month(year, month, weekday, n=1, start=None):
         day = day + timedelta(days=1)
     return day
 
+
 def get_last_weekday_in_month(year, month, weekday):
     """Get the last weekday in a given month. e.g:
     >>> # the last monday in Jan 2013

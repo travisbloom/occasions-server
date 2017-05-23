@@ -1,4 +1,4 @@
-from itertools import chain, cycle
+from itertools import cycle
 
 import factory
 
@@ -6,6 +6,7 @@ from events.models import EventType
 from products.models import (
     Product,
     ProductToEventType)
+
 
 def reset_product_factories():
     ProductFactory.reset_sequence()
@@ -22,7 +23,6 @@ def generate_products_initial_data(small_sample):
 
 
 class ProductFactory(factory.django.DjangoModelFactory):
-
     class Meta:
         model = Product
 

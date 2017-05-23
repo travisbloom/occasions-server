@@ -4,7 +4,6 @@ from common.testing_util import build_user_mock_data
 
 
 class AssociatedEventDetailsQueryTestCase(GraphQLTestCase):
-
     def setUp(self):
         self.file_name = "AssociatedEventDetailsQuery.graphql"
         self.user = build_user_mock_data(

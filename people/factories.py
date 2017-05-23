@@ -1,10 +1,9 @@
 import os
-from itertools import chain, cycle
+from itertools import cycle
 
 import factory
 import pendulum
 from django.contrib.auth.hashers import make_password
-from factory import post_generation
 
 from locations.factories import AssociatedLocationFactory
 from people.default_data.relationship_types import generate_default_relationship_types
@@ -65,7 +64,6 @@ def generate_people_initial_testing_data(small_sample):
 
 
 class PersonFactory(factory.django.DjangoModelFactory):
-
     class Meta:
         model = Person
 
@@ -81,7 +79,6 @@ class PersonFactory(factory.django.DjangoModelFactory):
 
 
 class UserFactory(factory.django.DjangoModelFactory):
-
     class Meta:
         model = User
 
@@ -98,7 +95,6 @@ class UserFactory(factory.django.DjangoModelFactory):
 
 
 class RelationshipFactory(factory.django.DjangoModelFactory):
-
     class Meta:
         model = Relationship
 

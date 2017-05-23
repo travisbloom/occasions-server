@@ -1,14 +1,12 @@
 from common.relay import Node
 from common.test_client_gql.graphql_test_case import GraphQLTestCase
 from common.testing_util import build_user_mock_data
-from events.factories import EventFactory, AssociatedEventFactory
-from events.models import AssociatedEvent
+from events.factories import EventFactory
 from people.factories import PersonFactory
 
 
 # TODO add tests for creating new events
 class CreateAssociatedEventMutationTestCase(GraphQLTestCase):
-
     def setUp(self):
         self.file_name = "CreateAssociatedEventMutation.graphql"
         self.user = build_user_mock_data(
@@ -66,7 +64,6 @@ class CreateAssociatedEventMutationTestCase(GraphQLTestCase):
                     ),
                 }
             })
-
 
     def test__when_passing_an_existing_event_that_is_not_a_default__query_errors(self):
         self.different_event = EventFactory(is_default_event=False)

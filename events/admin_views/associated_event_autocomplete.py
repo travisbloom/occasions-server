@@ -2,7 +2,6 @@ from dal import autocomplete
 
 from common.utils.search import build_search_filters
 from events.models import AssociatedEvent
-from people.models import Person
 
 
 class AssociatedEventAutocomplete(autocomplete.Select2QuerySetView):

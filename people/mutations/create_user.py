@@ -15,7 +15,6 @@ class CreateUserInputSerializers(serializers.Serializer):
 
 
 class CreateUser(relay.ClientIDMutation):
-
     class Input:
         username = String(required=True)
         password = String(required=True)

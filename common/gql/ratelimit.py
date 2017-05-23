@@ -23,6 +23,7 @@ def ratelimit_gql(group=None, key=None, rate=None, block=False):
                 if ratelimited and block:
                     raise Ratelimited('Internal server issues.')
             return fn(cls, input, request, info)
-        return _wrapped
-    return decorator
 
+        return _wrapped
+
+    return decorator

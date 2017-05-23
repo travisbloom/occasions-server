@@ -5,7 +5,6 @@ from products.models import Product
 
 
 class CreateTransactionMutationTestCase(GraphQLTestCase):
-
     def setUp(self):
         self.file_name = "CreateTransactionMutation.graphql"
         self.user = build_user_mock_data(

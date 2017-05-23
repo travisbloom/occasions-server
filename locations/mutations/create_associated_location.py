@@ -7,7 +7,6 @@ from locations.types import AssociatedLocationNode
 
 
 class CreateAssociatedLocation(relay.ClientIDMutation):
-
     class Input:
         person_id = ID(required=True)
         location = InputField(LocationInput)

@@ -1,9 +1,9 @@
 {
-    "data": {
-        "createUser": {
-            "user": {
-                "email": "travis@ge.com"
-            }
-        }
+  "data": {
+    "createUser": {
+      "user": {
+        "email": "travis@ge.com"
+      }
     }
+  }
 }

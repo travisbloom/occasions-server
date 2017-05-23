@@ -1,8 +1,7 @@
-from itertools import chain, cycle
+from itertools import cycle
 
 import factory
 
-from events.models import EventType
 from people.models import User
 from products.models import Product
 from transactions.models import (
@@ -39,7 +38,6 @@ def generate_transactions_initial_data(small_sample):
 
 
 class TransactionFactory(factory.django.DjangoModelFactory):
-
     class Meta:
         model = Transaction
 

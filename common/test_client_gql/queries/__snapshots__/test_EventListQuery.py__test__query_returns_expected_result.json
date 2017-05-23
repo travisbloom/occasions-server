@@ -1,255 +1,255 @@
 {
-    "data": {
-        "events": {
-            "edges": [
-                {
-                    "node": {
-                        "eventTypes": [
-                            {
-                                "displayName": "Romantic",
-                                "id": "RXZlbnRUeXBlTm9kZTpyb21hbnRpYw== (EventTypeNode:romantic)"
-                            }
-                        ],
-                        "id": "RXZlbnROb2RlOjEx (EventNode:11)",
-                        "isReoccuringYearly": true,
-                        "name": "event_name_1",
-                        "nextDate": {
-                            "dateStart": "2017-02-01"
-                        },
-                        "slug": "event_name_1"
-                    }
-                },
-                {
-                    "node": {
-                        "eventTypes": [
-                            {
-                                "displayName": "Romantic",
-                                "id": "RXZlbnRUeXBlTm9kZTpyb21hbnRpYw== (EventTypeNode:romantic)"
-                            }
-                        ],
-                        "id": "RXZlbnROb2RlOjEw (EventNode:10)",
-                        "isReoccuringYearly": true,
-                        "name": "event_name_0",
-                        "nextDate": {
-                            "dateStart": "2017-01-01"
-                        },
-                        "slug": "event_name_0"
-                    }
-                },
-                {
-                    "node": {
-                        "eventTypes": [
-                            {
-                                "displayName": "American",
-                                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
-                            },
-                            {
-                                "displayName": "National",
-                                "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
-                            },
-                            {
-                                "displayName": "Military",
-                                "id": "RXZlbnRUeXBlTm9kZTptaWxpdGFyeQ== (EventTypeNode:military)"
-                            }
-                        ],
-                        "id": "RXZlbnROb2RlOjk= (EventNode:9)",
-                        "isReoccuringYearly": true,
-                        "name": "Veterans Day",
-                        "nextDate": {
-                            "dateStart": "2017-11-11"
-                        },
-                        "slug": "veterans_day"
-                    }
-                },
-                {
-                    "node": {
-                        "eventTypes": [
-                            {
-                                "displayName": "American",
-                                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
-                            },
-                            {
-                                "displayName": "Food",
-                                "id": "RXZlbnRUeXBlTm9kZTpmb29k (EventTypeNode:food)"
-                            },
-                            {
-                                "displayName": "National",
-                                "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
-                            }
-                        ],
-                        "id": "RXZlbnROb2RlOjg= (EventNode:8)",
-                        "isReoccuringYearly": true,
-                        "name": "Thanksgiving",
-                        "nextDate": {
-                            "dateStart": "2017-11-23"
-                        },
-                        "slug": "thanksgiving"
-                    }
-                },
-                {
-                    "node": {
-                        "eventTypes": [
-                            {
-                                "displayName": "American",
-                                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
-                            },
-                            {
-                                "displayName": "National",
-                                "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
-                            }
-                        ],
-                        "id": "RXZlbnROb2RlOjc= (EventNode:7)",
-                        "isReoccuringYearly": true,
-                        "name": "President's Day",
-                        "nextDate": {
-                            "dateStart": "2017-02-20"
-                        },
-                        "slug": "presidents_day"
-                    }
-                },
-                {
-                    "node": {
-                        "eventTypes": [
-                            {
-                                "displayName": "American",
-                                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
-                            },
-                            {
-                                "displayName": "Acknowledge Someone Special",
-                                "id": "RXZlbnRUeXBlTm9kZTphcHByZWNpYXRpb24= (EventTypeNode:appreciation)"
-                            },
-                            {
-                                "displayName": "Feminine",
-                                "id": "RXZlbnRUeXBlTm9kZTpmZW1pbmluZQ== (EventTypeNode:feminine)"
-                            }
-                        ],
-                        "id": "RXZlbnROb2RlOjY= (EventNode:6)",
-                        "isReoccuringYearly": true,
-                        "name": "Mother's Day",
-                        "nextDate": {
-                            "dateStart": "2017-05-21"
-                        },
-                        "slug": "mothers_day"
-                    }
-                },
-                {
-                    "node": {
-                        "eventTypes": [
-                            {
-                                "displayName": "American",
-                                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
-                            },
-                            {
-                                "displayName": "National",
-                                "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
-                            }
-                        ],
-                        "id": "RXZlbnROb2RlOjU= (EventNode:5)",
-                        "isReoccuringYearly": true,
-                        "name": "Martin Luther King, Jr. Day",
-                        "nextDate": {
-                            "dateStart": "2017-01-16"
-                        },
-                        "slug": "mlk_day"
-                    }
-                },
-                {
-                    "node": {
-                        "eventTypes": [
-                            {
-                                "displayName": "American",
-                                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
-                            },
-                            {
-                                "displayName": "National",
-                                "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
-                            },
-                            {
-                                "displayName": "Military",
-                                "id": "RXZlbnRUeXBlTm9kZTptaWxpdGFyeQ== (EventTypeNode:military)"
-                            }
-                        ],
-                        "id": "RXZlbnROb2RlOjQ= (EventNode:4)",
-                        "isReoccuringYearly": true,
-                        "name": "Memorial Day",
-                        "nextDate": {
-                            "dateStart": "2017-05-29"
-                        },
-                        "slug": "memorial_day"
-                    }
-                },
-                {
-                    "node": {
-                        "eventTypes": [
-                            {
-                                "displayName": "American",
-                                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
-                            },
-                            {
-                                "displayName": "National",
-                                "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
-                            }
-                        ],
-                        "id": "RXZlbnROb2RlOjM= (EventNode:3)",
-                        "isReoccuringYearly": true,
-                        "name": "Labor Day",
-                        "nextDate": {
-                            "dateStart": "2017-09-04"
-                        },
-                        "slug": "labor_day"
-                    }
-                },
-                {
-                    "node": {
-                        "eventTypes": [
-                            {
-                                "displayName": "American",
-                                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
-                            },
-                            {
-                                "displayName": "National",
-                                "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
-                            },
-                            {
-                                "displayName": "Military",
-                                "id": "RXZlbnRUeXBlTm9kZTptaWxpdGFyeQ== (EventTypeNode:military)"
-                            }
-                        ],
-                        "id": "RXZlbnROb2RlOjI= (EventNode:2)",
-                        "isReoccuringYearly": true,
-                        "name": "Independence Day",
-                        "nextDate": {
-                            "dateStart": "2017-07-04"
-                        },
-                        "slug": "independence_day"
-                    }
-                },
-                {
-                    "node": {
-                        "eventTypes": [
-                            {
-                                "displayName": "American",
-                                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
-                            },
-                            {
-                                "displayName": "Acknowledge Someone Special",
-                                "id": "RXZlbnRUeXBlTm9kZTphcHByZWNpYXRpb24= (EventTypeNode:appreciation)"
-                            },
-                            {
-                                "displayName": "Masculine",
-                                "id": "RXZlbnRUeXBlTm9kZTptYXNjdWxpbmU= (EventTypeNode:masculine)"
-                            }
-                        ],
-                        "id": "RXZlbnROb2RlOjE= (EventNode:1)",
-                        "isReoccuringYearly": true,
-                        "name": "Father's Day",
-                        "nextDate": {
-                            "dateStart": "2017-06-18"
-                        },
-                        "slug": "fathers_day"
-                    }
-                }
-            ]
+  "data": {
+    "events": {
+      "edges": [
+        {
+          "node": {
+            "eventTypes": [
+              {
+                "displayName": "Romantic",
+                "id": "RXZlbnRUeXBlTm9kZTpyb21hbnRpYw== (EventTypeNode:romantic)"
+              }
+            ],
+            "id": "RXZlbnROb2RlOjEx (EventNode:11)",
+            "isReoccuringYearly": true,
+            "name": "event_name_1",
+            "nextDate": {
+              "dateStart": "2017-02-01"
+            },
+            "slug": "event_name_1"
+          }
+        },
+        {
+          "node": {
+            "eventTypes": [
+              {
+                "displayName": "Romantic",
+                "id": "RXZlbnRUeXBlTm9kZTpyb21hbnRpYw== (EventTypeNode:romantic)"
+              }
+            ],
+            "id": "RXZlbnROb2RlOjEw (EventNode:10)",
+            "isReoccuringYearly": true,
+            "name": "event_name_0",
+            "nextDate": {
+              "dateStart": "2017-01-01"
+            },
+            "slug": "event_name_0"
+          }
+        },
+        {
+          "node": {
+            "eventTypes": [
+              {
+                "displayName": "American",
+                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
+              },
+              {
+                "displayName": "National",
+                "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
+              },
+              {
+                "displayName": "Military",
+                "id": "RXZlbnRUeXBlTm9kZTptaWxpdGFyeQ== (EventTypeNode:military)"
+              }
+            ],
+            "id": "RXZlbnROb2RlOjk= (EventNode:9)",
+            "isReoccuringYearly": true,
+            "name": "Veterans Day",
+            "nextDate": {
+              "dateStart": "2017-11-11"
+            },
+            "slug": "veterans_day"
+          }
+        },
+        {
+          "node": {
+            "eventTypes": [
+              {
+                "displayName": "American",
+                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
+              },
+              {
+                "displayName": "Food",
+                "id": "RXZlbnRUeXBlTm9kZTpmb29k (EventTypeNode:food)"
+              },
+              {
+                "displayName": "National",
+                "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
+              }
+            ],
+            "id": "RXZlbnROb2RlOjg= (EventNode:8)",
+            "isReoccuringYearly": true,
+            "name": "Thanksgiving",
+            "nextDate": {
+              "dateStart": "2017-11-23"
+            },
+            "slug": "thanksgiving"
+          }
+        },
+        {
+          "node": {
+            "eventTypes": [
+              {
+                "displayName": "American",
+                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
+              },
+              {
+                "displayName": "National",
+                "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
+              }
+            ],
+            "id": "RXZlbnROb2RlOjc= (EventNode:7)",
+            "isReoccuringYearly": true,
+            "name": "President's Day",
+            "nextDate": {
+              "dateStart": "2017-02-20"
+            },
+            "slug": "presidents_day"
+          }
+        },
+        {
+          "node": {
+            "eventTypes": [
+              {
+                "displayName": "American",
+                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
+              },
+              {
+                "displayName": "Acknowledge Someone Special",
+                "id": "RXZlbnRUeXBlTm9kZTphcHByZWNpYXRpb24= (EventTypeNode:appreciation)"
+              },
+              {
+                "displayName": "Feminine",
+                "id": "RXZlbnRUeXBlTm9kZTpmZW1pbmluZQ== (EventTypeNode:feminine)"
+              }
+            ],
+            "id": "RXZlbnROb2RlOjY= (EventNode:6)",
+            "isReoccuringYearly": true,
+            "name": "Mother's Day",
+            "nextDate": {
+              "dateStart": "2017-05-21"
+            },
+            "slug": "mothers_day"
+          }
+        },
+        {
+          "node": {
+            "eventTypes": [
+              {
+                "displayName": "American",
+                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
+              },
+              {
+                "displayName": "National",
+                "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
+              }
+            ],
+            "id": "RXZlbnROb2RlOjU= (EventNode:5)",
+            "isReoccuringYearly": true,
+            "name": "Martin Luther King, Jr. Day",
+            "nextDate": {
+              "dateStart": "2017-01-16"
+            },
+            "slug": "mlk_day"
+          }
+        },
+        {
+          "node": {
+            "eventTypes": [
+              {
+                "displayName": "American",
+                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
+              },
+              {
+                "displayName": "National",
+                "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
+              },
+              {
+                "displayName": "Military",
+                "id": "RXZlbnRUeXBlTm9kZTptaWxpdGFyeQ== (EventTypeNode:military)"
+              }
+            ],
+            "id": "RXZlbnROb2RlOjQ= (EventNode:4)",
+            "isReoccuringYearly": true,
+            "name": "Memorial Day",
+            "nextDate": {
+              "dateStart": "2017-05-29"
+            },
+            "slug": "memorial_day"
+          }
+        },
+        {
+          "node": {
+            "eventTypes": [
+              {
+                "displayName": "American",
+                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
+              },
+              {
+                "displayName": "National",
+                "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
+              }
+            ],
+            "id": "RXZlbnROb2RlOjM= (EventNode:3)",
+            "isReoccuringYearly": true,
+            "name": "Labor Day",
+            "nextDate": {
+              "dateStart": "2017-09-04"
+            },
+            "slug": "labor_day"
+          }
+        },
+        {
+          "node": {
+            "eventTypes": [
+              {
+                "displayName": "American",
+                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
+              },
+              {
+                "displayName": "National",
+                "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
+              },
+              {
+                "displayName": "Military",
+                "id": "RXZlbnRUeXBlTm9kZTptaWxpdGFyeQ== (EventTypeNode:military)"
+              }
+            ],
+            "id": "RXZlbnROb2RlOjI= (EventNode:2)",
+            "isReoccuringYearly": true,
+            "name": "Independence Day",
+            "nextDate": {
+              "dateStart": "2017-07-04"
+            },
+            "slug": "independence_day"
+          }
+        },
+        {
+          "node": {
+            "eventTypes": [
+              {
+                "displayName": "American",
+                "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
+              },
+              {
+                "displayName": "Acknowledge Someone Special",
+                "id": "RXZlbnRUeXBlTm9kZTphcHByZWNpYXRpb24= (EventTypeNode:appreciation)"
+              },
+              {
+                "displayName": "Masculine",
+                "id": "RXZlbnRUeXBlTm9kZTptYXNjdWxpbmU= (EventTypeNode:masculine)"
+              }
+            ],
+            "id": "RXZlbnROb2RlOjE= (EventNode:1)",
+            "isReoccuringYearly": true,
+            "name": "Father's Day",
+            "nextDate": {
+              "dateStart": "2017-06-18"
+            },
+            "slug": "fathers_day"
+          }
         }
+      ]
     }
+  }
 }

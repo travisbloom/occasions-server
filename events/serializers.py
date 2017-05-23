@@ -6,7 +6,6 @@ from people.serializers import PersonWithRelationToCurrentUserField
 
 
 class EventDateSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = EventDate
         fields = (
@@ -25,6 +24,7 @@ class EventSerializer(serializers.ModelSerializer):
             'event_types',
             'next_date'
         )
+
     def create(self, validated_data):
         next_date = validated_data.pop('next_date')
         event_types = validated_data.pop('event_types')
@@ -69,4 +69,3 @@ class AssociatedEventSerializer(serializers.ModelSerializer):
         )
         associated_event.save()
         return associated_event
-

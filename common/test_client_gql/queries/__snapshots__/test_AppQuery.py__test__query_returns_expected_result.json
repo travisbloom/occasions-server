@@ -1,11 +1,11 @@
 {
-    "data": {
-        "currentUser": {
-            "id": "VXNlck5vZGU6MQ== (UserNode:1)",
-            "person": {
-                "fullName": "Travis Bloom",
-                "id": "UGVyc29uTm9kZTox (PersonNode:1)"
-            }
-        }
+  "data": {
+    "currentUser": {
+      "id": "VXNlck5vZGU6MQ== (UserNode:1)",
+      "person": {
+        "fullName": "Travis Bloom",
+        "id": "UGVyc29uTm9kZTox (PersonNode:1)"
+      }
     }
+  }
 }

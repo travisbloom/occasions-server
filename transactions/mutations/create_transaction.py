@@ -5,7 +5,6 @@ from graphene import relay, String, Field, ID
 from rest_framework import serializers
 
 from common.exceptions import MutationException
-from common.gql import get_pk_from_global_id
 from common.gql.get_pk_from_global_id import convert_input_global_ids_to_pks
 from events.models import AssociatedEvent
 from locations.models import AssociatedLocation
@@ -19,14 +18,12 @@ logger = logging.getLogger('occasions')
 
 
 class LocationRelatedToPersonField(serializers.PrimaryKeyRelatedField):
-
     def get_queryset(self):
         return AssociatedLocation.objects.filter(
             person_id=self.context['receiving_person_id'])
 
 
 class AssociatedEventRelatedToPersonField(serializers.PrimaryKeyRelatedField):
-
     def get_queryset(self):
         return AssociatedEvent.objects.filter(
             receiving_person_id=self.context['receiving_person_id'],
@@ -44,7 +41,6 @@ class CreateTransactionSerializer(serializers.Serializer):
 
 
 class CreateTransaction(relay.ClientIDMutation):
-
     class Input:
         product_id = ID(required=False)
         associated_event_id = ID(required=False)
@@ -88,5 +84,3 @@ class CreateTransaction(relay.ClientIDMutation):
                 request=context
             )
         return CreateTransaction(transaction=transaction)
-
-

@@ -9,6 +9,7 @@ def reset_migrations():
         local('touch {}/migrations/__init__.py'.format(dir))
     local('./manage.py makemigrations')
 
+
 def bootstrap_db():
     local('rm db.sqlite3')
     local('./manage.py migrate')

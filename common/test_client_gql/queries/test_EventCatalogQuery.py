@@ -3,7 +3,6 @@ from common.testing_util import build_user_mock_data
 
 
 class EventCatalogQueryTestCase(GraphQLTestCase):
-
     def setUp(self):
         self.file_name = "EventCatalogQuery.graphql"
         self.user = build_user_mock_data(with_associated_events=True)

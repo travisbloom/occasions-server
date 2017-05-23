@@ -1,12 +1,12 @@
 {
-    "data": {
-        "createPerson": null
-    },
-    "errors": [
-        {
-            "data": [
-                "People must have at least one address."
-            ]
-        }
-    ]
+  "data": {
+    "createPerson": null
+  },
+  "errors": [
+    {
+      "data": [
+        "People must have at least one address."
+      ]
+    }
+  ]
 }
