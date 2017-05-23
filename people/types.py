@@ -123,14 +123,17 @@ class UserNode(AbstractModelType, DjangoObjectType):
 
 
 class PeopleQueries(AbstractType):
+    relationship_types = DjangoFilterConnectionField(
+        RelationshipTypeNode,
+        filterset_class=RelationshipTypeFilter
+    )
+
+
+class PeopleStaffQueries(AbstractType):
     users = DjangoFilterConnectionField(UserNode)
     people = DjangoFilterConnectionField(
         PersonNode,
         filterset_class=PersonFilter
     )
     relationships = DjangoFilterConnectionField(RelationshipNode)
-    relationship_types = DjangoFilterConnectionField(
-        RelationshipTypeNode,
-        filterset_class=RelationshipTypeFilter
-    )
 

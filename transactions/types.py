@@ -39,5 +39,5 @@ class TransactionNode(AbstractModelType, DjangoObjectType):
         return context.associated_location_loader.load(self.associated_location_id)
 
 
-class TransactionQueries(AbstractType):
+class TransactionStaffQueries(AbstractType):
     transactions = DjangoFilterConnectionField(TransactionNode)

@@ -2,22 +2,28 @@ from graphene import Schema, ObjectType, Field, String
 
 from common.relay import Node
 from events.mutations import EventMutations
-from events.types import EventQueries
+from events.types import EventStaffQueries, EventQueries
 from locations.mutations.create_associated_location import LocationsMutations
-from locations.types import LocationQueries
+from locations.types import LocationStaffQueries
 from people.mutations import CreateUser, PeopleMutations
-from people.types import PeopleQueries, UserNode
+from people.types import PeopleStaffQueries, UserNode, PeopleQueries
 from products.types import ProductQueries
 from transactions.mutations import TransactionMutations
-from transactions.types import TransactionQueries
+from transactions.types import TransactionStaffQueries
+
+class StaffType(
+    TransactionStaffQueries,
+    PeopleStaffQueries,
+    EventStaffQueries,
+    LocationStaffQueries,
+):
+    pass
 
 
 class Query(
-    TransactionQueries,
     PeopleQueries,
     EventQueries,
     ProductQueries,
-    LocationQueries,
     ObjectType
 ):
     node = Node.Field()

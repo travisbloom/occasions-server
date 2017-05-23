@@ -10,6 +10,9 @@ class EventType(BaseModel):
     display_name = models.CharField(max_length=255)
     is_externally_visible = models.BooleanField(blank=True, default=True)
 
+    class Meta:
+        db_table = 'app_event_type'
+
     def __str__(self):
         return self.display_name
 
@@ -25,6 +28,9 @@ class Event(BaseModel):
     is_default_event = models.BooleanField(default=True)
     is_reoccuring_yearly = models.BooleanField(default=True)
 
+    class Meta:
+        db_table = 'app_event'
+
     def __str__(self):
         return self.name
 
@@ -39,10 +45,16 @@ class EventToEventType(BaseModel):
     event = models.ForeignKey(Event)
     event_type = models.ForeignKey(EventType)
 
+    class Meta:
+        db_table = 'app_event_to_event_type'
+
 
 class EventDate(models.Model):
     event = models.ForeignKey(Event, related_name='event_dates')
     date_start = models.DateField()
+
+    class Meta:
+        db_table = 'app_event_date'
 
     def __str__(self):
         return "{} on {}".format(self.event, self.date_start)
@@ -53,6 +65,9 @@ class AssociatedEvent(BaseModel):
     receiving_person = models.ForeignKey(
         Person, related_name='received_events')
     event = models.ForeignKey(Event, related_name='created_events')
+
+    class Meta:
+        db_table = 'app_associated_event'
 
     def __str__(self):
         return "{}: created by {}, for {}".format(

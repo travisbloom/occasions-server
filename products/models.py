@@ -33,6 +33,9 @@ class Product(BaseModel):
         default=TYPE_CARD)
     main_image_url = models.URLField()
 
+    class Meta:
+        db_table = 'app_product'
+
     def __str__(self):
         return self.name
 
@@ -40,3 +43,6 @@ class Product(BaseModel):
 class ProductToEventType(BaseModel):
     product = models.ForeignKey(Product)
     event_type = models.ForeignKey(EventType)
+
+    class Meta:
+        db_table = 'app_product_to_event'

@@ -20,6 +20,9 @@ class User(AbstractUser):
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        db_table = 'app_user'
+
     def __str__(self):
         return "{}".format(self.username)
 
@@ -54,6 +57,9 @@ class Person(BaseModel):
     email = models.EmailField()
     birth_date = models.DateField()
 
+    class Meta:
+        db_table = 'app_person'
+
     def __str__(self):
         return "{}".format(self.full_name)
 
@@ -69,6 +75,9 @@ class RelationshipType(BaseModel):
     to_person_male_display_name = models.CharField(max_length=100)
     to_person_female_display_name = models.CharField(max_length=100)
 
+    class Meta:
+        db_table = 'app_relationship_type'
+
     def __str__(self):
         return "{}".format(self.name)
 
@@ -78,6 +87,9 @@ class Relationship(BaseModel):
     from_person = models.ForeignKey(Person, related_name='from_relationships')
     to_person = models.ForeignKey(Person, related_name='to_relationships')
     relationship_type = models.ForeignKey(RelationshipType)
+
+    class Meta:
+        db_table = 'app_relationship'
 
     @staticmethod
     def from_person_name(from_person, relationship_type):

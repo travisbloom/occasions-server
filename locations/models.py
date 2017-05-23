@@ -14,6 +14,9 @@ class Location(BaseModel):
     state = models.CharField(max_length=100)
     country = models.CharField(max_length=100, default='USA', blank=True)
 
+    class Meta:
+        db_table = 'app_location'
+
     def __str__(self):
         return "{}".format(self.display_name)
 
@@ -28,19 +31,13 @@ class Location(BaseModel):
             postal_code=self.postal_code)
 
 
-class AssociatedLocationManager(models.Manager):
-
-    def get_queryset(self):
-        return super().get_queryset().select_related('location')
-
-
 class AssociatedLocation(BaseModel):
     person = models.ForeignKey(Person, related_name='associated_locations')
     location = models.ForeignKey(Location)
 
-    objects = AssociatedLocationManager()
 
     class Meta:
+        db_table = 'app_associated_location'
         unique_together = (
             ('person', 'location'),
         )

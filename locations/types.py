@@ -42,6 +42,6 @@ class AssociatedLocationNode(AbstractModelType, DjangoObjectType):
         return context.location_loader.load(self.location_id)
 
 
-class LocationQueries(AbstractType):
+class LocationStaffQueries(AbstractType):
     locations = DjangoFilterConnectionField(LocationNode)
     person_locations = DjangoFilterConnectionField(AssociatedLocationNode)

@@ -38,6 +38,7 @@ class Transaction(BaseModel):
         max_length=255, blank=True, default='')
 
     class Meta:
+        db_table = 'app_transaction'
         default_related_name = 'transactions'
 
     def __str__(self):
