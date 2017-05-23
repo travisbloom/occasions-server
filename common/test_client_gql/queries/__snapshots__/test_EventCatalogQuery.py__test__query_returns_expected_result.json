@@ -4,38 +4,14 @@
             "edges": [
                 {
                     "node": {
-                        "displayName": "American",
-                        "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
-                    }
-                },
-                {
-                    "node": {
-                        "displayName": "Feminine",
-                        "id": "RXZlbnRUeXBlTm9kZTpmZW1pbmluZQ== (EventTypeNode:feminine)"
-                    }
-                },
-                {
-                    "node": {
-                        "displayName": "Family",
-                        "id": "RXZlbnRUeXBlTm9kZTpmYW1pbHk= (EventTypeNode:family)"
-                    }
-                },
-                {
-                    "node": {
-                        "displayName": "Military",
-                        "id": "RXZlbnRUeXBlTm9kZTptaWxpdGFyeQ== (EventTypeNode:military)"
-                    }
-                },
-                {
-                    "node": {
-                        "displayName": "Food",
-                        "id": "RXZlbnRUeXBlTm9kZTpmb29k (EventTypeNode:food)"
-                    }
-                },
-                {
-                    "node": {
                         "displayName": "Romantic",
                         "id": "RXZlbnRUeXBlTm9kZTpyb21hbnRpYw== (EventTypeNode:romantic)"
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Religious",
+                        "id": "RXZlbnRUeXBlTm9kZTpyZWxpZ2lvdXM= (EventTypeNode:religious)"
                     }
                 },
                 {
@@ -46,8 +22,14 @@
                 },
                 {
                     "node": {
-                        "displayName": "Special Days",
-                        "id": "RXZlbnRUeXBlTm9kZTphbm5pdmVyc2FyeQ== (EventTypeNode:anniversary)"
+                        "displayName": "Military",
+                        "id": "RXZlbnRUeXBlTm9kZTptaWxpdGFyeQ== (EventTypeNode:military)"
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Masculine",
+                        "id": "RXZlbnRUeXBlTm9kZTptYXNjdWxpbmU= (EventTypeNode:masculine)"
                     }
                 },
                 {
@@ -64,14 +46,32 @@
                 },
                 {
                     "node": {
-                        "displayName": "Masculine",
-                        "id": "RXZlbnRUeXBlTm9kZTptYXNjdWxpbmU= (EventTypeNode:masculine)"
+                        "displayName": "National",
+                        "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
                     }
                 },
                 {
                     "node": {
-                        "displayName": "Religious",
-                        "id": "RXZlbnRUeXBlTm9kZTpyZWxpZ2lvdXM= (EventTypeNode:religious)"
+                        "displayName": "Food",
+                        "id": "RXZlbnRUeXBlTm9kZTpmb29k (EventTypeNode:food)"
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Feminine",
+                        "id": "RXZlbnRUeXBlTm9kZTpmZW1pbmluZQ== (EventTypeNode:feminine)"
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Family",
+                        "id": "RXZlbnRUeXBlTm9kZTpmYW1pbHk= (EventTypeNode:family)"
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Christian",
+                        "id": "RXZlbnRUeXBlTm9kZTpjaHJpc3RpYW4= (EventTypeNode:christian)"
                     }
                 },
                 {
@@ -88,14 +88,14 @@
                 },
                 {
                     "node": {
-                        "displayName": "National",
-                        "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
+                        "displayName": "Special Days",
+                        "id": "RXZlbnRUeXBlTm9kZTphbm5pdmVyc2FyeQ== (EventTypeNode:anniversary)"
                     }
                 },
                 {
                     "node": {
-                        "displayName": "Christian",
-                        "id": "RXZlbnRUeXBlTm9kZTpjaHJpc3RpYW4= (EventTypeNode:christian)"
+                        "displayName": "American",
+                        "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
                     }
                 }
             ]

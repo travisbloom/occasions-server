@@ -8,8 +8,8 @@
                 "event": {
                     "eventTypes": [
                         {
-                            "displayName": "American",
-                            "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
+                            "displayName": "Romantic",
+                            "id": "RXZlbnRUeXBlTm9kZTpyb21hbnRpYw== (EventTypeNode:romantic)"
                         }
                     ],
                     "name": "testEvent",

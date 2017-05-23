@@ -26,7 +26,7 @@ def generate_events_initial_testing_data(small_sample):
     today = pendulum.now().date()
     event_types = [
         EventType(pk=key, **value)
-        for key, value in event_types_initial_data.items()
+        for key, value in sorted(event_types_initial_data.items())
     ]
     EventType.objects.bulk_create(event_types)
     default_events = []
