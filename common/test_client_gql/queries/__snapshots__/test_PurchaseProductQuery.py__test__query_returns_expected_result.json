@@ -4,9 +4,9 @@
             "event": {
                 "id": "RXZlbnROb2RlOjE= (EventNode:1)",
                 "isReoccuringYearly": true,
-                "name": "Veterans Day",
+                "name": "Father's Day",
                 "nextDate": {
-                    "dateStart": "2017-11-11"
+                    "dateStart": "2017-06-18"
                 }
             },
             "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTox (AssociatedEventNode:1)",

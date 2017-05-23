@@ -4,56 +4,8 @@
             "edges": [
                 {
                     "node": {
-                        "displayName": "Military",
-                        "id": "RXZlbnRUeXBlTm9kZTptaWxpdGFyeQ== (EventTypeNode:military)"
-                    }
-                },
-                {
-                    "node": {
-                        "displayName": "Special Days",
-                        "id": "RXZlbnRUeXBlTm9kZTphbm5pdmVyc2FyeQ== (EventTypeNode:anniversary)"
-                    }
-                },
-                {
-                    "node": {
-                        "displayName": "Food",
-                        "id": "RXZlbnRUeXBlTm9kZTpmb29k (EventTypeNode:food)"
-                    }
-                },
-                {
-                    "node": {
-                        "displayName": "Muslim",
-                        "id": "RXZlbnRUeXBlTm9kZTptdXNsaW0= (EventTypeNode:muslim)"
-                    }
-                },
-                {
-                    "node": {
-                        "displayName": "Masculine",
-                        "id": "RXZlbnRUeXBlTm9kZTptYXNjdWxpbmU= (EventTypeNode:masculine)"
-                    }
-                },
-                {
-                    "node": {
                         "displayName": "American",
                         "id": "RXZlbnRUeXBlTm9kZTphbWVyaWNhbg== (EventTypeNode:american)"
-                    }
-                },
-                {
-                    "node": {
-                        "displayName": "Jewish",
-                        "id": "RXZlbnRUeXBlTm9kZTpqZXdpc2g= (EventTypeNode:jewish)"
-                    }
-                },
-                {
-                    "node": {
-                        "displayName": "Acknowledge Someone Special",
-                        "id": "RXZlbnRUeXBlTm9kZTphcHByZWNpYXRpb24= (EventTypeNode:appreciation)"
-                    }
-                },
-                {
-                    "node": {
-                        "displayName": "Religious",
-                        "id": "RXZlbnRUeXBlTm9kZTpyZWxpZ2lvdXM= (EventTypeNode:religious)"
                     }
                 },
                 {
@@ -70,20 +22,14 @@
                 },
                 {
                     "node": {
-                        "displayName": "Just For Fun",
-                        "id": "RXZlbnRUeXBlTm9kZTpodW1vcm91cw== (EventTypeNode:humorous)"
+                        "displayName": "Military",
+                        "id": "RXZlbnRUeXBlTm9kZTptaWxpdGFyeQ== (EventTypeNode:military)"
                     }
                 },
                 {
                     "node": {
-                        "displayName": "Celebration",
-                        "id": "RXZlbnRUeXBlTm9kZTpjZWxlYnJhdGlvbg== (EventTypeNode:celebration)"
-                    }
-                },
-                {
-                    "node": {
-                        "displayName": "Christian",
-                        "id": "RXZlbnRUeXBlTm9kZTpjaHJpc3RpYW4= (EventTypeNode:christian)"
+                        "displayName": "Food",
+                        "id": "RXZlbnRUeXBlTm9kZTpmb29k (EventTypeNode:food)"
                     }
                 },
                 {
@@ -94,8 +40,62 @@
                 },
                 {
                     "node": {
+                        "displayName": "Muslim",
+                        "id": "RXZlbnRUeXBlTm9kZTptdXNsaW0= (EventTypeNode:muslim)"
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Special Days",
+                        "id": "RXZlbnRUeXBlTm9kZTphbm5pdmVyc2FyeQ== (EventTypeNode:anniversary)"
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Jewish",
+                        "id": "RXZlbnRUeXBlTm9kZTpqZXdpc2g= (EventTypeNode:jewish)"
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Just For Fun",
+                        "id": "RXZlbnRUeXBlTm9kZTpodW1vcm91cw== (EventTypeNode:humorous)"
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Masculine",
+                        "id": "RXZlbnRUeXBlTm9kZTptYXNjdWxpbmU= (EventTypeNode:masculine)"
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Religious",
+                        "id": "RXZlbnRUeXBlTm9kZTpyZWxpZ2lvdXM= (EventTypeNode:religious)"
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Celebration",
+                        "id": "RXZlbnRUeXBlTm9kZTpjZWxlYnJhdGlvbg== (EventTypeNode:celebration)"
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Acknowledge Someone Special",
+                        "id": "RXZlbnRUeXBlTm9kZTphcHByZWNpYXRpb24= (EventTypeNode:appreciation)"
+                    }
+                },
+                {
+                    "node": {
                         "displayName": "National",
                         "id": "RXZlbnRUeXBlTm9kZTpnZW9wb2xpdGljYWw= (EventTypeNode:geopolitical)"
+                    }
+                },
+                {
+                    "node": {
+                        "displayName": "Christian",
+                        "id": "RXZlbnRUeXBlTm9kZTpjaHJpc3RpYW4= (EventTypeNode:christian)"
                     }
                 }
             ]

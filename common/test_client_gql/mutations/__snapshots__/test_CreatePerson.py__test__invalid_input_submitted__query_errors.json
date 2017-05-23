@@ -40,7 +40,7 @@
                     "Invalid pk \"foo\" - object does not exist."
                 ]
             },
-            "message": "{'email': ['Enter a valid email address.'], 'birth_date': ['Date has wrong format. Use one of these formats instead: YYYY[-MM[-DD]].'], 'first_name': ['This field may not be blank.'], 'locations': [{'city': ['This field may not be blank.'], 'street_address_line1': ['This field may not be blank.'], 'postal_code': ['This field may not be blank.'], 'state': ['This field may not be blank.']}], 'relationship_type': ['Invalid pk \"foo\" - object does not exist.'], 'gender': ['\"MLE\" is not a valid choice.'], 'last_name': ['This field may not be blank.']}"
+            "message": "{'last_name': ['This field may not be blank.'], 'email': ['Enter a valid email address.'], 'locations': [{'postal_code': ['This field may not be blank.'], 'street_address_line1': ['This field may not be blank.'], 'state': ['This field may not be blank.'], 'city': ['This field may not be blank.']}], 'relationship_type': ['Invalid pk \"foo\" - object does not exist.'], 'birth_date': ['Date has wrong format. Use one of these formats instead: YYYY[-MM[-DD]].'], 'gender': ['\"MLE\" is not a valid choice.'], 'first_name': ['This field may not be blank.']}"
         }
     ]
 }

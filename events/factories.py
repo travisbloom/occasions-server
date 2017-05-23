@@ -30,7 +30,7 @@ def generate_events_initial_testing_data(small_sample):
     ]
     EventType.objects.bulk_create(event_types)
     default_events = []
-    for key, value in get_us_holidays_initial_data().items():
+    for key, value in sorted(get_us_holidays_initial_data().items()):
         date_start_fn = value.pop('date_start')
         event_types = value.pop('event_types')
         event = Event(
