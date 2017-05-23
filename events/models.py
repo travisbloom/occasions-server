@@ -26,7 +26,11 @@ class EventManager(models.Manager):
 class Event(BaseModel):
     name = models.CharField(max_length=255)
     slug = models.SlugField(blank=True, default='')
-    event_types = models.ManyToManyField(EventType, related_name='events')
+    event_types = models.ManyToManyField(
+        EventType,
+        through='EventToEventType',
+        related_name='events'
+    )
     is_default_event = models.BooleanField(default=True)
     is_reoccuring_yearly = models.BooleanField(default=True)
 
@@ -40,6 +44,11 @@ class Event(BaseModel):
         return self.event_dates.filter(
             date_start__gte=pendulum.now().subtract(days=1)
         ).first()
+
+
+class EventToEventType(BaseModel):
+    event = models.ForeignKey(Event)
+    event_type = models.ForeignKey(EventType)
 
 
 class EventDate(models.Model):

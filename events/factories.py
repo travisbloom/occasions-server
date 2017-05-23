@@ -10,7 +10,7 @@ from events.models import (
     EventType,
     Event,
     AssociatedEvent,
-    EventDate)
+    EventDate, EventToEventType)
 from people.factories import PersonFactory
 from people.models import User
 
@@ -40,7 +40,10 @@ def generate_events_initial_testing_data(small_sample):
             is_reoccuring_yearly=True
         )
         event.save()
-        event.event_types.add(*EventType.objects.filter(pk__in=event_types))
+        EventToEventType.objects.bulk_create([
+            EventToEventType(event_type=event_type, event=event)
+            for event_type in EventType.objects.filter(pk__in=event_types)
+        ])
 
         next_date = date_start_fn(today.year)
         next_date_in_a_year = date_start_fn(today.year + 1)
@@ -105,7 +108,9 @@ class EventFactory(factory.django.DjangoModelFactory):
         if has_event_date:
             EventDateFactory(event=self)
         if has_event_type:
-            self.event_types.add(EventType.objects.first() or EventTypeFactory())
+            EventToEventType.objects.bulk_create([
+                EventToEventType(event_type=EventType.objects.first(), event=self)
+            ])
 
 
 
@@ -131,4 +136,6 @@ class AssociatedEventFactory(factory.django.DjangoModelFactory):
         if has_event_date:
             EventDateFactory(event=self.event)
         if has_event_type:
-            self.event.event_types.add(EventType.objects.first())
+            EventToEventType.objects.bulk_create([
+                EventToEventType(event_type=EventType.objects.first(), event=self.event)
+            ])

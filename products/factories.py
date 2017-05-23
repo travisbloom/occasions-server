@@ -4,8 +4,8 @@ import factory
 
 from events.models import EventType
 from products.models import (
-    Product
-)
+    Product,
+    ProductToEventType)
 
 def reset_product_factories():
     ProductFactory.reset_sequence()
@@ -15,8 +15,10 @@ def generate_products_initial_data(small_sample):
     event_types_chain = cycle(EventType.objects.all())
     for _ in range(2 if small_sample else 20):
         product = ProductFactory()
-        product.event_types.add(next(event_types_chain))
-        product.event_types.add(next(event_types_chain))
+        ProductToEventType.objects.bulk_create([
+            ProductToEventType(event_type=next(event_types_chain), product=product),
+            ProductToEventType(event_type=next(event_types_chain), product=product),
+        ])
 
 
 class ProductFactory(factory.django.DjangoModelFactory):

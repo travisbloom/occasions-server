@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
-from events.models import Event, AssociatedEvent, EventDate, EventType
+from events.models import Event, AssociatedEvent, EventDate, EventType, EventToEventType
 from people.serializers import PersonWithRelationToCurrentUserField
 
 
@@ -30,7 +30,10 @@ class EventSerializer(serializers.ModelSerializer):
         event_types = validated_data.pop('event_types')
         event = Event(**validated_data)
         event.save()
-        event.event_types.add(*event_types)
+        EventToEventType.objects.bulk_create([
+            EventToEventType(event_type=event_type, event=event)
+            for event_type in event_types
+        ])
         event_date = EventDate(**next_date, event=event)
         event_date.save()
         return event

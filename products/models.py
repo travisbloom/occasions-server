@@ -25,7 +25,10 @@ class Product(BaseModel):
     )
     id = models.SlugField(primary_key=True)
     name = models.CharField(max_length=255)
-    event_types = models.ManyToManyField(EventType)
+    event_types = models.ManyToManyField(
+        EventType,
+        through='ProductToEventType'
+    )
     event = models.ForeignKey(
         Event,
         related_name='products',
@@ -43,3 +46,8 @@ class Product(BaseModel):
 
     def __str__(self):
         return self.name
+
+
+class ProductToEventType(BaseModel):
+    product = models.ForeignKey(Product)
+    event_type = models.ForeignKey(EventType)
