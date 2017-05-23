@@ -4,13 +4,13 @@
             "associatedEvent": {
                 "event": {
                     "id": "RXZlbnROb2RlOjEx (EventNode:11)",
-                    "isReoccuringYearly": false,
+                    "isReoccuringYearly": true,
                     "name": "event_name_1"
                 },
                 "id": "QXNzb2NpYXRlZEV2ZW50Tm9kZTo0 (AssociatedEventNode:4)"
             },
             "associatedEventDate": {
-                "dateStart": "2019-12-01",
+                "dateStart": "2017-02-01",
                 "id": "RXZlbnREYXRlTm9kZToxMQ== (EventDateNode:11)"
             },
             "associatedLocation": {

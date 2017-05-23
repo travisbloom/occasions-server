@@ -16,7 +16,7 @@
                     }
                 }
             },
-            "message": "{'event': {'name': ['This field may not be blank.'], 'next_date': {'date_start': ['Date has wrong format. Use one of these formats instead: YYYY[-MM[-DD]].']}}}"
+            "message": "{'event': {'next_date': {'date_start': ['Date has wrong format. Use one of these formats instead: YYYY[-MM[-DD]].']}, 'name': ['This field may not be blank.']}}"
         }
     ]
 }

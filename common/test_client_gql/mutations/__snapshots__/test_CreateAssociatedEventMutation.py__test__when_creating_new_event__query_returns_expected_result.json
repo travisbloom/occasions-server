@@ -8,8 +8,8 @@
                 "event": {
                     "eventTypes": [
                         {
-                            "displayName": "Celebration",
-                            "id": "RXZlbnRUeXBlTm9kZTpjZWxlYnJhdGlvbg== (EventTypeNode:celebration)"
+                            "displayName": "Military",
+                            "id": "RXZlbnRUeXBlTm9kZTptaWxpdGFyeQ== (EventTypeNode:military)"
                         }
                     ],
                     "name": "testEvent",

@@ -4,9 +4,9 @@
             "event": {
                 "id": "RXZlbnROb2RlOjE= (EventNode:1)",
                 "isReoccuringYearly": true,
-                "name": "Mother's Day",
+                "name": "Veterans Day",
                 "nextDate": {
-                    "dateStart": "2017-05-21"
+                    "dateStart": "2017-11-11"
                 },
                 "relatedProducts": {
                     "edges": []

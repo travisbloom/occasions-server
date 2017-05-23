@@ -1,3 +1,4 @@
+from common.relay import Node
 from common.test_client_gql.graphql_test_case import GraphQLTestCase
 from common.testing_util import build_user_mock_data
 
@@ -13,7 +14,12 @@ valid_person_payload = {
     'firstName': 'Travis',
     'lastName': 'Bloom',
     'email': 'trigga@trey.com',
-    'birthDate': '2017-02-23'
+    'birthDate': '2017-02-23',
+    'relationshipType': Node.to_global_id(
+        'RelationshipTypeNode',
+        'sibling_to_sibling'
+    ),
+    'gender': 'MALE',
 }
 
 
@@ -54,6 +60,11 @@ class CreatePersonMutationTestCase(GraphQLTestCase):
                     'lastName': '',
                     'email': 'trigga',
                     'birthDate': 'foo23',
+                    'relationshipType': Node.to_global_id(
+                        'RelationshipTypeNode',
+                        'foo'
+                    ),
+                    'gender': 'MLE',
                     'locations': [
                         {
                             'streetAddressLine1': '',
