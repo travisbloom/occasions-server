@@ -1,0 +1,99 @@
+{
+  defaultEvents {
+    edges {
+      node {
+        nextDate {
+          dateStart
+        }
+        eventDates {
+          dateStart
+        }
+        eventTypes {
+          id
+        }
+      }
+    }
+  }
+  products {
+    edges {
+      node {
+        eventTypes {
+          displayName
+        }
+      }
+    }
+  }
+  currentUser {
+    person {
+      fromRelationships {
+        edges {
+          node {
+            relationshipType {
+              id
+            }
+            toPerson {
+              associatedLocations {
+                edges {
+                  node {
+                    location {
+                      id
+                    }
+                  }
+                }
+              }
+              receivedTransactions {
+                edges {
+                  node {
+                    id
+                    receivingPerson {
+                      id
+                    }
+                    product {
+                      id
+                    }
+                    associatedEvent {
+                      event {
+                        id
+                      }
+                    }
+                    associatedEventDate {
+                      dateStart
+                    }
+                    associatedLocation {
+                      id
+                    }
+                  }
+                }
+              }
+              receivedEvents {
+                edges {
+                  node {
+                    id
+                    event {
+                      eventDates {
+                        id
+                      }
+                      nextDate {
+                        dateStart
+                      }
+                      eventTypes {
+                        id
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    transactions {
+      edges {
+        node {
+          id
+        }
+      }
+    }
+  }
+}

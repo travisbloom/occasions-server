@@ -17,6 +17,7 @@ class StaffType(
     PeopleStaffQueries,
     EventStaffQueries,
     LocationStaffQueries,
+    ObjectType
 ):
     pass
 
@@ -29,9 +30,13 @@ class Query(
 ):
     node = Node.Field()
     current_user = Field(UserNode)
+    staff = Field(StaffType)
 
     def resolve_current_user(self, args, context, info):
         return context.user
+
+    def resolve_staff(self, args, context, info):
+        return args
 
 
 class Mutation(

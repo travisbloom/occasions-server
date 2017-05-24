@@ -9,6 +9,7 @@ from locations.loaders.location import LocationLoader
 from people.loaders.person import PersonLoader
 from people.loaders.relationship import RelationshipLoader, FromRelationshipByPersonLoader
 from people.loaders.relationship_type import RelationshipTypeLoader
+from products.loaders.product import ProductLoader
 
 
 class Context(object):
@@ -71,3 +72,7 @@ class Context(object):
     @cached_property
     def associated_location_loader(self):
         return AssociatedLocationLoader()
+
+    @cached_property
+    def product_loader(self):
+        return ProductLoader()

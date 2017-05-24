@@ -37,6 +37,9 @@ class TransactionNode(AbstractModelType, DjangoObjectType):
     def resolve_associated_location(self, args, context, info):
         return context.associated_location_loader.load(self.associated_location_id)
 
+    def resolve_product(self, args, context, info):
+        return context.product_loader.load(self.product_id)
+
 
 class TransactionStaffQueries(AbstractType):
     transactions = DjangoFilterConnectionField(TransactionNode)
